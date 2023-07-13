@@ -1,0 +1,997 @@
+Moderation:
+Dann, sag ich, fangen wir an.
+dass mein einigentlicher Plan für Studierende jetzt explizit war, aber da ist dann irgendwie nichts zustande gekommen und deswegen könnt ihr euch ja vielleicht noch ein bisschen in das Studentenleben hineinversetzen.
+Genau. Es geht halt um Abhängigkeitsgraphen, ich hab ein paar Beispielbilder auch nochmal.
+Ich habe jetzt ein paar kleinere ausgedruckt, damit wir sie auch ein bisschen her tun können. Und die sollen ja alle Lerninhalte abbilden. Ihr wisst ja eigentlich genau, un was es geht schon.
+Genau, und vielleicht zu einem kurzen Einstieg, wollte ich fragen, wie ihr, sozusagen, Themen lernt, auch vielleicht jetzt im Studium, die Kenntnisse voraussetzen. Wie ihr damit umgeht, wenn ihr so ein Thema kriegt und dann müsst ihr sagen, was ihr dafür lernt, was ihr noch nicht kennt oder was vielleicht noch nicht existiert.
+
+A: Also gut, ich studiere jetzt nicht mehr formal, aber man muss ja immer trotzdem Sachen lernen. Und mein erster Schritt ist meistens eine Google Suche. Und dann schauen wir als erstes mal YouTube-Videos, weil ich nicht so gern lese. Und nachdem, wie weiter das ich komm, lese ich dann noch Medium-Blogposts und dann irgendwann vielleicht eine echte Literatur. Aber ich höre an einem bestimmten Punkt dann auf, wen ich nen Kurs halten muss, dann an der Stelle, wo ich Folien erstellen kann. Wenn es um ein Projekt geht, das ich tiefer verstehen muss, dann schauen wir dann schon manchmal auch Paper an. Ja, das ist ...
+
+V: Da würd ich mich gleich voll anschließen. Ich glaub grundsätzlich erstmal für mich ist wichtig zu verstehen, was ich überhaupt denn will oder sowas, das ist ja oft gar nicht so klar, wenn ich jetzt irgendwie vor einem Problem stehe und die Lösung nicht so in Sicht ist. Und ich glaube, das ist so, also wo ich nicht direkt mit YouTube-Tutorials einsteige, sondern vielleicht doch erstmal mit zwei, drei Medium-Artikeln oder so, bloß mal die ersten zwei Absätze lesen, einfach nur um zu schauen, okay, wo führt das Ganze hin oder mittlerweile tatsächlich auch mal StackOverFlow fragen mit, was ist eigentlich XY und was
+ist dafür relevant. Und wenn man so ein bisschen eingegrenzt hat, die Teilprobleme, die irgendwie zu verstehen sind, um zum Ziel zu kommen, dann gehe ich auch den Weg ähnlich wie [A], also erstmal möglichst anschaulich mir das Ganze erklären lassen und dann immer konkreter werden und dann die Sachen dazu liest. 
+N: Ich mache das auch mit Google und YouTube. Ich glaube, ich suche aber immer recht explizit nach den Sachen, die ich wissen will und nicht so nach der Größe. Mir reicht es meistens zu verstehen, was ich gerade brauche, als das auch wieder zu begründen. Das ist wahrscheinlich gar nicht so sinnvoll jetzt.
+
+R: Unterschiedlich, je nachdem, wie viel Zeit man hat und wie tief ich was verstehen will, oder was ich von einer anderen ist, was ich alles noch brauche. Aber typischerweise, ja, eine Google-Suche bzw. Ich glaube, erstmal lege ich mir schon so einen Plan zurecht, was brauche ich überhaupt. Bevor ich jetzt irgendwie anfange, in Google irgendwas einzutippen, weiß ich, glaube ich, grob schon, was ich jetzt brauche. Und man sagt dann, okay, da habe ich irgendwie, ich muss jetzt irgendwie ein Netzwerkprotokoll analysieren.
+Was gibt es denn da? Da weiß ich halt schon. Also ich habe existierendes Wissen normalerweise, wo ich sage, Okay, ich weiß in welche Richtung es grob geht normalerweise.
+Es ist selten, dass ich sage, ich habe noch gar keine Ahnung, wie ich in los starten soll.
+Sondern ich habe schon mal eine Vermutung, typischerweise, bei den meisten Problemen. Weil ich vielleicht auch selten Probleme habe, die mich jetzt noch nie betroffen haben. Insofern, genau, erst mal hast du einen Plan, dann suchst du bei Google, ja, manchmal auch YouTube-Videos, die da ganz hilfreich sind, wobei ich da auch immer noch rumspringe, erstmal an die spannenden Stellen und selten ein YouTube-Video wirklich von vorne anschaue, weil ich weiß ja schon, was ich brauche. Also ich suche aktiv normalerweise und hoffe nicht, dass ich irgendwann dann ein komplettes Bild habe, sondern ich versuche, meine Lücken zu füllen, damit ich so ein mentales Modell habe. Was brauche ich alles? 
+Genau, und dann, dann schaue ich konkret und das sind aber dann, also Google-Suche, teilweise Man-Pages lesen bzw. Stack Overflow ganz konkret, weil ich weiß, ich brauche jetzt irgendwie ein bestimmtes Tool. Wie verwende ich das?
+Dann schaue ich meinen Bookmarks nach oder suche halt auch in Foren wie Reddit oder HackerNews, weil da die Qualität normalerweise höher ist von Links oder sowas oder von Kommentaren auch und probiere dann irgendwas erst mal aus, also baue mir erst ein Prototyp oder bastle irgendwas mal oder sowas, also ich brauche schon etwas, mit dem ich dann gleich arbeiten kann, das dann wieder zu neuen Problemen führt, den ich suchen kann.
+Und ab und zu schaue ich auch durch ein Buch durch oder sowas, also das passiert auch ab und zu. Ich weiß, okay, ich muss jetzt irgendwie mir nochmal anschauen, wie funktioniert es jetzt für die Transformation. Und ich weiß, ich hab da ein PDF, wo das drinsteht, und dann schau ich das auch vielleicht nochmal durch. Aber weil ich meistens Code brauche für Probleme, wenn ich irgendwas mache, irgendwie, ja, schau ich eigentlich schon, wie der Code ist und nicht bei der Theorie. 
+
+M: Ich versuch jetzt mal eher an die Sachen zu denken, die in Unikursen bei mir passiert sind, und da ist es so, was ich an Vorlesungsinfos oder so bekomme, da recherchier ich ganz selten das nach. Das sind die Sachen, die nehme ich hin und dann lerne ich die Sachen, die in der Klausur dran kommen, oder da meine ich gar nicht, dass ich da noch was nachschaue oder nachlese. Ansonsten ist dann irgendwie viel eher für die Projekte. Und klar, Programme, Aufgaben sind irgendwie auch eher so, dass ich mich dann eben nur vor einlesen muss oder so.
+Aber sonst, keine Ahnung, ist bei mir auch irgendwie sehr gemischt, dass ich bei gewissen Schlüsselworten google und Sachen nachschaue, wenn ich Statistik brauche, wo ich furchtbar schlecht drin bin und kaum Grundlagen habe, da ich wieder vielleicht auch mal einen Post um dann tatsächlich mal so Schritt für Schritt vorgehen zu können oder so.
+Aber sonst unterscheidet sich das, glaube ich, nicht mit den Sachen, die schon gesagt wurden. Außer dass ich sehr wenig YouTube nutze. Also das mache ich irgendwie gar nicht.
+
+A: Ich glaube, dass ganz wichtig zu unterscheiden ist, was das Problem tatsächlich ist.
+Wenn es etwas sehr Konkretes ist, glaube ich, ist, also wenn man nach einem Zeilenumbruch in einer Tabelle in LaTeX sucht, dann ist das meistens halt Google-Anfragen, das erste StackOverflow-Ergebnis und dann arbeitet man direkt mit dem, was man findet und damit kann man dann sehr schnell schauen, ob es geht oder nicht.
+Wenn es aber etwas Abstraktes ist wie, ich muss meine Studis vor eineinhalb Stunden etwas über recurrent neural networks erzählen, dann kann ich nicht so anfangen. Und muss irgendwie ein bisschen Grundwissen aufbauen oder vielleicht die Story, die jemand anders benutzt und das jemandem beizubringen, kapieren.
+Ich glaube, da ist die Unterscheidung relativ wichtig. Ich denke, nicht, dass es binär ist, sondern irgendwo so ein Gradient und gewisse Abstraktion auf der einen Seite, bzw. sehr, sehr konkret auf der anderen Seite.
+
+R
+Ich frage ab und zu auch Leute. (Hast du schon mal?)
+
+Moderation:
+Okay, gut. Dann geht es jetzt so ein bisschen zu den richtigen Fragen.
+Genau, es geht ja um Abhängigkeitsgrafen von Lernihnhalten.
+Wenn ihr euch jetzt mal als Student eindenckt, welche Möglichkeiten würdet ihr euch von einem solchen Grafen euch wünschen, vielleicht auch mehr als nur sich sozusagen anschauen, die Lerninhalte, die in der Vorlesung gibt. 
+
+A: 
+Also, ich bin noch ein bisschen weiter. Ich kenne das Projekt ja doch schon ein bisschen.
+Und eine Sache, die mich eigentlich immer sehr catcht hat, war irgendeine Art von Progress Log, dass ich sagen kann, ich weiß, was ich schon alles abgearbeitet habe, beziehungsweise auch in die Zukunft vor sich zu haben, was brauche ich für Zwischenschritte, dass ich irgendwo beim Ziel ankomme.
+Ich denke, dass wir vorher gesagt haben, mit abstraktere Probleme oder komplexere Probleme dafür sehr sinnvoll sein kann, wenn ich irgendwie den Weg dahin kenne und weiß, welche Basics ich vorher brauche.
+Ja, ich glaube, das ist für mich das Hauptfeature.
+
+V:
+Ich sehe erst einmal so diesen Überblicksaspekt, also wie jetzt hier bei den Graphen zum Beispiel, da sind einige Sachen blau und manche Punkte sind fetter als andere.
+Dass das schon mal irgendwie hilft, so die erste Übersicht zu kriegen, was sind so irgendwie die Grundpfeiler. Also je nachdem, wo man halt sozusagen startet, erst mal zu sehen, was ist eigentlich überblicksmäßig jetzt wichtig für dieses Themenfeld. Und dass man dann schrittweise sich die einzelnen Verzweigungen anschauen kann und eben genauer
+in Teilprobleme einsteigt, das glaube ich ist so ganz wichtig. 
+Und ich glaube auch so irgendwie zur Navigation, also gerade wenn das Ganze dann irgendwie interaktiv ist und ich kann dann die einzelnen irgendwie Knoten anklicken und das führt mich dann auch wieder zu einzelnen irgendwie den Lehrinhalten selber oder sowas. Also ich glaube ich da steckt viel irgendwie Potential auch dahinter, schnell das zu finden über so einen Graph, wo man eigentlich hin will.
+
+N:
+Ich finde, man sieht ganz gut, wie viel ein Themengebiet irgendwie beinhaltet und
+ich gehe voll mit dem Progress Feature. 
+
+V: 
+Darf ich da kurz mal anhaken? Also ich würde
+gerade dem entgegensprechen, dass man sieht, wie viel in einem Themenfled drinsteckt,
+Ich kann nur, wenn ich den Graf sehe, nicht auf den ersten Blick erkennen, wie fein granuliert das irgendwie aufgebaut ist und ich glaube, ich könnte das einfachste Konzept irgendwie
+ nochmal in hunderte von Knoten runterbrechen, wenn es erfordert ist.
+So wie, wenn man jetzt keine Ahnung, bloß irgendwie Grundrechenarten: Plus hat, ist
+erst mal vielleicht auf den ersten Blick ein einfaches Konzept, bis man da in die
+mathematische Tiefe einsteigt und dann kann es auch unendlich komplex werden und
+Deswegen glaube ich, nur so einen Grafen zu sehen, hilft mir jetzt erstmal nicht zu sehen, wie komplex das Themenfeld ist, weil ich nicht einschätzen kann oder beurteilen kann, wie detailliert die einzelnen Unterknoten aufgebaut sind.
+
+R:
+Ich bin in jeglicher Hinsicht gebiast, aber was mir jetzt gerade noch gekommen ist, ist so ein Punkt. Typischerweise, auch wenn ich meine Studierenden beobachte, wie sie lernen, du hast typischerweise irgendein ganz konkretes Problem. Also du sitzt da selten oder die wenigsten sitzen da und sagen, ich will irgendwas verstehen, sondern ich will ein Problem lösen. Das machen wir ja auch sehr oft in Lehrveranstaltung.
+Du hast eine Aufgabe, die sollst du lösen. Und wenn ich diese Aufgabe nicht in dem Grafen finde, dann tue ich mich auch schwer, quasi, glaube ich, so einen Anknüpfungspunkt zu finden und zu wissen, ist das jetzt relevant für meine Aufgabe.
+Das heißt, irgendwo hier brauche ich die Information: Was brauche ich überhaupt? Was muss ich überhaupt wissen? Und diese Erfahrung, was muss ich wissen, damit ich das machen kann?
+Also ein konkretes Problem lösen, die fehlt typischerweise erst mal am Anfang noch. Das baust du dir im Laufe der Zeit auf, dass du Muster wiedererkennst und sagst, ah ja, da kann ich diese Bibliothek verwenden oder da müsste ich mich jetzt erst mal mit Neuronalen Netzwerke beschäftigen oder SVM habe ich schon mal gehört, da muss ich mich vielleicht damit beschäftigen. Aber vielleicht überhaupt für ein konkretes Problem diese Wahrnehmung auch zu schaffen oder die Sensibilität. Ich brauche jetzt hier doch jede Menge, und es lohnt sich das anzuschauen. Das ist so ein wichtiger Punkt, dass ich auch in diesem Grafen diese konkreten Probleme mit drin habe. Und nicht nur quasi abstraktere Konzepte, sondern wirklich konkrete Probleme, die ich lösen will.
+Und da ist mir dann eingefallen, dass typischerweise konkrete Probleme auch sind, ich habe eine komische Fehlermeldung und ich will, dass die weggeht. Und da habe ich mir jetzt gerade gefragt, ob das da auch rein gehört. Das hier quasi, ja, Fehlermeldungen, hier eigentlich auch drin sein sollten, dass du ganz, was du alles brauchst, nicht weggeht.
+Aber da habe ich jetzt auch nicht so in der Tiefe drunter nachgedacht. Aber diese ganz konkreten Probleme, also die Ansatzpunkte, dass du erst mal was zu greifen kriegst, irgendwas hier, das dir hilft, quasi weiterzukommen, das stelle ich mir als richtig erforderlich irgendwie auch vor von dem Teil.
+
+A:
+Darf ich da kurz was erklären? Ich glaube, dass das gerade interessant war.
+Ich habe daran gedacht, wie ich damals Programmieren gelernt habe, vor ein paar Tausenden von Jahren. Und mein Vorgehen, also ich bin autodidakt, mein Vorgehen war schon sehr ähnlich zu dem, dass ich gesagt habe, okay, ich will irgendwo hin, ich will eine 2D-Spielung machen. Und dann habe ich irgendwann gecheckt, wie man ein Bild anzeigen kann.
+Und dann habe ich irgendwann gecheckt, was eine Schleife ist und dann, dass man das Bild dann bewegen kann. Und dann habe ich gedacht, okay, für das Spiel muss ich noch irgendwie Input haben. Dann habe ich irgendwie herausgefunden, wie man Pfeiltasten abruft und das Ding schon steuern kann. Und dann hat sich für mich schon relativ viel immer geöffnet,
+wenn ich dann wieder so Bausteine verknüpft habe miteinander.
+Und das kann man wahrscheinlich auch modellieren als Graph.
+Und dann kommt dann irgendwas dazu, als würde ich ein Multiplayer. Was brauche ich jetzt dazu? Ich muss irgendwie über das Netzwerk datenübertragen können.
+Dann findet man halt im Netz irgendwo so, hey, so macht man ein Chat, so ein kleiner Chat mit UDP oder keine Ahnung was. Und daraus kann man dann wieder Informationen ziehen, die man dann braucht um sein Spiel Multiplayer einzubauen. Und dann braucht man auch noch Safe Files und dann muss man irgendwie wissen, wie Dateien schreiben und lesen kann und keine Ahnung. Und so habe ich mich damals schon irgendwie selbstständig durchgehangelt durch das Ganze. Ich würde jetzt auch behaupten erfolgreich, aber so konkrete Features, die man für andere Probleme dann anwenden kann, könnte man wahrscheinlich auch in so einer Graphstruktur abbilden.
+Also für ein 2D-Spiel musst du Bilder anzeigen können und Input abfangen.
+
+R
+Aber da ist es aber doch auch so, dass du, wenn du, du suchst konkret nach Code-Beispielen oder sowas und typischerweise findest du Tutorials, explizite, oder? Also zum einen hat das glaube ich durchaus ein Wert, zu sehen, was es für an verschiedenen Ansätzen gibt, weil das ist sowas, was ich mir auch denke, das passiert auch ganz of mir selber, oder auch Studierenden. Du hast ein Problem und suchst nach einer Lösung und nimmst die erst beste einfach mal, die vermutlich dein Problem löst und schaust selten quasi noch nach weiteren
+Lösungen. Manchmal schon, aber nicht zwingend, weil du hast ja ein konkretes Problem, das du schnell gelöst haben willst und das heißt überhaupt dieses Sichtbarmachen von Alternativen oder wie viele unterschiedliche alternativen Implementierungsmöglichkeiten jetzt zum Laden von Bildern, es gibt sie zum Beispiel, das wäre öfter mal sinnvoll auch das zu sehen zu können. Das andere ist auch eben tatsächlich, wenn es nicht in einem Tutorial ist, sondern im Programmcode, dann findet man das fast nie, weil du suchst ja "how to load an image" und das steht selten irgendwie im Programmcode als Kommentar drin nochmal.
+Das heißt, das ist schon sehr stark gebiased zu Tutorials und best practices
+das kriegst du vielleicht noch gar nicht mit.
+Also gerade in Computer Graphic, es gibt ja die Nehe Tutorials, Neonavio?, der hat da irgendwann Ende der 90er Jahre Tutorials gemacht, die alle Leute dann genommen haben, weil die vielleicht auch gut waren, aber vor allem weil es die einzigen waren, die es gab.
+Und dieser Code, der geistert immer noch rum quasi. Also du findest den immer noch oder ja, Abkömmlinge davon, weil einfach das halt so Tutorial war und die Leute, die jetzt neue Tutorials schreiben, die sind davon inspiriert. Und es gibt da Leute, die sagen, nee, okay, ich mach's komplett neu, aber du hast immer noch so Traces von altem Zeug, das eigentlich gar nicht mehr aktuell ist zwingend und das zu unterscheiden. Was ist jetzt gut und was ist nicht gut bei diesem Tutorial, das kannst du nicht im Anfang. Oder was ist aktuell? Und was funktioniert doch?
+
+M:
+Ich würde vielleicht mal einen Schritt zurück machen zu, was ich als Studentin, glaube ich, wäre konkret haben wollen würde von so einem Grafen. Wäre zum einen eine Suchfunktion.
+Also wäre es für mich eine Veranstaltung, bei der ich dann noch suche nach Inhalten.
+Und ich hab eben in der Prüfungsvorbreitung immer sehr stark mit Zusammenfassung gearbeitet. Und ich glaube, deswegen wäre es für mich spannend, den Graphen auch selbst irgendwie für die einzelnen Themen eine Zusammenfassung schreiben zu können, die ich dann am Ende als eine Zusammefassung auch raus lassen kann oder so. Jetzt mal wieder näher dazu, wie ich in dem Kurs arbeiten würde. Ich glaube, das wären so zwei Sachen, die ich gerne gehabt hätte.
+
+V:
+Ich könnte auch noch was ergänzen zu diesem Aspekt. Über die Tutorials bin ich gerade drauf gekommen. Also das habe ich irgendwie stark im Android-Kurs gemerkt, wenn ich irgendwie
+halt so, ja, so Lerninhalte verlinkt habe, zum Beispiel so ein Medium-Artikel mal oder sowas, hatte ich immer das Gefühl, gerade so am Anfang, wenn Studis sich neu mit dem Themenfeld beschäftigen, sind einfach noch kaum Angriffspunkte da.
+Das heißt, wenn ich denen in der Übung erklärt habe, ihr initialisiert ein neues Flutter-Projekt, indem ihr auf irgendwie Menü, New Project klickt oder sowas, und dann verlinkt ich
+die in ein Tutorial, wo irgendwie erstmal beschrieben wird, initialisiert das Projekt
+über die Kommandozeile mit folgendem Befehl, dass das schon, wenn noch keine Angriffspunkte
+da sind, am Anfang schon riesen Probleme machen kann, weil es erstmal total verwirrt.
+Aber jetzt im Semester glaube ich, ist ja kein mehr ein Problem zu sehen mit initialisieren, weil irgendwie schon im Kopf da ist, ah ja, das haben wir doch anders
+gemacht, dann mach ich es so, wie ich es kenne oder dann schau ich mir den anderen
+Weg an.
+Und ich glaube, bei so Graphen kann ich mir das auch vorstellen, wenn man schon
+irgendwie einen gewissen, eine Ahnung von dem, grobe Ahnung von dem Thema hat
+und da steht man bei irgendeinem Knoten. Und der hat viele verknüpfte Knoten, von denen
+man vielleicht manche schon kennt und andere nicht. Man muss ja dann oft selber entscheiden, wenn man das jetzt besser verstehen will, wo fängt man an, was macht man als nächstes, wie priorisier man einzelne Aspekte, wo ja auch so ein Graf vielleicht noch bedingt helfen kann, das zu sehen. Dass gerade wenn man bei Null irgendwie ein Thema startet, dass man vielleicht da eher noch diesen roten Faden braucht von ich gehe jetzt von
+zu den Knoten, zu den Knoten, zu den Knoten. Und wenn man da mal einen groben Überblick
+hat, dann können da auch viele weitere Knoten stehen, wo man dann selber irgendwie priorisieren kann. Ah ja, das kenne ich jetzt zwar nicht, aber ich glaube, das ist mir noch nicht so relevant, deswegen mache ich das hier erstmal da weiter. Und vielleicht wäre das
+auch irgendwie wichtig, das abzubilden.
+
+R: 
+So ein empfohlene, anentierter Pfad quasi.
+
+V:
+Ich glaube, je weniger du weißt über den aktuellen Grafen, desto mehr brauchst du einen Pfad. Und wenn man sagt, man ist allgemein schon halbwegs bewandert in Thema, dann kann man sich irgendwie freier bewegen zwischen
+ Leitzeiten, würde ich sagen. 
+
+A:
+Ich habe so viele Gedanken, ich bin mir sicher, wie man das sagt.
+Ich habe das Gefühl, dass du da beschrieben hast mit den Projekten initialisieren.
+Wir haben einen Startpunkt und einen Endpunkt. Es gibt viele Wege dazwischen. Ihr können verschiedene Wege gehen. Und eigentlich ist mir ja, also in dem Fall als Studi, nicht wichtig, dass ich genau den Weg gehe, sondern ich will ein initialisiertes Projekt haben.
+Also, ich habe ein Ziel vor Augen, da will ich hin. Und welcher dieser Wege ist Wurst, nur das ichs mal als Beispiel bearbeitet hab.
+
+V:
+Genau, aber ich glaube, das Problem ist eher, wenn Sie gelernt haben, ich klick auf den Button: "Create New Project" und dann steht in einem anderen Tutorial, um ein Projekt zu erzeugen, gibt folgenden Befehl in der Kommandozeile ein.
+Dann ist erstmal, hm, Kommandozeile, das habe ich doch schon mal hergenommen. Und, also, ich glaube, da ist oft noch nicht diese Verknüpfung da, dass ich ja den Alternativweg schon kenne und dann mich entscheiden kann, wähle ich den bekannten Weg, oder mache den neuen, sondern dass erst mal wieder die große Verwirrung erstmal da ist. 
+
+A:
+Also, genau, da wird doch dann der Graph vermutlich auch helfen, wenn ihr jetzt einfach in dem Graph seht. Okay, die Projekte visualisieren über Menü gibt's, den Part gibt's. Dann gibt's noch über die Komanndozeile und dann gibt's noch keine Ahnung was, drei Alternativen sagen wir jetzt einmal. Und dann seh, hab ich gesehen, im Kurs, komm ich von hier nach hier, indem das eh über das Menü wir benutzen. Und wenn jetzt dann im Tutorial steht, wir benutzen aber den anderen Pfad, dann sieht man ja so, ok, ja dann mach ich so was immer ich gemacht hab, aber jetzt ist man zumindest bewusst, dass der Pfad auch existiert und zum selben Ziel fürht, und das ist glaube ich die Information, die da gebraucht wird.
+Und auf der anderen Seite kann man natürlich sein, der eine Pfad geht halt direkt da hin und sonst nirgends, und der andere, der hat noch Alternativen, der in der Überkommandozeile kontinuierende Einschürungen machen kann, keine Ahnung.
+Das heißt, ich muss eben an den Pfad gehen, wenn ich bestimmte Features will.
+Wenn ich ja PNG laden will, mit Transparenz, kann ich nicht die Bibliothek nehmen, die ich für die Maps benutzt hab. Obwohl die ja einfacher ist. Also so.
+
+M:
+Ich glaube aber da ist so ein bisschen, ich glaube, ja, das geht ja wieder bei den Studenten, aber da ist es enorm schwierig, die Leute dann nicht zu überfordern. Weil jetzt gerade so bei den Leuten in Android, die es so, okay, es ist zweites Semester,
+die können dann programmieren, die können eigentlich geht auch noch nicht.
+Wie fängt es jetzt an? Und wir haben ja ganz fair erst mal gesagt, dass wir das nie so wenig wie möglich überhaupt nur in der Kommandozeile machen, weil das checken so offensichtlich alle nicht. Das heißt zum Graph, der sagen würde, ok, das sind dann fünf Möglichkeiten, wäre vielleicht mega cool, aber wäre vielleicht auch sehr überfordernd.
+Also ich glaube, das müsste man damit auch ein bisschen, ich weiß nicht. Wahrscheinlich würde das dann vom Kurskontext abhängen. Wie viel klatsche ich den Leuten hin und sie kommen klar damit. Aber ich glaube halt, mehr Informationsangebot ist dann nicht immer besser. Gerade wenn man Kurse konzipiert, die viel Uninformationen gibt.
+
+A:
+Das kann man bestimmt überfordern, ja, aber vielleicht ist es manchmal gut, wenn man weiß, dass es verschiedene Wege zum Ziel gibt.
+
+M:
+Also ich glaube, in späteren Kursen, also ich dass kommt voll auf die Inhalte wieder an.
+Also Leute, denen man das schon zumuten kann, da ist es vielleicht voll sinnvoll. Und Leute, die es auch noch nicht checken, vielleicht dürfen die dann bald auch wieder eine Einfahrt haben oder so.
+
+Rapheal:
+Da würde ich jetzt anpacken. Wir reden jetzt gerade auch immer so quasi, wie komme ich zum Ziel. Aber gerade auch so in diese Veranstaltung, weil wir gerade über die Android geredet haben, ist ja auch so, dass du dir denkst, okay, wir sollten eigentlich nochmal einen Schritt zurück gehen und uns jetzt erstmal zum Beispiel Terminal anschauen oder sowas oder Leute, die nutzen zum Beispiel keine Shortcuts, weil sie die nicht gelernt haben, sondern klicken dann immer runter und denken, eigentlich müssten wir jetzt nochmal einen Schritt zurückgehen und nicht das akute Problem lösen, sondern einfach mal frühere Grundlagen, einfach die, die beim Problemlösen helfen, noch mal anschauen oder sowas. Das ist immer wieder so. Also auch wenn ich ganz konkret eben da in der Übung bin, sehe ich, die Leute können jetzt gerade, bestimmte Leute da natürlich, da tut es sich schwer, irgendwie super schön richtig zu kommen. Das muss man eigentlich dass müssten wir jetzt noch irgendwie vorausschieben. Das bringt jetzt wenig, wenn der da weitersucht, weil der wird nichts sinnvolles finden. Oder ja, so andere Grundkonzepte, dass ich erst im Laufe der Zeit feststelle, die fehlen jetzt irgendwo. Merke ich jetzt als Dozent, aber merke ich auch
+als Lernender, dass ich sage, okay, habe ich jetzt nicht verstanden, warum ich das jetzt
+machen soll oder wie ich das jetzt mache. Und dass du quasi dann auch weißt, wie stark
+lohnt sich das jetzt nochmal zurück zu gehen. Also kann ich das quasi einfach mal ignorieren. Sage ich, okay, ich weiß jetzt die Shortcuts nicht, ich kriege mich da jetzt immer von Hand dringend durch, kriege ich immer auf den ein Button, oder lohnt es sich jetzt die Shortcuts zu lernen? Also das weiß ich eben in diesem akuten Fall nicht, weil ich auch nicht sehe vielleicht, wie viel weitere Pfade das eröffnet. Das heißt, wenn ich
+sehen würde, okay, dieses Shortcuts oder Terminal oder git oder sowas, das brauche ich
+noch in vielen anderen Bereichen. Es lohnt sich jetzt auch tatsächlich, die Zeit zu investieren, das anzuschauen. Das kann manchmal vielleicht auch Hilfestellung geben, vielleicht.
+
+M:
+Ich glaube, dass ist sinnvoll zu sehen. Ich brauch das in total vielen Bereichen. Andererseits, wenn ich halt gerade irgendwie wo bin, ist die Frage, gibt es da jetzt wieder die Rückverknüpfung, zu was weiß ich, eine neue Programmiersprache lernen will, gibt es da immer eine Rückverknüpfung zu, ach, ja, diese Shortcuts, kannst du ja hier auch benutzen. 
+Also, wäre das doch wieder das sinnvolle, oder müsste ich dann selbst sagen, da müssts doch irgendwas geben, da such ich nach Shortcuts oder so. Da bin ich mir nicht so sicher wie das aufgebaut sein könnte, dass es mir bei einem konkreten Thema quasi hilft, nochmal so zurückzuspringen, gerade zu so ganz basic Sachen nehmen.
+
+Moderation:
+Genau, dann wollte ich fragen, wie ihr denkt, dass es, wie man zum Beispiel ein solcher Abhängigkeitsgraphen euer Lernverhaltne abbilden kann oder auch unterstützenschützen kann. Also, wenn euch jezt noch was Neues einfällt.
+
+A:
+Zusammenfassend, hab ich das mit dem Progress schon gesagt. Also, wo bin ich gerade, was kann ich schon, was gibt es noch. Einfach die Übersicht zu haben, Sachen abhaken zu können und zu planen, was die sinnvollsten nächsten Schritte sind. Das ist ja so ein langfristig, wo will ich hin und zum anderen kurzfristig, was mache ich als nächstes. Weil auf dem Ding bauen dann ganz viele andere Sachen auf.
+Egal, was ich als nächstes mache, das ist super grundlegend für drei verschiedene Sachen, die ich dann brauche. Also lern ich besser als sofort.
+Wenn man so ein bisschen mehr Fancy anschaut, könnte man natürlich motivieren lassen, wie ich am meisten Zeit spare. zum Beispiel indem, dass ich, wenn ich in den Shortcut jetzt lerne, dann bin ich einen Tag früher später fertig, der Zukunft. Vermutlich ist das nicht trivial, so etwas zu modilieren, weil sehr viele Infos dabei sind, aber das wäre irgendwie mindestens nett, dass da ein Recommendation kommt.
+Das wäre jetzt halt eine Sache, die wir bei den nächsten Schritten im Auge habe das man zusätzlich die Zahl spauern kann oder so. Ja, stellt mich so auf.
+
+R
+Das stellt mich gerade ein, das erinnert mich gerade an die Aufbauspiele, dass du sagst, ok, wenn du jetzt hier nochmal dieses Kraftwerk baust, dann produzieren alle deine Einheiten 50% mehr. Das lohnt sich jetzt, das möglichst früh zu bauen quasi.
+Also, das könnte man ja irgendwie so durchaus visualisieren, dass du quasi siehst, für eine Investition von so und so viel und kriegst du wirklich so und so viel raus dann irgendwie? Oder das hat Auswirkungen auf 23 andere Projekte, die du vielleicht auch planst, das ist der erste, oder so? 
+
+A:
+Ja, voll. Also das Ding, wo wir sagen, wir haben bitte mal RegEx, weil du musst das dann echt ganz, ganz, ganz viele Sachen konfrontieren? und so. Das rentiert sich so.
+Und ich finde den Gamification Aspekt, du hast auch wieder angesprochen, und so. Mir macht das halt Spaß. Und deswegen glaube ich, dass man auch da, das mir das jetzt sehr mit Motivation bringen tut. [Also, wenn ich das, wenn mein Schwul schon mal aufpauströte]?
+
+M:
+Ich glaube für mich ist das so noch eine kurze Frage, die mir offen ist, was mache ich so, im Graphen Kursweise oder habe ich so eine Möglichkeit, was für das ganze Studium zu tun. Weil ich in anderen gehen möchte oder so, oder habe ich beide Möglichkeiten irgendwie. Weil ich denke mir so, okay, den Kurs, also ich seh das sind 14 Wochen und ich seh dann schon so, okay, es sind so einzelne Blöcke und vielleicht sind die verbunden, vielleicht auch nicht, aber wenn ich das wirklich nur so hab, dann seh ich dann, okay, dann brauch ich das nachher, oder ist das jetzt eine coole Grundlage, weil ich will nachher unbedingt den Wahlkurs machen und nicht den anderen oder so, also ich glaub, das wär auch spannend, so was im größeren, als wäre unser Studium bezieht so auch noch, irgendwie einen Modulplan oder sowas irgendwie ein bisschen zu mappen, oder vielleicht, ich weiß nicht, vielleicht ist das ja auch nur ein riesiger Graph
+ und da ist alles drin und das
+Deswegen sehe ich schon, wo sich Cluster für mich bilden oder wo ich hin will oder so.
+Vielleicht ist das aber auch zu krass, aber ich glaube, das wäre auf jeden Fall,
+wenn man so ein bisschen im Studienverlaufsmäßig denkt, wäre das cool. Also, okay, welche skills will ich haben, vielleicht auch, dass ich sehen kann, okay, das interessiert mich jetzt total, welche Kurse sollte ich denn am besten wählen oder, keine Ahnung, ich würde auf jeden Fall die Kurse machen, welche Grundenlagen
+sollte ich denn jetzt dafür gescheit lernen oder so. Und dass auch da so ein bisschen Abhängigkeiten vielleicht irgendwie angezeigt werden könnten.
+
+A:
+Ja, oder andersrum, da kannst du ja sagen, ok, ich verstehe dich von dem Problem, und da komme ich halt nicht weiter, aber jetzt kann ich nachschauen, welchen Kurs den ich nicht gehabt habe, hätte ich das gelernt, oder wo ich auch was gehabt habe. Und dann seh ich auch, der Ding, der Peter, der war in dem Kurs, den frage ich jetzt einmal, und der hat bestimmte Folien, die ich im Kurs nicht gehabt habe.
+
+R
+Das kannst du dann auch gleich sehen, quasi, das bräuchte ich, wir hatten das gelernt in den letzten Jahren oder so. 
+
+V:
+Auch darauf anknüpfend, wenn man sagt, man hat den Graph so als eigenen Fortschrittstracker, aber gerade so im Kurs oder halt irgendwie Studiengangskontext, wenn man wirklich sieht, also wenn man das wie so eine Art Heatmap darstellt, wie viel andere haben folgenden Punkt abgehakt oder so was, und dass man einfach da so
+eigene Lernlücken vielleicht identifizieren kann. Ja, ja, schauen, es kann negativ sein,
+es kann vielleicht auch positiv sein, also gerade glaube ich zur Klausur-Vorbereitung, wenn ich sehe. Von 25 Leuten im Kurs haben 23 diesen Node angegeben. Das haben Sie sehr gut verstanden. Wo man selber hat, das irgendwie nur nicht. Das vielleicht hilft ja schon irgendwie, ja. 
+
+
+Rapheal:
+Da fällt mir jetzt auch ein, wir reden jetzt so von klassischen Veranstaltungen, aber auch bei Gruppenprojekten. Wenn ich sage, ok, wir haben dieses Projekt, da haben wir diese Abhängigkeit, wir wollen das Ziel erreichen und jetzt teilen wir sich dann, um welche, wer welches Zeug lernen muss oder sowas.
+Das kannst du natürlich auch machen, beziehungsweise du siehst ja schon, wer hat schon was gelernt jetzt von dem Zeug, was wir brauchen, und dann kann man da vielleicht ein bisschen was aufnehmen.
+Aber was ich mir auch gedacht habe, es gibt ja auch noch so persönliche Projekte, irgendwie, dass ich jetzt, wie zum Beispiel letztens, ich habe diese kleine Wi-Fi-Kamera und will die App reverse enginiereen, oder will die halt auf meinem Rechner dann nutzen, da habe ich dann auch festgestellt, ok, was habe ich dafür Baustellen, ja ich muss erstmal irgendwie den Netzwerk traffic capturen, wie komme ich da überhaupt dran oder kann oder ich vielleicht die App reverse engineern, also de-kompilieren, kriege ich da vielleicht
+was raus, das sind so zwei unterschiedliche Sachen, da muss ich erstmal nachschauen, wie das genau geht und so was, da muss ich noch irgendwie das neu implementieren, da muss ich ja irgendwie übers Netzwerk was rauslesen, wie mache ich das, weiß ich das schon, ah ja, das weiß ich schon, das kann ich schon, aber dann mit OpenCV bestimmte Sachen lösen und so weiter und so fort. Und das sind ja dann auch Sachen, da kann
+quasi mein eigenes Projekt noch mal so dokumentieren und sagen, okay, das habe ich da gebraucht und das habe ich machen müssen und das habe ich machen müssen und da habe ich die coole Ressource gefunden. Also ich kann mir selber quasi noch so meine Projekte im Nachhinein dokumentieren und so eine Art Tutorial ja auch draus stricken, wenn ich sage, okay, das habe ich erst in der Reihenfolge gemacht, also und vielleicht ist es für andere eben auch interessant, weil da kann ich anderen Leuten zum Beispiel geben und sagen, hey, das Problem habe ich gelöst, ganz konkret, also das ist so für die eigenen Projekte quasi dann noch beiträgst oder was dranhängst.
+
+M:
+Ich glaube, das ist eine sehr heere Einstellung zur Motivation von Studierenden.
+Also ich weiß, dass man natürlich coolen Wirkungen hat, aber ich glaube, das ist jetzt im Studienkontext vielleicht nicht so.
+
+Moderation:
+Dann, es war ja in GraphIT so ein bisschen die Idee, dass man sich als Student sozusagen in eigenen Graphen so ein bisschen kuratieren kann. Wie denkt ihr, soll diese dan zu gebrauchen sein, auch visuell, und unterscheiden zu sozusagen, so eine Master-Graphen, der halt dann den Kurs jetzt zum Beispiel mal selber darstellt, so offiziell?
+
+M:
+Ich glaube, für mich könnte sowas ein bisschen so aussehen, dass da vielleicht dann eher mal meine Zusammenfassungen drin sind. Also wenn es wirklich so ein Kurs ist, wo ich für den Inhalt irgendwie gelernt habe oder so, wie gesagt, habe ich eine Zusammenfassung wahrscheinlich gemacht. Vielleicht würde es mir schon reichen, wenn ich einen kleineren Graf hätte für diese Veranstaltung und dann für den Kurs einen großen oder so.
+Wenns jetzt mehr so um ein Programmierprojekt geht oder so. Würde ich mir vielleicht gerne so Sachen herausmarkieren, die für mich besonders wichtig waren. Also, dass ich mir vielleicht selbst so Sachen noch ausspeichern kann, die ich entweder verstanden habe oder wo ich weiß, ok, die ich will ich mal nachschauen können.
+So, das kann ich mir vorstellen.
+
+V:
+Ich glaube, es ist halt irgendwie schwer und spannend zu sehen, wenn man da eigene Notes zum Beispiel noch hat, fügt man die hinzu an den Mastergrafen oder macht man da so eigene Untergraphen.
+So wie man sie hier auch irgendwie sieht, da gibt es eigentlich so ein einzelnes Bündel, das gar nicht verknüpft ist mit den Hauptgraphen. Also gibt es da so eine Koexistenz oder eine direkte Verknüpfung oder sind es dann zwei komplett separate Grafen und das sehe ich jetzt schon irgendwie halt von jedem Ansatz Vor- und Nachteile und ich glaube da gibt es jetzt nicht die eine Musterlösung, sondern wenn ich halt irgendwie einen Kurs habe und den Graf dazu und dann noch weitere Punkte, die ich mir noch irgendwie persönlich aufgeschrieben habe, dann will ich die wahrscheinlich gleich verknüpfen mit diesem Graf, aber wenn ich jetzt zum
+Beispiel irgendwie den Graf habe für den Kurs mit den Lerninhalten und dann habe ich aber noch für mich so das, was um den Kurs drum herum noch ist, zum Beispiel irgendwie meine Planung, dass ich, also warum nicht auch in einem Graphen abbilden. Ich muss mich in Grips anmelden, in FlexNow für die Klausur anmelden, das Projekt abgeben. Das sind ja auch irgendwie so Knoten, die man als zusammenhängend irgendwie bezeichnen kann,
+aber die vielleicht jetzt nicht verknüpft sein müssen mit dem Hauptgrafen, aber trotzdem irgendwie zusammen planen. 
+Also, ich denke mir, wenn ich in einen Graph abbilde, ich muss mir beibringen, wie XY funktioniert,
+warum man nicht auch irgendwie abbilden, ich muss mich in Flexnote zur Klausur anmelden.
+Und das ist dann, wenn ich meinen Fortschritt damut tracke, ist das ein so Fortschrittspunkt, der irgendwie passiert ist. 
+
+A:
+Ich glaube, ich hätte es schon gerne eher so als Overlay von dem, was habt ihr jetzt Mastergraph, gesagt?
+Ja, okay. Ich hätte es glaube ich schon eher so als Overlay, dass ich halt die Knoten halt prozentual wie viel habe ich schon. Aber natürlich mit der Option eigene Knoten hinzuzufügen, weil die könnten ja auch gute
+Ergänzungen an den Graph wieder sein, wenn jetzt zum Beispiel letztendlich administrativ irgendwie auch halt. So ganz viele haben an der Stelle den Knoten hinzuzufügen und dann sollte der vielleicht Teil von dem Grundkonzept sein.
+Und so als ganz konkrete Features, glaube ich, finde ich es wichtig, eigene Ressourcen zu verlinken, die ich externe gefunden habe, vielleicht auch irgendwelche eigenen Projekte, die Studienleistung XY, wo ich damals in dem Kurs gemacht habe. Ah ja, stimmt, da habe ich die Datenbankanbindung gebraucht für Firebase. Das Copy-Paste einfach für mein neues Projekt. Weil so gehe ich schon auch mit meinem eigenen Code gerne mal um,
+dass ich aus älteren Projekten einfach Sachen herauskopiere, wo ich weiß, das habe ich einfach schon mal gebaut, warum soll das noch mal neu bauen, wenn ich es schon mal einfach gemacht habe. 
+Also so Verlinkungen nach außen fände ich schon wichtig. Und auch definitiv das so irgendwie gehighlightet, was habe ich abgelassen, was fehlt mir noch und so weiter. Alles Gamification und Motivation.
+Ja, Notizen, so in die Richtung.
+
+R:
+Was vielleicht auch noch mal nett ist, also ich finde es immer wieder nett, ab und zu irgendwie nostalgisch zurückzuschauen. Quasi, was habe ich denn jetzt schon alles mal gemacht oder sowas, da freut man sich dann irgendwie, vielleicht, wenn man sieht, ok, das habe ich schon alles gemacht, also nicht mehr so motivierend,
+irgendwie nett, quasi zu sehen und auch wieder Sachen hervorgespült zu kriegen und zu sehen, ach ja, stimmt, das war gut, oder auch Sachen, die ich schon lange nicht mehr gemacht habe, quasi vielleicht so wie Spaced Repetition-mäßig, dass ich quasi zentrale, wichtige Aspekte dann nochmal hier vorgelegt kriege und das System mich frage, hey, hast du das eigentlich noch irgendwie parat oder magst du da nochmal eine Auffrischung machen vielleicht zu dem Thema oder sowas?
+Und es soll vor allem nebenbei funktionieren, das glaub ich ist so einen wichtigen Punkt, weil typisch meiste ist meine Hauptaktivität ja das Lernen oder das Machen irgendwie was und im Idealfall ist es dann irgendwas, was so in ihm bei ist auf meinem Smartphone oder in einem Browser, in einer Browser-sidebar oder wie auch immer, sodass es quasi da sein kann und dass ich schnell dann irgendwie, oder semi-automatisiert was abpacken kann, dass es mir jetzt nicht mehr Aufwand macht mit dem Teil zu arbeiten.
+
+A:
+Man will aber schon damit prokrastinieren können, oder? Ich finde schon,
+ dass das so ein bisschen ... Dann befasst man sich immerhin mit der Thematik. Ich finde das nicht schlecht, wenn man damit prokrastinieren kann.
+
+M:
+Wenn man sich so ein bisschen durchklicken könnte, ein bisschen rumschmökern. Das wäre für mich schon ein wichtiges Feature. Es ist nicht nur prokrastinieren, aber so ein bisschen schau mal, was gibt es noch so.
+
+R
+Da ist mir jetzt auch eingefallen, irgendwie so Quizzes oder sowas machen, also dass du zum Beispiel, ein ganz wichtiger Punkt ist ja, glaube ich auch von dem, was wir machen hier, was man lernt, dass du halt diese Verknüpfungen machst. Ah, für das Problem brauche ich jetzt tatsächlich dieses Werkzeug oder sowas. Da könnst du ja automatisch so einen Quiz generieren, das sagst, okay, hier, du musst dieses und jenes machen. Welche von diesen 5 Knoten ist jetzt wirklich relevant für dich oder sowas, dass du das auch nochmal auffrischen kannst und verstärken kannst quasi. Es ist quasi kein rein inhaltliches Quiz, aber so ein Verknüpfungsquiz, was hängt mit was zusammen. Und ich weiß nicht, ob das irgendeinen Mehrwert hat, aber ich finde es irgendwie
+ganz lustig und befriedigend, wenn du dann sagst, ah ja, OpenCV brauche ich da und nicht irgendwie git.
+
+A:
+Aber es kann auch frustrierend sein, wenn ich dann sage, ich habe mal ein ganz anderes mentales Modell, als das im Graf dargestellt.
+
+R:
+Das ist ja das persönliche, das heißt...
+
+A:
+Ach so, ah ja, okay.
+
+M:
+Also wann kriege ich diese Quizzes? Poppen Sie manchmal so auf?
+
+R:
+Ja, jeden Tag in der Früh. Oder so, keine Ahnung.
+
+M:
+Ich habe echt so dran gedacht, als du gesagt hast, dass du diese ganz basic Sachen mit irgendwie, was weiß ich, Shortcuts oder so, so was cool wäre bei jedem Start so einen Tipp anzuzeigen. Also Android-Studio macht
+das zum Beispiel und ich finde die Tipps manchmal echt ganz nett und ich lese immer den einen durch und ich klicke ganz selten auf irgendwie Next-Tipp, aber manchmal denke ich mir so, naja, das hole ich mal ab. Also vielleicht wäre das sowas, aber es kann ja doch furchtbar nervig sein, wenn auch so das Pop-up immer kommt.
+
+V_
+Ich habe gerade noch ein anderer spannender Punkt eingefallen. Ich habe bisher immer nur in die Richtung gedacht im Sinne von, welche irgendwie Unterkonzepte muss verstehen um concept xy zu verstehen aber wenn man das ganze quasi umdreht im Sinne von hey wenn ich concept x verstanden habe was ermöglicht mir das eigentlich damit zu machen so im Sinne von ok wenn ich fit bin in OpenCV was könnte ich dann eigentlich für coole weitere sachen damit machen mit diesem grundwissen ich glaube vielleicht so auch als zu motivation sozusagen dieses in die andere richtung gucken nicht was es liegt drunter was ich kann muss und das zu verstehen, sondern was käme als nächstes als Beispiel, auf dem ich aufbauen kann mit dem Wissen, das ich jetzt habe.
+
+R
+Dass du wieder bei den Aufbauspielen wieder aufhörst. Deine Wissenschaftler haben X,Y erforscht und können jetzt Z erfoschrn oder so. Nur dass du es selber machen musst.
+
+M:
+Aber es ist sowas cool, also ich glaube es ist an sich mega gut zum Selbstlernen, aber ist sowas cool in so einem Kurskonzept, wo ich eigentlich ja irgendwo stehe und dann so von wegen, dann ist es ja mehr so, ach, schau dir die Sachen von Nächste Woche auch gleich schon an. Oder schaltet er sich nach und nach frei erst?
+
+V:
+Na, wenn ich jetzt mir wieder denke, so mein Lieblingsbeispiel mit der Mathe-Vorlesung, wenn ich mir denke, du hast den Knoten Matrizen und dann, was musst du keinen Matrizen zu verstehen, aber wenn du dann nicht hörst, wofür sind Matrizen eigentlich gut, dann ist die Motivation viel geringer, Matrizen jetzt zu lernen, wenn du dir denkst, was soll der Blödsinn, aber wenn du mal hörst, was man eigentlich cooles mit Matrizen machen kann,
+Dann ist vielleicht die Motivation, den Matrizenknoten irgendwie abzuhaken, so kann ich den Graf deutlich größer haben.
+
+R
+Was du gerade jetzt gesagt hast, ist natürlich auch nett, wenn du siehst, also ich glaube, es wurde schon ein bisschen genannt, wenn du es ein bisschen siehst. Du hast ja irgendwie so einen gewissen Kursverlauf, wenn du siehst, wie weit sind die anderen schon da durch und wo bist du gerade? Irgendwie sowas hat es ja schon genannt oder so, aber dass du auch wirklich siehst, bin ich jetzt davor oder dahinter quasi in dieser Welle quasi. Also ist auch im Kurs dann vielleicht ihm hilfreich das sich selber einzuschützen.
+
+M:
+Also gerade in so Kursen, wo, keine Ahnung, so ein Graf ist ja, keine Ahnung, also in der Vorlesung ist es irgendwie so, da sind die Vorlesungsmaterialien drin. Aber sind da auch so was wie Übungsbett da drin? Und ich sehe dann irgendwie, okay, die anderen haben das schon abgeschlossen, oder hänge ich jetzt voll in den Matrazen. Also dafür wäre es vielleicht ja spannend, für so praktische Dinge auch.
+
+R:
+Also zumindest mache ich das jetzt ganz konkret, dass ich quasi sag die Studienleistung packe ich zusammen mit den Grafen rein.
+
+A:
+Ich finde das immer ganz schlimm, wenn man es mit anderen vergleicht. Das kann man nicht unterstützen, finde ich. Natürlich machen das Leute und vielleicht wollen das auch manche, aber das führt dazu nichts. Man studiert ja nicht gegeneinander, sondern für sich selber. 
+
+V:
+Aus Dozentensicht schwierig. Bewerten unter einer Kurve ist ganz kritisch. Da förderst du ja nicht das Zusammenarbeiten. Aber allgemein zu merken, man ist hinten dran, glaube ich, kann auch eine große Motivation sein.
+
+A:
+Das kann sein, aber man kann auch sagen, boah, ja, dann lass ich es doch gleich. 
+
+M:
+Dann ist vielleicht eher der Modus von wegen, der Dozent sagt, hier sind wir gerade im Kursstand. Dann siehst du ja selber, bin ich da oder bin ich da nicht. 
+
+R:
+Ja, aber für mich aus der anderen Perspektive ist natürlich gut zu sehen, wer hinten da jetzt total weit hinten dran ist.
+
+M:
+Ja, ja klar. Aber ich bin auch bei A's Punkt, ich würde es von den anderen gar nicht sehen wollen. Also so, das würde ich nochmal nachdenken.
+
+V:
+Was ich mir im Android-Kurs oft gewünscht hätte, wäre, irgendwie soweit doch, halt viel zu selten, finde ich, irgendwie, sich jemand meldet und sagt, Moment, das habe ich noch nicht verstanden. Oder auch umgekehrt, mir teilt es sofort trivial, warum erklärst du das nochmal? Also irgendwie, keine Ahnung, Studis haben eine App, wo sie irgendwie einfach laufend irgendwie mal klicken können mit zu schnell, zu langsam, Tempo genau richtig oder sowas. Vielleicht wäre das halt irgendwie auch in langsamer Form bei so einem Graf, wenn man einfach irgendwie dozent vermittelt neue Lerninhalte, den Graf gibt es unterstützend dazu und Studis geben einfach an mit, das ist mir sehr schwer gefallen oder das ist mir ziemlich leicht gefallen, dass halt dadurch auch irgendwie, ja, sich dadurch so ein Schwierigkeitspfad irgendwie abbilden kann. Und wenn ein Knoten ganz viel rot ist, weil viele gesagt haben, boah, das ist voll schwer, dann wirst du gleich irgendwie zu sehen, ah ja, vielleicht muss ich den großen Knoten noch in Unterknoten aufteilen, dass es einfach klarer wird und dass es nicht zu viel wird auf einmal oder so. Und wenn ein Knoten viel zu einfach ist, dann kann man sich auch überlegen, okay, muss ich das so detailliert behandeln im Kurs? Also vielleicht ergibt sich daraus auch so Möglichkeiten. Also ich glaube, man könnte dann nicht so eigentlich irgendeine Form von so Cloudsourcing in so einem Kurs relativ viel eigentlich machen, mit vergleichsweise vielleicht wenigem Aufwand. 
+Weil woher weiß ich jetzt im Android Kurs, ob den Studis jetzt Mergekonflikte lösen, leicht oder schwer gefallen ist, wenn außer ich schaue halt mal aktiv irgendwie über die Schulter oder ich kriege von zwei, drei Leuten Feedback, aber ich kann auch nicht jede Woche irgendwie der Umfrage schalten, aber vielleicht sind gerade so kleine Punkte, wenn ich einfach meine Häckchen setz in meinem Graf und dann halt irgendwie noch eine Tendenz habe, leicht oder schwer oder okay, dann hat man mit minimalem Aufwand irgendwie sehr viele spannende Daten auch gesammelt.
+
+
+M:
+Ich finde das eine gute Idee, aber ich weiß auch nicht, ob das die Leute machen würden. Weil, also ich weiß nicht, ich habe gerade mal so irgendwelche Google Dokus oder sowas lesen, unten immer so, ja, aber war die Seite jetzt hilfreich oder nicht. Ich klicke da nie. Also egal ob ich das im Zweifel mache oder nicht. Ja, ich weiß aber nicht, aber ich denke auch so, okay, ich weiß nicht, ob ich da klicken würde: Boah, ich hab's gar nicht gecheckt, ich fand's auch schwer. Und dann sieht jeder, dass ich ein Depp bin, so ungefähr.
+Also ich weiß nicht, was da dann was her kommt.
+
+V:
+Ich find, dass es so ist, dass es doch nichts Persönliches, oder? Also ich denk mir eher, ein Tutorial muss so sein, dass ich's verstehe, oder? Wenn ich's google und wenn's dann schlecht geschrieben ist, also dann würde ich eher der Seite die Schuld geben, als mir erstmal, glaube ich, dass es so ist. 
+
+R:
+Das ist immer bei dem Binaire, ja, nein, ist halt auch, passt nie, normalerweise.
+Hast du's verstanden oder hast du's nicht verstanden? Also das liegt ja normalerweise irgendwie dazwischen dann, auch bei den beiden Seiten.
+Ich würde nie Nein anklicken, weil irgendwas habe ich ja... also das ist wirklich spannend.
+
+V:
+Ja, und bei Stack Overflow denke ich mir auch oft, ich würde gerne auf den Upvote klicken, weil mir der Post geholfen hat, aber irgendwie bin ich dann immer nicht eingeloggt. Und dann denke ich mir, warum logge ich mich jetzt ein? Die Mühe mache ich mir gerade nicht, weil ich eigentlich mein Programmierproblem lösen will.
+Aber wenn man eh diese Software vom Grafen drauf hat und das funktioniert dann einfach, dann ist die Hemmsperre da auch deutlich geringer. 
+
+M:
+Es wäre auf jeden Fall spannend zu
+ sehen, ob es uns überhaupt so tun würde.
+
+Moderation:
+Dann würde ich jetzt noch ein bisschen mehr in die Visualisation gehen und euch fragen, wie das steht, wenn man Lernhalten gruppiert, also ob ihr das sinnvoll findet, ja oder nein, vielleicht wie man das auch lösen könnte. Also wenn man jetzt zum Beispiel auf den Graphen schaut, dann sieht man ja irgendwie nicht, wie sich die Themen sich unterscheiden, sonder nur, dass sie im Grafen irgendwie abhängig sind.
+
+V:
+Was meinst du mit gruppieren?
+
+Moderation:
+Also wenn man zum Beispiel sagt, okay, man hat jetzt ein Thema Mathe zum Beispiel, das ist nur grob, und dann sagt man, okay, die Knoten können jetzt schon zählen zu diesem Thema. Und dann gibt es natürlich andere Knoten, die können jetzt mit dem Thema Physik, das ist natürlich jetzt ein sehr abstraktes Beispiel, aber fändet ihr das sinnvoll, dass man die Knoten noch mal irgendwie gruppiert oder clustert, dass man dann einen besseren Überblick hat über die Knoten?
+
+V:
+Macht das Wikibase nicht eh schon. Also, dass irgendwie alle Knoten ja irgendwie in einem großen Grafen stehen, aber man schaut sich halt dann immer nur so Teilgrafen an.
+
+A:
+Ich meine, die können ja abhängen. Alle Mathe-Sachen hängen von Mathe ab, und dann sagst du, ich will jetzt gern alles sehen, dass von Mathe abhängt. Und dann bist du eher so baumig irgendwann, und in Mathe ist dann Lin-Alk drin, und dann alles ist drin. Und dann interessiert mich, und dann interessiert mich alles, was irgendwie mit Vektoren zu tun hat. Und dann kann ich mich immer weiter so durchhangeln und die Sucharten, die anzeigen, werden immer kleiner bis ich etwas manageabares habe.
+
+R:
+Aber das heißt, ich brauche eine Hierarchie?
+
+A:
+Es ist ja impliziter Hierarchie da, weil vielleicht, also alles, das von Vektoren abhängt, hängt ja irgendwie von Lin-Alk ab. Und alles, was von Lindenolk abhängt, hängt ja auch von Mathe ab.
+
+R:
+Ja, ist Lin-Alk dann ein eigenen Knoten?
+
+A:
+Ja.
+
+V:
+Aber müssen das eigene Knoten sein, also ist es eher, also gibt es Tags, das glaube
+ich, ist die Frage.
+
+A:
+Ja, aber eine Edge ist ja ein Tag.
+
+V:
+Ja, okay.
+
+A:
+Das ist das Coole.
+
+R:
+Genau, aber dann wäre ja Lin-Alg, Lin-Alg ist ja kein einzelner Lerninhalt, also das ist glaube ich auch so ein bisschen auch diese Frage, wonach gruppiere ich jetzt quasi, gruppiere ich nach Lehrveranstaltung, gruppiere ich nach Thema, also tagge ich jetzt das mit einem Thema, Lin-Alk, oder tagge ich das mit einer Lehrveranstaltung.
+
+A:
+Das ist das Schöne, wo der Graf anbietet, dass er alles machen kann, indem das ich einfach Knoten anlegt. Und Verknüfungen herstell. Und da können ja manche schon da sein. Und es gibt einen Grundknoten der bündelt das Wissen. Also alles, was im Graph drin ist, ist das Wissen. Auf irgendwas kann man sich wahrscheinlich einigen.
+Alles ist etwas. Und dann wird es so baumig.
+Natürlich mit zyklischen Verbindungen und keine Ahnung was, aber ich kann es weiter runterkondensieren, indem er sich immer konkreter wird mit meinem Subset das ich mir anschauen.
+
+V:
+Und wenn wir da diese Analogie ansetzen bei Google Maps, wenn ich den Globus habe und da sind ganz viel Stecknadeln und wenn ich maximal reingezoomt bin, dann sehe ich alle Stecknadeln, aber wenn ich weiter rauszoom, dann werden die halt geclustert und dann habe ich halt irgendwann halt das Cluster lineare Algebra, das ist erstmal nur der eine Knoten aus der Ferne, aber wenn ich rein sehe, dann zoom, dann sehe ich halt
+die Unterknoten. Also, und wenn du halt ganz maximal rauszoomst, ja, vielleicht haben wir denn wirklich nur noch den Node Wissen und je näher du halt reingest, desto detaillierter wird es dann.
+
+R:
+Die Herausforderung ist da doch, aber dann, bei Koordinaten und Google-Maps, da habe ich zwei Dimensionen.
+Also nach den ich Cluster will und zwei Dimensionen, die ich zur Verfügung habe für das Cluster. Während diese Verknüpfung oder sowas, das sind ja potenziell mehr Dimensionen. Also es gibt ja unterschiedliche Arten.
+
+M:
+Aber ich war ganz wieder auf den Studienkontext gezogen, ich glaube, da fände ich es viel besser, wenn es kursweise wäre. Also ich glaube, das heißt nicht, dass es irgendwie keine großen Knoten geben, da von dem alles drin ist. Aber ich glaube, wenn ich eigentlich gerade in einem Kurs bin, aber ich habe da auch noch alle Themen dranhängen, die irgendwie mit den Sachen zusammenhängen, dann verlaufe ich mich da, glaube ich, total schnell und komme eben gar nicht bis zum Kursende, sondern liege immer mal falsch ab oder so. Also ich glaube, das wäre für mich schon wichtig innerhalb vom Kurs, dass zumindest für mich ersichtlich ist, okay, was ist denn alles Kursinhalt? Und nicht, ich bin mit, huppsa, drei Klicks schon irgendwie, und das könntest du in zwei Semestern damit machen.
+
+A:
+Ja, aber das kannst du auch filtern. Dann sagst du natürlich über alles sehen, das abhängt von dem Knoten, äh, äh, was ist sie, Android?
+
+M_
+Ja genau, aber ich hab Ausgangspunkt für mich und dann Einstiegspunkt für jetzt, also unterm Semester
+irgendwie wäre das eher kursweise und nicht, ich hab einen großen Wissensgrafen. Also, ja.
+
+A:
+Aber was das halt dann nicht noch ist, wenn du sagst, okay, ich hab einen Android, hab jetzt Git die ganze Zeit, und dann machst du im nächsten Semester MME, wo du halt Git wieder brauchst, dann sind die Goldschuhe abgeschlossen, weil die sind alle in Android oder MME drin, und da hast du so Kreuz mit Aufhängigkeit.
+
+M:
+Also die müssten schon irgendwie drin sein, also ich glaube, mein Modell ist schon auch, dass es ein großer Graf ist, aber ich glaube der Zukunftspunkt wäre für mich in den meisten Fällen eher halt, jetzt bliebe man in einem Kurs drin, aber natürlich würde ich auch gerne sehen, wie hängt das alles miteinander zusammen, also jetzt weiß ich, ich stehe jetzt hier und habe schon vier Semester gemacht, Und jetzt eignet sich hier wahrscheinlich schon ein schönes Bild, wo ich hergekommen bin. Also ich glaube immer, dass so verschiedene Einstiegspunkte ganz nett wären.
+Oder so. Weißt du, was ich mit der Einstiegspunkte meine?
+Also irgendwie, wie groß der Grad ist, der mir grad angezeigt wird.
+
+R:
+Mit Einstiegspunkt, meinst du, das ist dann quasi so, du hast jetzt quasi, ich sehe jetzt nur das Zeug von einem Kurs prinzipiell, aber ich könnte theoretisch jetzt irgendwie nen Regler nehmen und dann blieb der Rest mit einblenden oder ausblenden.
+
+N:
+Aber dann vielleicht auch eher auf Kurs- und Studium-Ebene und nicht auf Themen-Ebene. 
+
+M:
+Also Themen-Ebene ist eigentlich für andere Sachen wieder spannend, aber ich glaube trotzdem, so während dem Studium ist für mich wahrscheinlich der Kurs erstmal das Wichtigste. Und wenn ich dann irgendwann so sage, okay, ich will ein bisschen meta-mäßig drüber schauen, oder ich will ein bestimmtes Thema nochmal nachschauen, dann will ich nicht in dem Kurs nachschauen, sondern will ich das eine Thema nachschauen.
+
+V:
+Ich glaube, da ist auch so eine optionale Visualisierung spannend, wo man eben mal nicht den ganzen Grafen sieht, sondern auch wieder wie in so einem Videospiel, wenn du deine Umgebungskarte hast und da ist erstmal alles schwarz und du gehst halt irgendwie einzelne Pfade und dann deckst du so ein bisschen was von der Karte auf und irgendwann kommst du halt dann wo raus, wo du schon mal warst irgendwie und dann hast du auch diesen Aha-Effekt, also vielleicht will man nicht immer den ganzen Graf sehen, weil das kann schon einen ziemlich erschlagen, sondern vielleicht muss man sich erstmal seine Pfade irgendwie einzeln da erarbeiten.
+
+A:
+Aber ich glaube, Metaknoten drücken doch das alles komplett ab, oder? Also, die Probleme, die angesprochen worden sind, es können Kursen in Metaknoten gehen, es können Themengebiete in Metaknoten gehen, das eigene Wissen und so weiter.
+
+M:
+Ja, ja, voll. Für mich ging es jetzt um die Gruppierung sinnvoll. Also was kann ich zu welchem Zeitpunkt sehen? Also ich glaube auch, dass alles ein großer Graf wäre, aber ich glaube, ich will halt nicht immer alles sehen und ich will auch nicht immer um mich überlegen, wo sind gerade OBS jetzt?
+
+R:
+Also wenn wir jetzt zur Implimitierung schauen, wäre es quasi so, ich habe irgendwie eine Liste oder ich habe meine Lieblingsknoten, vielleicht am besten tatsächlich schon eine Hotlist mit den spannendsten Metaknoten,
+zum Beispiel Lehrveranstaltungen, und dann wähle ich den aus und dann wird alles andere, was nicht an dem dran hängt, ausgeblendet.
+
+A:
+Genau, genau. Also es ist halt etwa ganz ausgegraut, ganz leicht, sichtbar oder komplett weg oder so. Wahrscheinlich ausgehauen ist nicht so sinnvoll, weil inzwischen so leere Bäume entstehen und das will man vielleicht nicht. 
+
+R:
+Wenn wir schon konzentrieren können, glaube ich, auf allen Teilen und dann nicht irgendwie noch Wissen oder Sinn noch irgendwie, das würde auswärts kommen, oder?
+
+M:
+Ich glaube, dass da vielleicht auch ein bisschen das Problem ist, dass ich zum Beispiel Gundlagen lerne in einem Kurs und das gleiche Thema wird zwei Kursen später nochmal voll aufgebaut, keine Ahnung. Und auf einmal habe ich da noch viel mehr Sachen drin. Aber das heißt trotzdem, dass im Anfang, in dem Grafen vom ersten Kurs, da kann ich die Sachen noch nicht drin haben, weil es irgendwie viel zu viel wäre.
+Und vielleicht ist es spannend zu wissen, okay, in zwei Semestern kommt da noch voll viel dazu. Aber ich glaube, in dem Moment sollte ich das nicht sehen. Oder also, noch jetzt würde ich bewusst sein, dass es gerade noch nicht das ist, was ich verstehen muss, für diesen Kurs hier.
+
+A:
+Aber es wäre wahrscheinlich schon schön, die Information zu haben in zwei Semestern, der mal noch voll mehr dazu. 
+M:
+Ja, genau, das finde ich auch cool, aber nicht dieses so Batsch und so. Also ich bin nicht im ganzen Graphen drin und
+ es ist auf einmal so krass viel und ich check gar nicht, was jetzt für mich gerade relevant ist.
+Aber ausgrauen ist ja irgendwie sowas, das glaub ich wäre ne gute Idee.
+
+R:
+Das sind wir wieder bei den verschiedenen Zielen von der Visualisierung. Also alles auf einmal passt irgendwie nicht so rein. Je nachdem, was ich für ein Ziel habe, bin ich es vielleicht unterschiedlich dargestellt haben.
+Also zum Beispiel, du hast diese Ansicht, was, hier, das ist jetzt quasi das, was ich im Kurs habe und dann sehe ich quasi bei jedem, wie viele andere Lehrveranstaltungen hängen quasi davon ab oder wo taucht das wieder auf, irgendwie so.
+Zum Beispiel so eine Kreisvisualisierung, also ich habe die anderen Lehrveranstaltungen drum rum und für jedes Thema, jedes Thema in der aktuellen Lehrveranstaltung würde ich dann quasi so einen Link haben, wo taucht das nochmal auf. Zum Beispiel, auf der anderen Seite will ich vielleicht auch eben sowas nicht haben, sondern eher konkret, was habe ich denn jetzt alles schon gesehen, gemacht, oder wie wichtig.
+
+M:
+Ich glaube, dass beide Richtungen sowohl zu sehen sind, die Sachen werden noch vertieft in der Lehrveralstaltung. Das ist auch zum Beispiel in der MME Vorlseung nochmal zu sehen. Ja, da war der git Knoten und ich kann noch mal zu dem zurückkehren, wenn ich da noch mal Probleme habe, obwohl der eigentlich eben schon ausgekraut ist oder, weiß nicht, grün markiert oder was weiß ich, aber eigentlich hab ich den schon gehabt.
+
+R:
+Also schön ist, auch wenn ich sage, okay, das ist jetzt die Lehrveranstaltung, die ich diesen Semester besuche und ich sehe, was ich schon alles jetzt hier direkt in der Lehrveranstaltung schon gemacht hab, quasi ist, was ich schon mal gesehen habe, zumindest auf einem bestimmten Niveau, was dann so ein bisschen leicht schimmert,
+dass ich sage, okay, so viel Neues ist es ja dann gar nicht, würde ich sagen.
+Was für mich vielleicht auch ganz hilfreich wäre, in einer Lehrbeanstaltung, wenn ich sehe, diese Sachen sollte ich jetzt eigentlich alle können, davon geht ganz viel ab, aber da fehlt mir jetzt noch irgendwo was, also keine Ahnung, die gehen davon aus, dass ich mit Jupyter Notebooks schon mal was gemacht habe, aber den Knoten habe ich ja noch gar nicht erfüllt quasi, dass ich diese Rücken sehe, die mich daran hindern quasi den Kurs zu besuchen, dass ich dann irgendwie so eine rote Warnung sehe oder irgendwie sowas.
+
+M:
+Aber ist es schwierig dich jetzt daran hindert, den Kurs zu machen oder will ich dann darauf hingewiesen werden, das musst du dir übrigens bis dahin noch anschauen?
+
+R:
+Ja, ich würde gerne eine Warnung kriegen, das solltest du jetzt eigentlich, das wird in dem Kurs offensichtlich vorausgesetzt, das solltest du dir vielleicht nochmal anschauen.
+
+A:
+Andersherum, also das stimmt voll zu, aber andersherum kann es ja sein, dass jetzt, ich habe das schon abgeschlossen, das schon abgeschlossen, das schon abgeschlossen, dazwischen ist also ein Knoten. Aber vielleicht ist der gar nicht so wichtig. Und nahe liegen wäre ja, geht, dann macht man den jetzt, sondern ist das ganze Ding irgendwie fertig. Aber vielleicht ist das irgendwas, das völlig obsolet schon ist und das ist halt irgendein Konzept, das gibt es halt. Aber keinen Interessiert das, dass man irgendwie auch so Wichtigkeit noch vielleicht mit abbilden könnte. Dass ich sage, ja gut, da Mut zur Lücke, da ist es okay. Aber an der Stelle, das sollte ich halt wirklich kapiert haben. 
+
+M:
+So machst du deine Lehrveranstaltung so, dass du den Leuten danach sagen kannst, das kannst du dir eigentlich sparen. Findest du nicht alles wichtig, was du dir eigentlich sagst?
+
+A:
+Ja, wenn ich jetzt sage, der Grad ist vollständig, in einer idealen Welt, der ist wirklich vollständig.
+Und dann gibt es auch noch Konzepte, die hängen vielleicht mit ganz viel Sachen zusammen, die ich mir schon angeschaut habe, aber eigentlich braucht das keiner.
+
+R:
+Also vielleicht finde ich auch was voll cool, dass ich sage, hey, da gibt es dieses eine Projekt, also wenn du irgendwie grundlegend optische Sachen hast, dann kannst du auch noch das machen oder dann kannst du das leicht verstehen, da gibt es ein cooles YouTube-Video dazu, voll cool, finde ich total spannend irgendwie, aber eigentlich braucht es niemand unbedingt, aber ich will es auf jeden Fall mit drinnen haben.
+
+M:
+Also, dieses ist es Klausur-relevant oder nicht. 
+
+R:
+Ja, klausurrelevant würde ich daran erkennen, ob es irgendwie verknüpft ist mit einem Test.
+Aber, nee, aber auch so diese low-hanging fruits, das kennst du ja alles schon. Das eine fehlt da noch, da hast du alles erledigt. Das ist vielleicht auch so, so low-hanging fruit und ganz wichtige Sachen, würde ich gerne sehen. 
+Und dann kann ich jetzt sagen, hey, heute habe ich irgendwie Lust irgendwie. Ja, sowas einfaches zu machen oder sowas normal. Ich weiß nicht, wie viele Leute Lust haben, Sachen zu machen, die sie nicht machen müssen.
+Aber es gibt tatsächlich doch schon ziemlich viele. Es gibt immer wieder Leute.
+
+A
+Aber es kann immer auch eine Zeitverwendung sein. Ich glaube, das will ich vorher wissen.
+
+R:
+Genau. Aber das ist ja wie wichtig es ist und wie leicht es ist. Das sind ja unterschiedliche Sachen.
+
+V:
+Wenn die Taschenrechner-App plötzlich rose ist. Da hatte wir sehr viele.
+Das Übungsplatz Taschenrechner implementieren, wir hatten sechs oder sieben rose Taschenrechner.
+
+M:
+Das UI war quasi freie Gestaltung, die sie dann rausholen konnten.
+
+A:
+Aber das ist dann irdgenwie cool, oder?
+
+V:
+Ja, genau Aber man hätte es nicht machen müssen. Die Standardparte ist blau, wenn du gar nichts einstellst, dann ist es halt blau.
+
+R:
+Aber diese Low-hanging-fruit, die können ja sinnvoll sein. Können vielleicht auf späte Sachen abhängen, an die du jetzt noch nicht gedacht hast?
+
+M:
+Aber da würde ich wieder auch aufpassen, wieviel Informationensgehalt man schafft. Weil ich glaube, mehr Information ist nicht immer die Leute lernen mehr. Ich denke, das kann auch irgendwie erschlagen sein.
+Und dann haben wir zu sagen, so deswegen, ah ja, das ist noch und das noch.
+Ich glaube, dass wir irgendwie so ein bisschen sinnvoll ausfinden, damit es nicht erschlagend wirkt. Das ich halt weiß, was sind die wichtigen Sachen.
+
+
+
+
+TODO: Teil4 
+
+N:
+Was sagt mir den die Größe von nem Knoten?
+
+Moderation:
+Also in dem Graphen mit speziell war das, wie viele Knoten daran anknüpfen.
+
+R:
+Wie wichtig.
+
+N: Also, irgendwo eine Hierarchie durch die Größe.
+
+V:
+Da höre ich jetzt die [...] in meinem Ohr, die sagt, das ist ja sehr willkürlich, das Ganze.
+
+M:
+Hab ich auch gerade gedacht.
+Oder zum Beispiel wird dann was größer werden, was mehr Voraussetzungen hat? Weil das ist glaube ich nicht in jedem Fall sinnvoll.
+
+N:
+Weil ich hab so das Gefühl, größer ist wichtiger. Und wenn man dann diese optionalen Zusatzsachen hat, dann erschlagen die einen glaube ich auch nicht, wenn es dann nur so ein Mini-Ding irgendwo noch so und das man fast gar nicht erkennt.
+
+A:
+Also größer ist, welche Abhängigkeiten das das hat. Weil in meinem mentalen Modell größer ist, wie viele Sachen das davon abhängen. Oder?
+
+R:
+Beziehungsweise nicht nur das, weil eigentlich willst du da so eine Page-Rank, wie viele Sachen abhängen die wiederum von...
+
+A:
+Ja, ja, genau, genau, genau.
+
+R:
+Also du willst wissen, auf wie viele andere Knoten hat das einen Einfluss. Wie viele hängen da dran direkt an dem Teil, oder?
+
+Anid:
+Genau, also Mathe ist ein sehr, sehr großer Knoten und das hängt nicht von so viel Sachen ab, aber ganz viel hängt von Mathe ab.
+
+M:
+Aber das ist glaube ich blöd, weil ich finde jetzt nicht, dass der Mathe-Knoten bei uns im Studium einer von den wichtigsten ist.
+
+A:
+Bei uns im Studium nicht, für das wissen der Welt schon.
+
+M:
+Ja, aber ich finde es eigentlich besser, wenn der mir sagen würde, was sind denn wirklich innerhalb von Kurs zum Beispiel, was sind denn die Übertopics?
+
+A:
+Du kannst ja filtern und dann sagen, nur von den gefilterten Sachen wird dann die Größe mit einbezogen.
+Der Knoten Mathe ist jetzt vielleicht in OOP nicht so wahnsinnig groß, aber in Computergrafik ist er größer.
+
+M:
+Das wäre für mich, also genau, das wäre für mich besser, dass ich wüsste, okay, ich bin gerade im Themengebiet wahrscheinlich und dann müsste der Knoten für mich nach wirklicher Wichtigkeit für das Themengebiet sein, aber ich weiß eben nicht, ob das Thema damit zusammenhängt, wie viel da dranhängt oder von wie viel das abhängt.
+Oder ob das einfach mal anders aussehen könnte, weil der halt irgendwie so viel Basics nutzt, aber der Knoten in sich ist halt irgendwie nicht so krass immer im Themengebiet, weil, keine Ahnung, ich hab halt irgendwie in einer IDE gearbeitet, ich muss nix mehr über Shortcuts, nix mehr über Farben, Farbthemen, also sowas muss ich wissen.
+
+A:
+Man könnte natürlich auch sagen, der Knoten hat seine Größe anhand dessen, er wird kleiner je mehr, dass ich es schon geschafft habe von seinen Abhängigkeiten.
+Irgendwann habe ich ihn aufgefressen, quasi. Oder wie so ein Tortendiagramm.
+
+V:
+Agar.io, aber in die andere Richtung. Agar.io, dieses Spiel, wo du so Blobs fressen musst, andere Blobs. Aber das wäre dann eigentlich umgekehrt bei dir. Also je mehr du frist, desto kleiner wird der Knoten.
+
+M:
+Aber er darf ja nicht noch kleiner werden. Der ist ja vielleicht voll wichtig für das Themengebiet.
+
+A:
+Ich bin jetzt im Team-Tortendiagramm. In jedem Knoten wird ein Anteil anzeigt, wieviel Abhängigkeiten das man schon geschafft hat. Nein, das brauchen wir nicht, weil wir haben ja die Tags. 
+
+M:
+Ja, ich bin jetzt sicher, was die Größe für mich sein müsste. Ich glaube schon, ist irgendwie für die Wichtigkeit, aber ich weiß nicht ob ich eben nur über die Abhängigkeiten gehen würde.
+
+N:
+Für mich ist irgendwie voll intuitiv, je kleiner der Knoten, desto detaillierter ist er. So Mathe, Statistik, Wahrscheinlichkeitsrechnung,
+ keine Ahnung. Urnenmodell ganz klein.
+
+A:
+Aber das wird dann dem, was ich gesagt habe, nicht widersprechen. Also jetzt dann, Mathe ist groß, weil vorraussetzt ja viel und Urnenmodell ist kleiner, weil.
+
+N:
+Weil ganz detailliert, ja.
+
+R:
+Das wäre wahrscheinlich wirklich etwas, was man ausprobieren müsste, in die Wahrheit, was die Leute da denken, das es bedeutet. 
+
+M:
+Ja, für mich ist auch so, also für mich ist eben gerade nicht intuitiv klar, ob dieses wie viele Abhängigkeiten gibt, ob das für mich ein sinnvolles Mapping ist nach Größe. Also ich kann es gerade in meinem Kopf, ich kann es nicht durchdenken. Und wenn ich jetzt so reinzoome, und der hat schon die Form von dem Grafen, der innen drinnen ist, quasi, von den ganzen Sachen, die von ihm abhängen, und dann seht man irgendwann die Atome, und dann kann ich da wieder eine zoomen, also so eine fraktale, selbständliche Struktur so. Also die Größe, die stellt dar, was da quasi noch zum holen ist aus dem Ding.
+
+M:
+Also, wenn ich jetzt wieder mehr kursweise denke, dann müssten für mich die zentralen Konzepte
+größer sein. 
+
+N:
+Ja, und wenn es dann detailliert wird, dann ist es kleiner.
+
+M:
+Ich bin da sicher, ich glaube, wir müssen es ausprobieren. 
+
+R:
+Ja, es kommt wahrscheinlich ein bisschen darauf an, dass das auch mein Ziel ist, weil die Größe ist halt wirklich das das Merkmal, das sich variieren kann und das wirklich auffällt. Farbe und sowas ist auch noch hilfreich. Aber beim Layout wird es schon wieder schwierig. Die Anordnung kollidiert schon wieder mit so automatischen Layouts. Das heißt, Größe und Farbe sind die beiden Varianten. Farbe hat halt keine, sagt nichts, ist keine perfekte Skala.
+
+A:
+Das ist eine Wertung dabei bei der Farbe. Oder ist schwieriger. Und Farbe kann mann da super kategorisch hernehmen. Ich hab's schon gemacht oder ich hab's nicht gemacht und so.
+
+M:
+Ja, und schon vor allem, also ich glaub wirklich, dass sowas, wenn man sagt, man will die Kernthemen größer haben, dann muss das, glaub ich, innerhalb von dem Kurs festgelegt werden. Weil in dem Android-Kurs zum Beispiel gibt's wahrscheinlich noch einen relativ großer Punkt, weil ich hab's ja noch nie gemacht und das ist irgendwie wichtig und ich muss mich damit beschäftigen, weil ich check's ja noch nicht.
+Aber in der MME, es gibt zum Beispiel total winziger Punkt, weil ich's da benutzen muss.
+Ich muss es mir gecheckt haben, aber es ist so, also es ist so nebensache, dass ich sie benutzen muss, als wenn ich, also.
+
+R:
+Ja, vielleicht, ich denke mir jetzt gerade eigentlich, will ich, dass es Zeitaufwand symbolisiert, dass ich sehe. Also was kostet mich da jetzt wirklich viel Zeit, weil, also koordiniert sich ja auch mit dem Abstraktionslevel. Durch die Größe siehst du auch so ein bisschen, okay. Also es gibt ja Themen, die sicher mehr Zeit brauchen als andere. Also das kolidiert ja nicht automatisch mit der Zentralität oder so was.
+Wo ich dann einfach sehe, okay, das ist was. Also die nehmen einen Großteil der Zeit jetzt irgendwie ein.
+Oder damit ich die erledigen kann, brauche ich ganz viel Zeit. Das muss ich einplanen.
+Also das wäre jetzt eine Möglichkeit. Also vielleicht ist das nicht das, was ich unbedingt immer sehen will.
+
+R:
+Da kann ich einfach verschiedene Views haben. Ich klicke auf den Zeit-View, das zeigt mir die Zeit. Und ich klicke ja auf die Abhängigkeit. Und da ist natürlich das, was [...] schon gesagt hat, die Frage, wie viele Optionen gebe ich den Leuten, ohne dass sie total überfordert sind. Aber im ersten Schritt müssen wir es wahrscheinlich alles mal ausprobieren. Und dann schauen, dass es gut funktioniert.
+
+Anid:
+Und wenn du einmal prokrastiniert hast, und irgendwann wird auf der Seite eingeblendet die Zeit, wo du prokrastiniert hast, hättest du den Knoten erledigt. 
+
+M:
+Aber wer gibt denn die Zeit vor, wo man sich den Knoten nachdenkt,
+als du es zu zählt und sagst, Ich glaube, die brauchen da sechs Stunden für. Oder müsste ich selbst einen Tracker starten und damit ist es eben gemittelt. So etwas glaube ich ist dann nicht voll katastrophal.
+Dann gibt es keine Daten dazu.
+
+R:
+Nee, aber ja, geschätzter Zeitaufwand oder sowas. Ich meine, kleine Unterschiede bei der Menge an Kugeln, sind ja kleine Unterschiede irrelevant, es ist eher interessant, sind die groß oder es ist richtig klein. Also wahrscheinlich würden sogar drei Größenstufen in den meisten Fällen reichen, weil viel mehr Abstufungen, da wüsste ich gar nicht, wie ich die richtig interpretieren würde. Also, ja.
+
+M:
+Na, ich glaube, ich gehe schon lieber irgendwie binär. Ich weiß nicht genau, an welchen Kriterien ich bin, aber in Grafen und so, also ich bin schon gern von kleiner.
+
+V:
+So eine diskrete Abstufung, da wäre ich dann hier auch wieder bei Farbe, wenn ich sage, es gibt drei Kategorien. Aber so groß ist schon irgendwas dynamisches.
+
+R:
+Worauf ich rauswarte ist, so präzise muss ich es vielleicht gar nicht angeben. Ob das jetzt zwei Stunden sind oder drei Stunden, das ist dann wieder wurscht. Weil da gibt es so große Unterschiede zwischen den Leuten.
+Aber Größenordnung, so ist es im Minutenbereich, ist es im Stundenbereich, im Tagetbereich, im Wochenbereich.
+Das ist, glaube ich, schon so.
+
+R:
+Genau, also so wird es wahrscheinlich dann ausskalieren, weiß ich dann.
+
+M:
+Und der ganze Kurslehrplatz ist dann am besten noch die 14 Wochen, oder ist das? 
+
+R:
+Mhm. Dadurch würde ich auch sehen, passt das überhaupt alles, was ich da vermitteln will, innerhalb des Zeitbudgets rein? Das ist jetzt für mich Dozent grad wieder so ein Punkt, dass ich sage, okay, woher weiß ich denn, dass die Leute das alles schaffen?
+Ich habe formal mein Zeitbudget, was theoretisch für den Kurs zur Verfügung steht, und so. Und auch was realistisch halt auch zur Erhöhung steht irgendwie so. Man kann dann eben schauen, okay, kann ich diese Sachen da alle noch mit reinbringen? Das würde ich ja sehen, also allein visuell quasi, der Graph passt ja gar nicht mehr, weil irgendwie, wenn ich die alle zusammen brauche oder so. 
+
+A:
+Und beim Planen, welche Lehrveranstaltungen man belegt, kommt man natürlich auch so, okay, jetzt bin ich voll fleißig und ich will jetzt halt mehr Kurse machen, dann schaue ich, dass ich vielleicht noch einen Kurs mit dazu nehme, der zwar an sich auch ganz viel Arbeitsaufwand ist, aber er hat so viele Überschneidungen mit den anderen Sachen, die ich schon gelegt habe oder schon kann, dass ich sagen kann, okay, dann spare ich mir halt dementsprechend viel Zeit, den bringe ich vielleicht noch unter, aber den Kurs, der da noch völlig out there ist, dann nehme ich doch lieber den, der viele Überschneidungen macht.
+
+R:
+Ich finde das sehr gut, wo die Edges wirklich fast verschwindend nur noch diese Knoten ganz in gepackt sind, so dass ich sehe quasi, wie viel habe ich schon. Das ist quasi so ein Semester und dann hast du da irgendwie diese großen und kleinen Kugeln da irgendwie so drin, alles so. Und dann siehst du eben, das ist ein Kurs, der ist deutlich aufwendiger als ein anderer Kurs, aber, das und das und das und das und das und das habe ich alles schon. Also eigentlich könnte ich den schon nur mit reinbringen, weil die Sachen habe ich ja schon mal gemacht. Oder ich kenne mich schon mit Docker aus. Dann muss ich das da nicht extra lernen, da spart mir eine Zeit und so was. Da wäre ein Hexagon besser. Ach, nein. Wenn die unterschiedlich groß sind, kannst du ja auch nicht gut packen. Also ich habe gerade überlegt, wie man wirklich so wenig Verschnitt hat.
+
+R:
+Aber wir lassen die Zeilen mit verschiedenen Kreisen an verschiedenen Stellen gleichgeistig wachsen. Und dann treffen sie uns irgendwo und dann haben wir so eine Zellenstruktur. Und hat jetzt noch einen Namen. Aber das weiß ich jetzt nicht mehr.
+
+Moderation:
+Okay, dann muss ich noch was ansprechen, was ihr auch schon so ein bisschen eingefallen habt. Wenn ich so Aktionen auf Knoten, also zum Beispiel abhaken oder was auch immer. Ich würde davon nochmal explizit fragen, ob ihr da irgendwelche Aktionen besonders haben wollt. Wie man die vielleicht auch darstellen könnte.
+Also da kann ich nicht mal anfangen mit dem Knoten anzuhaken, wie würde sich das darstellen lassen.
+
+M:
+Also ich kann mir dann vorstellen, dass wenn ich mit dem Knoten antippe, dass ich die irgendwie so eine Ansicht eröffne, wo ich wahrscheinlich, also ich würde Text erwarten, wo es vielleicht etwas entsteht.
+Und dann kann ich mir irgendwie in die Ecke etwas abhacken. Also in der Ecke, wo ich es irgendwie erwarten kann.
+Ich will es nicht nur binär machen zu können, sondern auch zu zeigen, ich muss mich noch anschauen, habe ich ganz fertig, habe ich zusammengemacht, ich versuche etwas verschiedene, also das ich den Status eher festlegen kann als nur irgendein Anhacken.
+
+N:
+Direkt dazu, ich würde gerne diese Keywords vergeben können. Und dann die Suche dazu, das wäre praktisch.
+
+R:
+Es gibt ja nur zwei verschiedene Arten. Das abhaken. Also entweder ich weiß schon, okay, das habe ich alles schon gemacht. Also ich würde schnell irgendwie abhaken. Zack, zack, zack, zack, zack, zack. Und bei anderen Sachen würde man sich erst mal reinschauen und sagen, okay, was ist denn das überhaupt? Worum geht das? Da habe ich das, da kann ich das wirklich schon. Und das heißt, da muss ich jetzt irgendwie aber auch den Content besser sehen, die Erklärung, was ist denn das, damit ich eine Entscheidung treffe, die kann man abhaken.
+
+A:
+Man kann dich da jetzt unterbrechen, also als Todo-Liste. Für den Knoten müss ich mir Kapitel 7 von dem Buch durchlesen, die zwei Videos anschauen und die Übungsart, die man anschaut. Und dann machen wir es vielleicht, ob es abhackt, also so wie issue-mäsig. 
+
+M: Also man fragt einfach die einzelnen Schüsse, und dann wird es ja ganz einfach gemacht.
+
+A:
+Genau, genau. Und vielleicht haben wir es ja vorher schon kapiert, also keine Ahnung. Aber das würde mir gar nicht nur mal helfen,
+ da kann man ja selbst noch etwas machen zumindest.
+
+R:
+Also im Prinzip, wenn ich einen Test mache, könnte man ja automatisch das abhaken. Also, wenn ich die Kursur bestanden habe, dann werde ich das schon können. Dann machen Sie das einfach auf einmal, dann kann man sich markieren.
+Zumindest vielleicht anders, als ich es persönlich denken würde. Also nicht ja, ich habe es verstanden, aber es wurde abgeprüft, dass ist zumindest ein bisschen anders ausgedrückt.
+
+A:
+Ja, aber jetzt war es nur die Klasur-Bewertung, das war nur die einzelne Aufgabe der Klasur. Wenn ich jetzt gesagt habe, wir hab einen dreier in der Klausur gehabt, in Computer-Grafik, und ich habe auch die ganzen,
+alles, das ist mit Transparenz zu tun, hast du mir modeliert. Und dann hat einen Aufgabe einen Haken gekriegt, die ich nicht gekonnt hab.
+
+M:
+Na ja, vielleicht ist der Haken dann... Also, vielleicht ist es dann eben so, dass er etwas gewissen Status hat und hat einen so einen Haken, so dass du das quasi nicht verstanden bist. Aber das ist auf jeden Fall schon mal gesehen hast. 
+
+N:
+Beziehungsweise, es wäre eigentlich ganz cool, wenn man irgendwie einen persönlichen Progress-Haken hat
+und irgendwie einen offiziellen...
+
+A:
+Ja, oder so, wenn ich es abhacke, wenn ich gerade lerne, so, okay, das habe ich schon gelernt und dann kann ich es halt selber abhaken und muss nicht warten, bis mir da der Knoten eingetragen wird, dass es auch geil.
+
+V:Ich kann mir auch was abhacken und in der Klausur stell ich dann fest, oh...
+
+R:
+Also eigentlich, da sind wir wieder über die Verknüpfen. Eigentlich würde ich sagen, ich habe eine Verknüpfung. Ja, quasi kann ich. Und da sage ich, dass ich das kann. Beziehungsweise da sagt jetzt die Prüfung, dass ich das kann.
+
+A:
+Und da gehen so zeitliche Kompetenzen dazu. Weil ich habe in meiner Bachelorarbeit bloß über Quaternionen geschrieben. Das kann ich nicht. Irgendwann habe ich das mal so gut gekannt, dass ich in meiner Bachelorarbeit den Kapitel drüber schreiben kann. Aber das habe ich dann wieder vergessen, oder?
+
+R:
+Stimmt, also wenn die verblassen, über die Zeit, das wäre natürlich anders. Wie die Trello-Karten.
+
+M:
+Ja, der Hacken verblasst nach und nach. Oder der Knoten ist erst ausgekraut und kommt dann wieder zurück.
+
+V:
+Du musst den Knoten gießen.
+
+M:
+Ja, also drei Jahre später ist er wieder so ganz da. Aber wieder Gammification.
+
+A2:
+So ein Garten, da wachsen dann Ranken um den Knoten und die musst du ist wieder entfernt.
+
+M:
+Ja, oder dann ist wieder dieses mit dem Karteikasten-mäßigen, so ab und zu plop mal wieder Sachen auf und schau dir doch mal wieder an und dann ist der Knoten wieder ausgekraut und so. Wobei vielleicht will ich das ja auch gar nicht. Vielleicht will ich die Sachen ja auch immer wieder vergessen dürfen. 
+
+R:
+Das stimmt, also du kannst ja auch gar nicht alles dauerhaft behalten. Also insofern ist ja vielleicht dann wieder, vielleicht ploppt nur das Zeug häufiger auf, das auch wirklich zentral ist. Wo du sagst, dass wäre ja ganz gut dass noch zu wissen.
+
+A2:
+Ich finde es interessant, dass man selber gucken kann, was man gelernt hat und dann muss es ja nicht sein, dass der ganze Graphen abgehakt sein sollte, sondern man will sich ja auch eher spezialisieren auf ein paar Sachen. Das ist ja genau das Coole daran, dass man halt so seine Klasse irgendwie mitmachen kann. Also es wurde auch schon angesprochen, wenn ich dann am Ende da sitzen würde und mein ganzer Graphen abgehakt, mit Haken, die vielleicht so eine halbe Bedeutung haben, von dem was es eigentlich ist, dann ist jetzt schön alles abgehakt, aber eigentlich will ich da ein bisschen wohl spezialisiert drauf werden und es wird eigentlich vielen, manche mal alles abhaken.
+
+M:
+Ich stelle es mir, es ist gerade konkret auch in der Medieninformatik als schwierig vor, was jetzt ein Projekt angeht. Ich habe ja wahrscheinlich, keine Ahnung, ich habe vielleicht eine Vorlesung gehabt, dann habe ich gewisse Sachen gelernt und mit denen habe ich mich nicht mehr beschäftigt, wenn ich in der Vorlesung war, aber was ich da in dem Projekt mache, ist dann ja teilweise ziemlich individuell, also welche Knoten sich da wieder für mich irgendwie abhaken könnte.
+Also keine Ahnung, habe ich jetzt fpr die Datenbank zuständig oder habe ich nicht eine neue UI gemacht oder so. Und das weiß ich auch noch, das könnte zu einer Prüfung am Ende ja gar nicht irgendwie abhaken. Mir was war jetzt in meinem Projekt alles drin, was habe ich denn gemacht? Das müsste ich, glaube ich, selbst, also müsste ich auf jeden Fall ja das selbe machen.
+
+R:
+Eine Prüfung ist das Schwächste, was du quasi so nachher hast. Aber ich meine, Prüfung ist formal, also formal bescheinige ich dir ja quasi, wenn du diese Klausur bestanden hast, dass du das kannst, also für die Zielgruppe, nämlich irgendwie theoretisch, also die theoretische Zielgruppe, ein Arbeitgeber oder so was?
+Würde ich das ja, also ja, habe ich ja eh keine bessere Auslösung eigentlich. Aber ich meine, das ist natürlich am Schluss, dass ich so ein Portfolio auch habe. Also, dass ich sagen kann, hey, die Bearbeitgeber, das habe ich so wie ein GitHub-Portfolio. Kann ich ja auch so, ja, so eine Liste haben mit Knoten, das kann ich sagen, das ist durch Prüfungen. Das habe ich mir selber, so stelle ich mich selber ein.
+
+M:
+Aber dann müsste ich auf jeden Fall die Möglichkeit haben, auch selbst die mit Knoten hinzuzufügen, gerade für Projekte, wo man ja total viele Sachen lernt, die man eben im Kurs nicht gelernt hat. Das ist irgendwie klar.
+
+R:
+Ja, vor allem auch Soft-Skills oder solche Zeug, das noch drin ist, stimmt.
+
+M:
+Ja, oder keine Ahnung, ich entscheide mich halt dann irgendwie für ein, was weiß ich, für ein UI Frameback oder so. Das ist ja wahrscheinlich eins, was ich jetzt wahrscheinlich noch gar nicht benutzt habe. Sondern ich treffe halt im Team für das Projekt jedenfalls, benutzen das. Und dann lerne ich das wahrscheinlich ja auch.
+
+R:
+In dem Idealfall ist es ja tatsächlich so, spätestens irgendwie im Master, dass du selber auf neue Sachen stößt, auf die vielleicht der Dozent auch noch nicht gekommen ist.
+
+A:
+Was da voll nett ist, wenn man jetzt ein Bachelorarbeitsthema aussucht, dass man dann mal schauen kann, wie sehr match my skillset, das ich schon habe, dem Thema. Was muss ich vielleicht noch als Grundlagen mir aneignen? Was wird wahrscheinlich im Verlauf der Arbeit noch dran kommen? Da steht fest, ich muss eine basische Analyse machen zum Schluss meine Daten. Das wollte ich am besten nicht feststellen, wenn ich zwei Wochen vor Aufgabe bin und mir denke, jetzt wollen wir schon mal auswerten.
+
+M:
+Seien wird doch mal realistisch, dass würde troztdem so passieren oder?
+
+A:
+Ja, ja. Aber dann könnte ich vielleicht als Wiki gehen, oder nicht als Wiki, sondern in Bachelorarbeitsauschreibungsgraphe und da sind die ganzen Themen da und dann heißt es so, ey, das Thema, das ist glaube ich genau dein Thema. Das ist dann so, das sind die Themen, da siehst du, wieviel du davon von den Vorkennnissen. So ein Venn-Diagramm.
+
+M:
+Ja, aber da müssen die Themen super detailliert ausgeschrieben sein.
+
+R:
+Ja, da musst du quasi da auch einen Knoten haben, das ist das Thema und das hängt ab von den Vorkennnissen.
+
+M: 
+Aber da musst du den Leuten auch vorgeben können, keine Ahnung, du musst dann am Ende so eine Auswertung machen. Will man das vorgeben bei der Bachelorarbeit oder soll die Leute das eigentlich selber checken?
+R:
+Das ist, ja, dass kann sich ja auch noch ändern im Laufe der Arbeit.
+
+N:
+Kann ich dann auch die Bachelorarbeit nur machen, wenn ich matche, oder?
+
+R:
+Das hilft vielleicht beim Entscheiden. Das ist hilft bei der Beratung.
+
+M:
+Oder bei der Überzeugung, ja.
+
+R:
+Beziehungsweise ja, du kannst ja dann auch schauen, quasi welches Thema, also was könnte man denn noch für ein neues Thema machen, das so ähnlich ist, wie eines, das existiert, das Früheres quasi. Aber wenn du jetzt ein eigenes Thema suchst, dann siehst du quasi, okay, da gab es schon solche Sachen.
+
+N:
+Leute mit ähnlichen Kenntnissen.
+
+R:
+Oh, Menschmaking, wer ist denn so ähnlich wie du?
+
+A:
+Die besten Medieninformatik-AbsolventInnen haben folgende Skills gehabt.
+
+R:
+Ja, oder auch für Projektgruppen, dass du siehst, okay, mit denen...
+
+M: 
+Also, dass fände ich ganz furchtbar.
+
+R: Aber so bein dem binären, also das kann ich, kann ich nicht, seltens funktioniert. Man muss da eine Balance finden. 
+
+M:
+Vielleicht mit einem Tag setzten. 
+
+A2:
+Vielleicht auch son einen Zahl, also nichts binäres, sondern halt die sich einfach erhöht von 0 bis
+unendlich. Und das, klar, wenn wir dann nicht auf jede Knoten draufklicken, dass man den jetzt einmal wieder gemacht hat, sondern es muss halt irgendwie automatisch durch Prüfungen, durch Studienleistungen, durch Projekte, dass man praktisch solche Sachen als Quest irgendwie macht. Und dann kriegt man dort die Punkte automatisch.
+
+R:
+Beziehungsweise zählst du dann quasi vielleicht einfach die Tags. Also dass du sagst, ok, jedes Mal wenn du dich dann beschäftigst, was fürn Tag habe ich mir angeschaut. Oder wenn du sagst, habe ich programmiert, dann machst du noch ein, habe ich programmiert Tag.
+Und dann am Schluss zählst du und dann kannst du halt auch filtern und sagen, gib mir doch alle, wo ich wirklich praktische Erfahrungen habe, oder habe ich programmiert, oder alle wo es geprüft war oder so was, da kann man vielleicht die Bloom-Types oder so mit reinnehmen, also um eine Idee zu haben, welche Tags man vorschlagen könnte.
+Es macht nämlich durchaus mehr Sinn, dass wir erlauben auch dieses, wird aber automatisch, genau, da kann ich mir eben sagen, ist automatisch abgeprüft worden, genau, in irgendeinem Übungssblatt oder so, das kann ich dann unterschiedlich werten, je nachdem was mein Ziel ist bei der Analyse.
+
+Moderation:
+Dann wäre es das jetzt eigentlich, falls ihr noch irgendetwas hinzufügen wollt.
+
+R:
+Was
+ ich gerade noch einhacken wollte, ist die Gamification vielleicht irgendwie spannend. Vor allem um zu motivieren so motiviert oder so. Das ist ja irgendwie was Schönes, wenn ich irgendwo fertig bin oder so.
+Das ist greifbar, dass ich irgendwie so, ich weiß nicht wie, aber an der Stelle würde ich auch sagen, gerade da würde ich dann eine, keine Ahnung, eine Animation oder so, ich weiß alles nicht, ein Sound-Effekt.
+
+M:
+Ich glaube für mich wäre noch ein Problem, wie ich gerade, dass ich den Graf irgendwie immer da habe oder so,
+weil ich keine Ahnung, welches Studio ich leiste und programmiere, es ist vielleicht das erste, wo ich dran denke, dann zu sagen, so, ah ja, jetzt habe ich einen API-Call programmiert. Ka-ching. Also so, ich weiß nicht, wie passiert sowas irgendwie. Also klar, wenn ich in der Prüfungsverbreitung bin, dann hagel ich mich vielleicht im Graf entlang, weil da die Norizen drin sind. Aber wenn ich jetzt so am programmieren bin oder so, dann werde ich halt keine Ahnung, dann werde ich vielleicht meine Angabe irgendwie offen und sonst werde ich aber irgendwie Zeug rum googeln. Ich weiß nicht, vielleicht ist die Angabe ja im Graf drin und dann habe ich das da oder? Also weiß ich nicht. Irgendwie sowas wäre noch für mich eine Frage, wie hat man die denn überhaupt da?
+
+R:
+Ja. Also es muss ja irgendwie schon da sein, dass sobald du das machst, dass es gleich irgendwie, dass du vielleicht sagen kannst, ach, das habe ich jetzt gemacht, ohne dass du da ewig lang rumwechseln musst.
+
+M:
+Ja, genau. Ich will das auch nicht von meiner IDE immer rüber und zu sagen so, fang mehr, fang mehr, fang mehr. Außer vielleicht ist es wirklich in der Angabe, wenn wir jetzt noch so spezifisch wie am Anfang bei den Übungsblättern, da kann ich das erfahren, wo ich die Aufgabe gemacht habe, keine Ahnung.
+
+R: Oder es ist integriert irgendwo da, wo ich gerade bin. Also das ist in die IDE integriert, und nicht so als Tab irgendwie noch so. Oder in der TODO, also irgendwo, wo was eh da ist.
+
+A:
+Aber halt automatisch im Hintergrund. Du hast gerade das erste Mal geschafft, dass du in Seaborn einen Barchart gemacht hast, ohne in der Doku nachzuschauen, wie es geht.
+
+M:
+Hätte ich nie abgehakt.
+
+A:
+Genau, jetzt hast du es wirklich kapiert. Da wollen wir ja hin, oder?
+
+M:
+Das man nicht mehr nachschauen muss.
+
+A:
+Verstanden hat mans, glaub ich, wenn...
+
+M:
+Da will ich nicht hin. Jedes Mal, wenn die Programmiersprache wieder wechseln, gucke ich wieder nach.
+Da gucke ich mir an, wie in der Sprache die For-schleifen aufgebaut werden.
+Also, wahrscheinlich bist du da fitter, aber für mich ist das jetzt kein Markel, wenn ich Sachen googeln muss.
+
+A:
+Nein, überhaupt nicht. Also da will ich jetzt gar nicht widersprechen, aber ich habe festgestellt, vor zwei Jahren habe ich einige Sachen, was Pandas und Seaborn konkret angeht, die habe ich noch googelt
+und die google ich jetzt nicht mehr. Andere Sachen google ich immer noch.
+
+A2:
+Das, was ich meine, ist, dass das abhaken, klar, rein praktisch muss man wahrscheinlich irgendwie etwas abhaken, aber selbst der engagierte Student oder sonstiges, der sehr gut organisiiert ist wird erstens vergessen, Sachen abzuhaken, weil die Suchfunktion vielleicht nicht da. Das darf man nicht den Studenten aufbinden, wenn es wirklich richtig geil sein soll, dass die Leute das auch hernehmen.
+Sondern es ist halt irgendwie Aufgabe der Lehre, dann die Übungsblätter oder so halt so zu definieren, vielleicht, dass die halt auch Abhängigkeiten oder im Grafen halt mit dem Grafen verknüpft sind, dass diese Aufgabe gemacht hat, dass das dann zu den Grafen beinträgt, weil sonst wird das honestly keiner verwenden, oder wenn du es vergisst für eine Woche, dann ist die Motivation dahin.
+Und es muss auch irgendwie einigermaßen auch funktionieren, selbst wenn man gar nichts macht. Wenn man nie irgendwas selber abhakt, das ist denk ich zumindest, sonst wenn ich die Leute so kenne.
+
+M:
+Ja, ich glaube so ein Low-Level funktioniert jetzt gut. Also im Android-Kurs zum Beispiel, es ist gerade so, wir haben ja eh ein ab, hast du das Übungsblatt gemacht. Und da ist ja gerade ganz klar, was hast du da gemacht, damit es gut funktioniert. Aber ich denke, gerade später, wenn es einfach in größere Projekte geht und man sich über den Team überlegen muss, was machen wir jetzt, was sind die Sachen, die wir brauchen und so.
+A2:
+Projekte sind eine Sache, also diese, ich weiß nicht, die normalen Kurse, wo du halt auch zwischendurch solche Übungsaufgaben und so weiter hast. Ich denke, da kann man schon viel machen, aber es ist natürlich dann auch,
+ja man muss jetzt nicht nur das Übungsblatt erstellen, sondern man muss das auch noch mit dem Grafen verknüpfen und dann ist halt da die Arbeit. 
+Aber da macht wenigstens dann eine Person einmal die Arbeit für ein Übungsblatt und nicht 20 Leute jedes Semester einzeln für sich am Graf und das kostet viel mehr Zeit, die dann draufgehen wird, wenn das jeder selber machen müsste.
+
+N:
+Und da, wenn man bei GRIPS-Blatt abgibt, dann wird das ja auch abgehackt da automatisch.
+
+A2:
+Ja schon, aber die einzelnen Konzepte im Grafen, die müssen damit verknüpft werden.
+
+R:
+Also das kann ich natürlich sagen, teilweise im Bewertungsding jetzt, aber da kann ich ja auch nur sagen, ich glaube als Dozent, du hast das jetzt geschafft oder verstanden. Das ist eine andere Einschätzung als die, die du selbst hast. So eine Art Prompting oder so was, also diesen Zwang, das anzugeben.
+Beispielsweise bei der Abgabe, dass du sagen musst, okay, hier fünf Kernthemen, die offensichtlich jetzt dran waren, wie gut hast du die verstanden oder so was, deiner Meinung nach.
+Dass du das irgendwie noch so angeben musst quasi, dass du ein bisschen gezwungen bist, das ist eine Option.
+Oder halt eben tatsächlich auch dieses Aufploppen quasi, Hey, hast du das verstanden, hast du das verstanden, hast du das verstanden?
+Irgendwie sowas, dass du nicht selber danach suchen musst.
+
+A2:
+Ja, und das mit dem Verstehen ist halt auch wieder so eine Sache. Ich denke oft, dass ich Sachen verstehe, dann kommt die Mathe Klausur und die hab ich komplett verkackt. Keine Ahnung.
+Und dann, ja, also ich als Student aus meiner Perspektive den Übungsblatt kriegen und wenn ich das mache, okay, dann habe ich es vielleicht manchmal auch nicht perfekt geschafft oder so. Und dann habe ich trotzdem irgendwie überall die Sachen abgehakt. Aber das Abhaken bedeutet ja nicht, dass ich es perfekt verstanden habe, sondern vielleicht ist der Tag oder den Punkt, den man kriegt, nicht completed, sondern hat mal gemacht.
+Das muss ja nicht perfekt sein. Und dann habe ich zumindest am Ende, wenn ich die ganzen Übungen gemacht habe, trotzdem irgendwo bestimmte Häufchen an Punkten.
+Und auch wenn jetzt nicht mehr sehr aussagenkräftig sind oder nicht wirklich perfekt widerspiegeln, muss ich wenigstens nichts machen, um die zu kriegen, sonst muss ich noch alles abhaken.
+Ja, ich finde es cool, die Grafen, die würden es wahrscheinlich machen. Ich würde es aber auch vergessen und 90 Prozent der anderen Leute, die würden es nicht interessieren. Also die würden es nicht machen, honestly, die würden es einfach nicht machen und dann hat es halt, ja, ansonsten, wenn irgendwelche Prompts kommen, dann drücken die Leute Enter, Enter, Enter, Enter. Die sind ja teilweise auch im Programmieren oder an sonstigen Sachen schon nicht so interessiert und machen es halt dann, oh, nervige Übungsaufgabe, und jetzt muss ich noch in dem Grafen da was abhaken und so, keine Ahnung, das ist halt, so denke ich mir jetzt das, aber vielleicht ist das ein bisschen pessimistisch, aber das ist halt schlecht.
+
+R:
+Das ist ja schon eine herangehensweise, dass ich sage, okay, ich mache es über automatisierte Tests.
+Ich biete aber auch ein schönes Interface für Leute, die das jetzt selber machen wollen, weil du lernst ja auch manchmal Sachen, die nicht abgeprüft werden. Und ich mache da nochmal Gamification, kann ich mal mit draufschmeißen, und ich kann vielleicht auch Leute dazu zwingen, je nachdem, wo sich es gerade anbietet.
+
+A:
+Aber ich glaube, es ist schon, es ist beides wichtig. Ich stimme [...] völlig zu, aber es kann sein, dass er das Übungsblatt unbedingt braucht um zur Klausur zugelassen werden wollte, und da hat mir die Mitbewohnering
+manchmal geholfen bei der Aufgabe, dass es abgehakt wird, dass ich das kann, aber eigentlich bin ich komplett blind, und da ist der Hacken halt auch für mich falsch. Das weiß ich. Deswegen wollte ich das vielleicht korrigieren können, damit dann bestimmt irgendwann in der nahen Zukunft mir das dann doch mal aneignen kann.
+
+R:
+Ja, aber das ist ja auch das, wo wir entscheiden können quasi, wer hat jetzt dieses Tag verstanden gesetzt? Hat das jetzt ein automatisches System, hat das ein Dozent ganz bewusst gesetzt oder habe ich das persönlich gesetzt? 
+
+M:
+Ja, ich denke halt für sowas wäre es einfach auch wichtig, dass, also wenn es so ein System gäbe, dann müsste der Graf halt auch irgendwie alles sein. Also dann ist der Graf irgendwie, und da ist dann, es gibt keinen GRIPS zusätzlich, vielleicht gibt nicht mehr FlexNow zusätzlich, keine Ahnung, aber das müsste alles da drin sein. Und das ist mein Hauptding, sowohl für die Orga als auch als Studis an den Kram zu kommen.
+Und das ist nicht so etwas, was ich mir nebenher pflege.
+
+R:
+Du arbeitest schon nur in diesem Teil. Da sind alle Materialien drin, alle Tests, alle Personen.
+
+M:
+Aber dann kriege ich auch wirklich mal über meine Studienleistung, kriege ich mein Übungsbettler, keine Ahnung. Also sowas wie Abhaksachen, das müsste da irgendwie drin sein. Weil wenn ich das dann wieder von Hand übertragen müsste, okay, ich habe es jetzt das Übungsblatt bestanden, also darf ich mir die fünf Sachen abhaken?
+
+N:
+Da wäre ich dagegen.
+
+M:
+Echt?
+
+N:
+Aus persönlicher Präferenz.
+
+M:
+Ja, das ist vielleicht eine andere Frage. Das ist vielleicht
+ nicht optimal.
+Aber ich glaube, wenn man es benutzen würde, dann müsste es irgendwie das System sein. Wo alles drin ist.
+
+R:
+Die Frage ist, wie das Rotet ausschaut, quasi. Also ich glaube, da müsst ihr nicht immer mit so einer Ansicht arbeiten, genau. Und was quasi die Datenstruktur ist, das ist ein grundlegendes technisches Problem,
+ist natürlich die Frage, wer hat vielleicht den Zugriff auf was und wie habe ich meinen persönlichen Graf, den ich vielleicht auch mitnehmen kann, weil ich will ja nicht zwingend an eine Uni gebunden sein und das nur die,
+deshalb soll ich meine Sachen auch irgendwie selber ja auch haben. Also ich will aber auch nicht, dass alle meine Kommilitonen sehen, was ich meine, dass ich verstanden habe.
+Also die persönlichen Sachen willst du eigentlich schon persönlich halten.
+
+N:
+Vielleicht mit Optionenauch freischalten, wenn es mich jetzt voll motiviert, immer zu sehen, was [...] gerade alles kann und was [...] nicht verstehen kann. 
+
+R:
+Oder auch so Endorsements quasi. Ich finde eigentlich, der kann das schon ganz gut sein.
+Das weiß er nun gerade, aber ich finde, das kann er.
+
+A:
+Ich glaube, der schaut so aus.
+
+M:
+Wenn er so anruf, kommen so Gruppenanfragen. So willst du heute was zusammen machen.
+
+R:
+Ja, oder dann das Matching, dass du es quasi hättest, ja?
+
+A:
+Ja, Matching ist ja nicht bloß ein Skill, sondern halt auch so irgendwie Sympathie.
+
+R:
+Ja, dann müssen wir halt auch soziale Skills.
+
+A2:
+Vielleicht kannst du ja sagen, das ist die Persönlichkeitsgruppe noch drin ist.
+
+M:
+Ja, ich würde ein Sternzeichen noch angeben.
+
+A:
+Das Sternzeichen ist das wichtigste Teil.
+
+R:
+Ja, es muss ja nicht nur Unizeug sein. Man kann ja auch persönliches einspeisen.Du kannst ja auch sagen, wie gut kannst du Spaghetti kochen oder so.
+
+A:
+Dann gibt es ja noch ein kleines Pop-Up: Wie wär's mit Duschen?
+R:
+Du hast zwischendurch länger nicht mehr abgeholt oder was?
+Oder wie nett oder so. 
+
+M:
+Also, so Ratings für andere Gruppen machen.
+
+A: Bist du zufrieden.
+
+Moderation:
+Ja, ihr habt viele gute Dinge gesagt. Danke, dass ihr mitgemacht habt.
+
