@@ -1,0 +1,46 @@
+/* maximize root, body and app */
+html,
+body,
+#app {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	/*outline: none;*/
+}
+
+/* ---- SIDE BAR ---- */
+
+.sidebarBase {
+	z-index: 1;
+}
+
+#menuBtn {
+	content: url("../global/icons/menu-rounded.svg");
+	width: 25px;
+}
+
+#sidebar {
+	height: 100%;
+	width: 25%;
+	display: none;
+	z-index: 1;
+	position: fixed;
+	background-color: white;
+}
+
+#hotlist {
+	/*height: 100%;
+	width: inherit;
+	display: inherit;
+	background-color: inherit;*/
+	overflow: scroll;
+}
+
+.hotlist-item {
+	padding: 5px;
+	padding-left: 5px;
+	margin: 2px;
+	background-color: whitesmoke;
+}
