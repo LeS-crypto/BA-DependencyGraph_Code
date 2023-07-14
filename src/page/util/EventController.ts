@@ -11,6 +11,8 @@ export class MenuEventController {
     private readonly $toggleBtn1 : HTMLInputElement;
     private readonly $toggleBtn2 : HTMLInputElement;*/
     private readonly $menuBtn : HTMLDivElement;
+    private readonly $toggleNodes : HTMLElement;
+    // private readonly $closeBtn : HTMLDivElement;
     private readonly $hotlist : HTMLElement;
     private readonly $app : HTMLElement;
     private readonly $cy : any;
@@ -24,6 +26,8 @@ export class MenuEventController {
         this.$toggleBtn2 = document.getElementById("toggle2") as HTMLInputElement;*/
         this.$app = document.getElementById("app") as HTMLElement;
         this.$menuBtn = document.getElementById("menuBtn") as HTMLDivElement;
+        this.$toggleNodes = document.getElementById("toggleNodes") as HTMLElement;
+        // this.$closeBtn = document.getElementById("closeBtn") as HTMLDivElement;
         this.$hotlist = document.getElementById("hotlist") as HTMLElement;
         this.$initListeners();
     }
@@ -31,6 +35,8 @@ export class MenuEventController {
 
     private $initListeners() {
         this.$menuBtn.addEventListener("click", this.onMenuClick);
+        this.$toggleNodes.addEventListener("click", this.onMenuClick);
+        // this.$closeBtn.addEventListener("click", this.onMenuClick);
         this.$hotlist.addEventListener("mouseover", this.onMouseOver);
         /*this.$dropBtn.selectedIndex = 0; // Change Dropdown back to default value
         this.$dropBtn.addEventListener("change", this.onLayoutChange);
@@ -42,7 +48,7 @@ export class MenuEventController {
     // ---- EVENTS ----
 
     private onMenuClick = (e:MouseEvent) => {
-        eventBus.emit("onMenuClick");
+        eventBus.emit("onMenuClick", e);
     }
 
     private onMouseOver = (e:MouseEvent) => {

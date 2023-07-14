@@ -1,4 +1,4 @@
-import cytoscape, { LayoutOptions, NodeDefinition } from "cytoscape";
+import cytoscape, { LayoutOptions } from "cytoscape";
 import fcose from "cytoscape-fcose";
 import spread from "cytoscape-spread";
 import layoutUtilities from "cytoscape-layout-utilities";
@@ -8,8 +8,8 @@ import * as layoutOptions from "../design/graphLayout";
 import { GraphEventController, MenuEventController } from "../util/EventController";
 import { MenuController } from "../util/MenuController";
 import { eventBus } from "../../global/EventBus";
-import EIMI from "../data/eimi.json";
-import { COURSES, EDUCATORS } from "../data/courseData";
+//import EIMI from "../data/eimi.json";
+//import { COURSES, EDUCATORS } from "../data/courseData";
 import { StyleController } from "../util/StyleController";
 import viewUtilities from "cytoscape-view-utilities";
 import { LayoutController } from "../util/LayoutController";
@@ -71,8 +71,8 @@ export class GraphViz {
     private initMenuEvents() {
         const menuController = new MenuController();
         new MenuEventController();
-        eventBus.on("onMenuClick", () => {
-            menuController.openSideBar(this.cy);
+        eventBus.on("onMenuClick", (e:any) => {
+            menuController.onMenuClick(this.cy, e);
         });
         // TODO:
         /*eventBus.on("onMouseOver", e => {
@@ -117,9 +117,15 @@ export class GraphViz {
         } else if(target.hasClass("course") && !this.willEnter) {
             console.log("leave course");
             this.leaveCourse()
-        } else { // if clicking normal node
-            console.log("connecting");
+        } else if(this.willEnter) { // if clicking normal node
+            console.log("enter and show connected");
+            const course = this.cy.$id(target.data("course"));
+            console.log(course);
+            this.enterCourse(course)
             this.showConnected(target);
+        } else { // if clicking normal node
+            console.log("show connected");
+            this.showConnected(target);  
         } // TODO: what if clicking normal node bevore entering ? 
 
     }
@@ -129,8 +135,6 @@ export class GraphViz {
     // TODO: layout course + hiden nodes, when enter 
         // -> hidden nodes are not layouted well, make graph unreadable -> therfore layout conencted
     private enterCourse(target:any) {
-        if(!this.willEnter) this.leaveCourse();
-
         const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
         this.layoutController.layoutCourse(courseNodes);
 
@@ -152,24 +156,26 @@ export class GraphViz {
 
     private showConnected(target:any) {
         const connected = this.getConnected(target);
-        //this.layoutInstance.placeHiddenNodes(connected);
+        this.layoutInstance.placeHiddenNodes(connected);
 
         const hide = this.cy.elements().not(connected)
             .filter("[[degree <"+ this.visibleDegree + "]]");
         //styleEdgesAndNodes(true, connected, ["ghost", "hide-edges"]);
         hide.nodes().addClass("ghost-internal");
-        hide.connectedEdges().addClass("hide-edges"); // only works with connectedEdges()
+        hide.connectedEdges().addClass("ghost-edges"); // only works with connectedEdges()
 
-        styleEdgesAndNodes(false, connected, ["ghost-internal", "hide-edges"]);
+        styleEdgesAndNodes(false, connected, ["ghost-internal", "ghost-edges"]);
 
         connected.layout(layoutOptions.fcoseCourse).run();
+        //this.cy.layout(layoutOptions.fcoseCourse).run(); // makes very wide layout
         // Adjust zoom level
     }
 
     // ?? TODO: only get all connected, if the collection isn't too big
     private getConnected (target:any) {
-        target = target.union(target.predecessors());
-        target = target.union(target.successors());
+        const course = target.data("course")
+        target = target.union(target.predecessors(course));
+        target = target.union(target.successors(course));
         return target;
     }
 

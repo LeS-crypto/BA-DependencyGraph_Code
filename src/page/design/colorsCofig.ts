@@ -14,6 +14,7 @@ export const hoverColors = {
     hover: "#40a052",
     hover2: "#39F28C",
     incoming: "#F3712B",
+    incoming2: "f26419",
     outgoing: "#465e95",
     outgoing2: "#334e8a",
     resource: "998236", // Change

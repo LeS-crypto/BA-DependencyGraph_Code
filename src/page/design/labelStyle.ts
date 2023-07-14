@@ -36,7 +36,7 @@ const getOpacityIn = (edge:any) => {
 }
 
 /* ---- STYLESHEET ---- */
-export const style: Stylesheet[] = [
+export const labelStylesheet: Stylesheet[] = [
     // NODES:
     { selector: 'node',
     style: { // Show node with label
@@ -44,11 +44,18 @@ export const style: Stylesheet[] = [
         'text-wrap': 'wrap', //wrap text on second space
         "text-max-width": '150',
         //'border-color': "#666",
-        'width': nodeSize,
-        'height': nodeSize,
+        'width': 1,
+        'height': 1,
+        //'background-blacken': -1,
+        //'shape': 'rectangle',
+        'text-halign': 'center',
+        'text-valign': 'center',
         //'padding-relative-to': 'min', // ?
-        //'z-compound-depth': 'top',
+        'z-compound-depth': 'bottom',
+        'text-background-color': nodeColors.lightgrey2,
+        'text-background-opacity': 1,
         'text-background-padding': '5',
+        'text-events': 'yes',
         }
     },
     // hide nodes
@@ -202,8 +209,8 @@ export const style: Stylesheet[] = [
     // COURSES:
     { selector: '.course',
         style: {
-        'width': courseSize,
-        'height': courseSize,
+        'width': 1,
+        'height': 1,
         'background-blacken': 0.5,
         'label': 'data(label)',
         'events': 'yes',

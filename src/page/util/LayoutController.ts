@@ -55,16 +55,21 @@ export class LayoutController {
 
         //this.styleController.ghost(true, notDisplayed); // hides all edges
         //this.api.placeHiddenNodes(notDisplayed);
-        notDisplayed.addClass("ghost");
+        
+        notDisplayed.nodes().addClass("ghost");
         notDisplayed.connectedEdges().addClass("ghost-edges");
+
+        //TEMPORARY: for empty course nodes;
+        this.cy.elements(".course").removeClass("ghost"); 
 
         //this.api2.hide(notDisplayed);
 
-        this.api.placeHiddenNodes(notDisplayed); // assumes pre-calculated layout
+        //this.api.placeHiddenNodes(notDisplayed); // assumes pre-calculated layout 
 
     }
 
     public layoutCourse(courseNodes:cytoscape.Collection) {
+        // BUG: doesn't display empty courses;
 
         const course = courseNodes.filter(".course");
 
@@ -74,6 +79,7 @@ export class LayoutController {
 
         // hide the rest of the nodes -> ? temporarily remove ?
         this.cy.elements().not(courseNodes).addClass("hide");
+        this.cy.elements(".course").removeClass("hide");
         // do I need a second layouting ?
 
         //this.cy.layout(layoutOptions.fcose).run();
@@ -112,6 +118,7 @@ export class LayoutController {
         eimiData.data("course", "eimi");
 
         this.cy.add(EDUCATORS);
+
     }
 
     /**

@@ -1,15 +1,20 @@
+import cytoscape from "cytoscape";
 import { eventBus } from "../../global/EventBus";
 import { MenuEventController } from "./EventController";
+import {style} from "../design/graphStyle";
+import { labelStylesheet } from "../design/labelStyle";
 
 export class MenuController {
 
     private readonly cy : any;
     //private readonly container : HTMLElement;
+    private openMenu : boolean = true;
 
     constructor(
         //cy : any,
         //container : HTMLElement,*/
     ) {
+        //this.populateSidebar(this.cy);
         //this.cy = cy;
         // this.container = container; */
         //this.initMenuEvents();
@@ -22,13 +27,48 @@ export class MenuController {
 
     /* ---- EVENT FUNCTIONS --- */
 
+    public onMenuClick(cy:any, e:any) {
+        console.log(e.target.checked);
+        /*if(this.openMenu){
+            this.openSideBar(cy);
+            this.openMenu = false;
+        } else if (!this.openMenu) {
+            this.closeSideBar(cy);
+            this.openMenu = true;
+        } else if (e.target.id() == "toggleNodes") {
+            this.toggleNodes(e.target.checked(), cy);
+        } */
+        this.toggleNodes(e.target.checked, cy);
+    }
+
     public openSideBar (cy:any) {
         const sidebar = document.getElementById("sidebar") as HTMLElement;
         // open Sidebar
         sidebar.style.width = "25%";
         sidebar.style.display = "block";
+        // cy.resize()
         console.log("click");
-        populateSidebar(cy);
+        //populateSidebar(cy);
+    }
+
+    public closeSideBar (cy:any) {
+        const sidebar = document.getElementById("sidebar") as HTMLElement;
+        // open Sidebar
+        sidebar.style.width = "0%";
+        sidebar.style.display = "none";
+    }
+
+    private toggleNodes(checked:Boolean, cy:cytoscape.Core){
+        cy.elements().removeStyle();
+        if(checked){
+            // show labels
+            cy.style(labelStylesheet);
+            //cy.elements().style(labelStylesheet);
+
+        } else {
+            // show nodes
+            cy.style(style);
+        }
     }
 
     // TODO: make work
@@ -49,6 +89,25 @@ export class MenuController {
         console.log("click");
         populateSidebar(cy);
     }*/
+
+    private populateSidebar(cy: any) {
+        const hotlist = document.getElementById("hotlist") as HTMLElement;
+        console.log("core", cy); //-> undefined ??
+        // list of all (important) nodes for the graph view
+        const courses = cy.$(".course") as cytoscape.Collection;
+    
+        courses.nodes().forEach(course => {
+            var div = document.createElement("div");
+            div.setAttribute("class", "hotlist-items");
+            div.innerText = course.data("label");
+            hotlist.appendChild(div);
+            // create div element
+            // wirte content
+            // put in scrollable list
+            //div.addEventListener("mouseover", onMouseOver)
+        });
+    
+    }
 
 }
 
