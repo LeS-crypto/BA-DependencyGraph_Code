@@ -74,7 +74,7 @@ export class LayoutController {
         const course = courseNodes.filter(".course");
 
         // set constraint
-        this.setCourseLayoutConstraint(course.id());
+        //this.setCourseLayoutConstraint(course.id());
         this.cy.layout(layoutOptions.fcoseCourse).run();
 
         // hide the rest of the nodes -> ? temporarily remove ?
@@ -85,7 +85,9 @@ export class LayoutController {
         //this.cy.layout(layoutOptions.fcose).run();
 
         // Restyle the graph, so that the true structure is shown
-        this.styleController.ghost(false, courseNodes);
+        //this.styleController.ghost(false, courseNodes);
+        courseNodes.removeClass("ghost");
+        courseNodes.edges().removeClass("ghost-edges");
 
         courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
         const ghost = courseNodes.filter(this.degreeFilter);
