@@ -56,7 +56,7 @@ export class LayoutController {
         //this.styleController.ghost(true, notDisplayed); // hides all edges
         //this.api.placeHiddenNodes(notDisplayed);
         notDisplayed.addClass("ghost");
-        notDisplayed.connectedEdges().addClass("hide-edges");
+        notDisplayed.connectedEdges().addClass("ghost-edges");
 
         //this.api2.hide(notDisplayed);
 
@@ -85,7 +85,7 @@ export class LayoutController {
         const ghost = courseNodes.filter(this.degreeFilter);
         
         ghost.nodes().addClass("ghost-internal");
-        ghost.connectedEdges().addClass("hide-edges");
+        ghost.connectedEdges().addClass("ghost-edges");
 
         //this.styleController.ghost(true, ghost); // doesn't work, bc. of connectedEdges();
     }

@@ -1,5 +1,5 @@
 import { Stylesheet } from "cytoscape";
-import { graphColors } from "./colorsCofig";
+import { hoverColors, nodeColors } from "./colorsCofig";
 //import { url } from "inspector";
 import feed from "../../global/icons/feed.svg";
 import school from "../../global/icons/school.svg";
@@ -20,7 +20,19 @@ const courseSize = (ele: any) => {
 }
 
 const ghostSize = (ele:any) => {
-    return nodeSize(ele) / 2;
+    return nodeSize(ele) / 1.5;
+}
+
+const getOpacityOut = (edge:any) => {
+    //console.log(edge.source().hasClass("ghost"));
+    let isGhost = edge.source().hasClass("ghost");
+    return isGhost ? 0.3 : 1;
+}
+
+const getOpacityIn = (edge:any) => {
+    //console.log(edge.target().hasClass("ghost"));
+    let isGhost = edge.target().hasClass("ghost");
+    return isGhost ? 0.3 : 1;
 }
 
 /* ---- STYLESHEET ---- */
@@ -48,7 +60,7 @@ export const style: Stylesheet[] = [
     },
     { selector: '.ghost-internal',
         style: {
-            'opacity': 0.3,
+            'opacity': 0.75,
             'label': 'data(label)',
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
@@ -61,7 +73,9 @@ export const style: Stylesheet[] = [
     },
     { selector: '.ghost',
         style: {
-            'opacity': 0.3,
+            //'opacity': 0.3, 
+            'opacity': 0.75, 
+            'background-color': nodeColors.lightgrey2,
             'label': '', //Label doesn't take up space
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
@@ -77,8 +91,8 @@ export const style: Stylesheet[] = [
         style: {
             //TODO
             'border-width': 5,
-            'border-color': graphColors.hover2,
-            'background-color': graphColors.hover,
+            'border-color': hoverColors.hover2,
+            'background-color': hoverColors.hover,
             'font-weight': 'bold',
             'text-background-color': 'white',
             'text-background-opacity': 1, 
@@ -90,21 +104,21 @@ export const style: Stylesheet[] = [
     // incoming node
     { selector: '.node-incoming',
     style: {
-        'background-color': graphColors.incoming,
+        'background-color': hoverColors.incoming,
         'text-wrap': 'wrap',
         }
     },
     // outgoing node
     { selector: '.node-outgoing',
     style: {
-        'background-color': graphColors.outgoing,
+        'background-color': hoverColors.outgoing,
         'text-wrap': 'wrap',
         }
     },
     // RESOURCES -> dont change on hover, etc
     { selector: '.resource',
     style: {
-        'background-color': graphColors.resource,
+        'background-color': hoverColors.resource,
         'width': nodeSize,
         'height': nodeSize,
         'background-image': feed,
@@ -139,13 +153,26 @@ export const style: Stylesheet[] = [
         'source-arrow-shape': 'triangle',
         'curve-style': 'straight',
         'events': 'no',
-        'z-compound-depth': 'bottom',
+        'z-compound-depth': 'auto',
         'width': 5,
+        'line-opacity': 1, 
+        //'line-color': 'black',
+        //'source-arrow-color': 'black',
+        }
+    },
+    { selector: '.ghost-edges',
+    style: {
+        //'line-opacity': 0.3,
+        'line-color': nodeColors.lightgrey,
+        'source-arrow-color': nodeColors.lightgrey,
+        'z-compound-depth': 'bottom',
+        'source-arrow-shape': 'none'
         }
     },
     { selector: '.hide-edges',
     style: {
-        'line-opacity': 0,
+        //'line-opacity': 0,
+        'line-color': 'white',
         'z-compound-depth': 'bottom',
         }
     },
@@ -153,20 +180,22 @@ export const style: Stylesheet[] = [
     { selector: '.edge-incoming',
     style: {
         'line-fill': 'linear-gradient',
-        'line-gradient-stop-colors': [graphColors.hover, graphColors.incoming],
-        'target-arrow-color': graphColors.incoming,
+        'line-gradient-stop-colors': [hoverColors.hover, hoverColors.incoming],
+        'source-arrow-color': hoverColors.hover,
         'width': 7,
-        'z-compound-depth': 'top',
+        'z-compound-depth': 'top', 
+        'line-opacity': getOpacityIn,
         }
     },
     // outgoing edges
     { selector: '.edge-outgoing',
     style: {
         'line-fill': 'linear-gradient',
-        'line-gradient-stop-colors': [graphColors.outgoing, graphColors.hover],
-        'target-arrow-color': graphColors.hover,
+        'line-gradient-stop-colors': [hoverColors.outgoing, hoverColors.hover],
+        'source-arrow-color': hoverColors.outgoing,
         'width': 5,
-        'z-compound-depth': 'top',
+        'z-compound-depth': 'top', 
+        'line-opacity': getOpacityOut,
         }
     },
 

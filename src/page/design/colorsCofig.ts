@@ -10,11 +10,19 @@
     {"Blue 2":"334e8a"} 
 ]*/
 
-export const graphColors = {
+export const hoverColors = {
     hover: "#40a052",
     hover2: "#39F28C",
     incoming: "#F3712B",
     outgoing: "#465e95",
     outgoing2: "#334e8a",
     resource: "998236", // Change
+}
+
+export const nodeColors = {
+    white: "white", 
+    lightgrey: "#eeeeee",
+    lightgrey2: "#d4d1d1",
+    grey: "#858383",
+    darkgrey: "#3e3e3e",
 }
