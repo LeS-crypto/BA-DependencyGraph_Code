@@ -1,30 +1,40 @@
 import cytoscape, { LayoutOptions, NodeDefinition } from "cytoscape";
 import fcose from "cytoscape-fcose";
 import spread from "cytoscape-spread";
+import layoutUtilities from "cytoscape-layout-utilities";
 import { ElementDefinition } from "cytoscape";
 import {style} from "../design/graphStyle";
 import * as layoutOptions from "../design/graphLayout";
-import { GraphEventController, MenuEventController } from "../ui/EventController";
-import { MenuController } from "../ui/MenuController";
+import { GraphEventController, MenuEventController } from "../util/EventController";
+import { MenuController } from "../util/MenuController";
 import { eventBus } from "../../global/EventBus";
 import EIMI from "../data/eimi.json";
 import { COURSES, EDUCATORS } from "../data/courseData";
+import { StyleController } from "../util/StyleController";
+import viewUtilities from "cytoscape-view-utilities";
+import { LayoutController } from "../util/LayoutController";
 
 //Init extensions
 cytoscape.use(fcose);
 cytoscape.use(spread); //weaver.js
+cytoscape.use(layoutUtilities);
+cytoscape.use(viewUtilities);
 
 /* Displays the Graph and bundles all graph functions */
 export class GraphViz {
     private readonly cy: any;
     private readonly $container: HTMLElement;
     private layoutOps : LayoutOptions = layoutOptions.fcose;
-    private visibleDegree: number = 5; // ?? -> better solution?
     private visibleDegreeCourse: number = 2;
+    private visibleDegree: number = 5; // ?? -> better solution?
     private readonly degreeFilter = "[[degree <"+ this.visibleDegree + "]]";
     private oldZoom: any;
     private willEnter: Boolean = true;
     private willExpand: Boolean = true;
+    private layoutInstance: any;
+    private viewInstance: any;
+    private styleController: any;
+    private layoutController: any;
 
     constructor(
         graphModel: ElementDefinition[],
@@ -38,8 +48,13 @@ export class GraphViz {
             layout: layoutOptions.noLayout,
             zoom: 1, //TODO: adjust zoom level, make smoother
         });
+        //this.layoutController = new LayoutController(this.cy);
         this.cy.ready(this.layoutGraph());
-
+        this.layoutInstance = this.cy.layoutUtilities(); //options */
+        this.viewInstance = this.cy.viewUtilities({
+            setVisibilityOnHide: false,
+        })
+        // this.styleController = new StyleController(this.cy);
         this.initGraphEvents();
         this.initMenuEvents();
     }
@@ -66,6 +81,24 @@ export class GraphViz {
         }); */
     }
 
+    private layoutGraph = () => {
+        console.log("load the graph and start the layout");
+        this.layoutController = new LayoutController(this.cy);
+        this.styleController = new StyleController(this.cy);
+        //addAndLayoutCoursesAndEducators(this.cy);
+        this.layoutController.layoutFullGraph();
+        
+        // https://js.cytoscape.org/#collection/layout -> eles.layout(options).run() for layout only on nodes   
+        // use [[metadata]] to determine centrality // oder ele.pageRank()
+
+        // STYLE EDUCATOR - TODO
+        /*const educator = this.cy.nodes(".educator")
+        educator.removeClass("ghost");
+        educator.connectedEdges().removeClass("hide-edges");
+        educator.addClass(".educator");*/
+        // cy: eles.pageRank(): https://js.cytoscape.org/#eles.pageRank        
+    }
+
     // Bundles all dblClick actions
     // TODO: enter diff course from inside course -> currently only binary
     private onDblClick = (target:any) => {
@@ -85,11 +118,9 @@ export class GraphViz {
             console.log("leave course");
             this.leaveCourse()
         } else { // if clicking normal node
-            console.log("entering and connecting");
-            const course = this.cy.$id(target.data("course"));
-            //this.enterCourse(course); // neccessary?
+            console.log("connecting");
             this.showConnected(target);
-        }
+        } // TODO: what if clicking normal node bevore entering ? 
 
     }
 
@@ -99,66 +130,43 @@ export class GraphViz {
         // -> hidden nodes are not layouted well, make graph unreadable -> therfore layout conencted
     private enterCourse(target:any) {
         if(!this.willEnter) this.leaveCourse();
+
         const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
-        // Hide all other courses ? -> for now -> later make accessible by other means        
-        this.cy.elements().not(courseNodes).addClass("hide");
-        target.removeClass("hide");
-        
-        // ?? all other courses now hidden, why?
-
-        // layout the graph
-        courseNodes.layout(layoutOptions.fcoseInside).run();
-
-        //courseNodes.layout(layoutOptions.spread).run(); //.-> hilft nicht
-
-        //const circle = courseNodes.filter("[[degree >"+ this.visibleDegree + "]]");
-        //courseNodes.layout(layoutOptions.concentric).run();
-        //courseNodes.not(circle).layout(layoutOptions.fcose).run();
-
-        
-        //hides course-nodes here, for some reason
-        courseNodes.nodes().removeClass("ghost");
-        courseNodes.edges().removeClass("hide-edges");
-        courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
-        const ghost = courseNodes.filter(this.degreeFilter);
-        ghost.nodes().addClass("ghost-internal");
-        ghost.connectedEdges().addClass("hide-edges");
+        this.layoutController.layoutCourse(courseNodes);
 
         this.willEnter = false;
     }
 
+    // TODO:
     // Reload the graph was it was before -> Course-View
     private leaveCourse(){
-        // Reload graph as it was before
+        // Reload graph as it was before -> ONLY STYLE
         this.cy.elements().removeClass("hide"); // show rest of courses
         styleEdgesAndNodes(false, this.cy.elements(), ["ghost-internal", "hide-edges"]);
-        layoutCourses(this.cy, this.cy.$(".course"));
+        this.layoutController.layoutFullGraph();
+        //layoutCourses(this.cy, this.cy.$(".course"));
+        //this.layoutController.layoutFullGraph();
         this.willEnter = true;
         // FIX: Educator disapears
     }
 
-    
-    // if dblclick on node, expand all connected edges for this node
-    // NOTE: either doesn't change to layout or only with expand/collapse
     private showConnected(target:any) {
         const connected = this.getConnected(target);
+        //this.layoutInstance.placeHiddenNodes(connected);
 
-        // hide all unconnected nodes (expept those with high degree) -> for backtracking
         const hide = this.cy.elements().not(connected)
             .filter("[[degree <"+ this.visibleDegree + "]]");
         //styleEdgesAndNodes(true, connected, ["ghost", "hide-edges"]);
         hide.nodes().addClass("ghost-internal");
         hide.connectedEdges().addClass("hide-edges"); // only works with connectedEdges()
-        
-        // show all connected nodes
-        styleEdgesAndNodes(false, connected, ["ghost-internal", "hide-edges"]);
-        // ADD: highlight as on hover (nearest neighbors), but without color
 
-        //this.cy.fit(connected, 50);
-        //connected.layout(layoutOptions.fcose).run();
+        styleEdgesAndNodes(false, connected, ["ghost-internal", "hide-edges"]);
+
+        connected.layout(layoutOptions.fcoseCourse).run();
+        // Adjust zoom level
     }
 
-    // TODO: only get all connected, if the collection isn't too big
+    // ?? TODO: only get all connected, if the collection isn't too big
     private getConnected (target:any) {
         target = target.union(target.predecessors());
         target = target.union(target.successors());
@@ -167,12 +175,15 @@ export class GraphViz {
 
 
     // RIGHT DIRECTION ?
+    // Use styleController -> not defined for some reason
     private hightlightNodeOnHover (target:any) {
         toggleHoverStyle(target, true);
+        //this.styleController.toggleHoverStyle(target, true);
     }
 
     private noHightlightNodeOnHover (target:any) {
         toggleHoverStyle(target, false);
+        // this.styleController.toggleHoverStyle(target, false);
     }
 
     /**
@@ -200,23 +211,6 @@ export class GraphViz {
             default:
                 console.log("Opps, something went wrong.");
         }
-    }
-
-    /* ---- GRAPH - FUNCTIONS ---- */
-
-    private layoutGraph = () => {
-        console.log("load the graph and start the layout");
-        addAndLayoutCoursesAndEducators(this.cy);
-        
-        // https://js.cytoscape.org/#collection/layout -> eles.layout(options).run() for layout only on nodes   
-        // use [[metadata]] to determine centrality // oder ele.pageRank()
-
-        // STYLE EDUCATOR
-        const educator = this.cy.nodes(".educator")
-        educator.removeClass("ghost");
-        educator.connectedEdges().removeClass("hide-edges");
-        educator.addClass(".educator");
-        // cy: eles.pageRank(): https://js.cytoscape.org/#eles.pageRank        
     }
 
 }
@@ -256,91 +250,4 @@ function toggleHoverStyle (target:any, show:boolean) {
     outNodes.edges().toggleClass("edge-incoming", show);
     inNodes.nodes().toggleClass("node-outgoing", show);
     inNodes.edges().toggleClass("edge-outgoing", show);*/
-}
-
-// Add additional Courses and their educators as nodes to the graph
-// TODO: handel adding the nodes of a course (i.e EIMI) before initialisation
-/* NOTE: currently additional courses (i.e EIMI get added here, 
-    as there is no way to differentiate the data between courses.
-    Would need an additional filed in the node-definition */
-function addAndLayoutCoursesAndEducators(cy:cytoscape.Core) {
-    // Add the course nodes
-    const courses = cy.add(COURSES);
-    
-    connectCourse(cy, cy.elements(), "cgbv");
-    cy.elements().data("course", "cgbv"); // add data field for access (magical "number"!)
-    
-    // Eimi -> knoten sind nicht mit kurs verbinden -> manchmal keine Sinks
-    // TODO: Hier: die maxDegrees mit Kurs verbinden + Knoten ohne verbindungen
-    const eimiData = cy.add(EIMI as ElementDefinition[]);
-    eimiData.move({parent: null}); //move Eimi out of parents
-    connectCourse(cy, eimiData, "eimi");
-    eimiData.data("course", "eimi");
-
-    cy.add(EDUCATORS);
-
-    layoutCourses(cy, courses);
-}
-
-/**
- * A Function that lays out all the courses in a main graph
- * -> It abstracts the graph, so only the immeadiate neighbours are displayed
- * @param cy The cytoscape core object
- * @param courses The collection that contains all displayable courses
- */
-function layoutCourses(cy:cytoscape.Core, courses:cytoscape.Collection) {
-    //courses.layout(layoutOptions.grid).run();
-    // TODO: show educators
-    //cy.elements().layout(layoutOptions.fcose).run();
-    // Hide all nodes completelty (except nearest neighbors) until course node is entered
-    const displayed = cy.$(".course").neighborhood("[[degree >"+ 2 + "]]"); // IDEA?
-    cy.elements().not(displayed).addClass("ghost");
-    cy.elements().not(displayed).connectedEdges().addClass("hide-edges");
-
-    styleEdgesAndNodes(false, courses, ["ghost", "hide-edges"]); //Temporary for empty course nodes
-
-    cy.elements().layout(layoutOptions.fcose).run();
-}
-
-
-/**
- * A function that connects all Sources/Origins of a Course to the Course-Node (additionally)
- * NOTE: a source is a node that has no outgoing edges (only incomming) -> good starting point
- * @param cy The cytoscape core object
- * @param eles A collection of all elements to be connected
- * @param courseId The course to which they should connect
- */
-// TODO: Hier: die maxDegrees mit Kurs verbinden + Knoten ohne Verbindungen
-function connectCourse(
-    cy:cytoscape.Core, 
-    eles:cytoscape.Collection,
-    courseId:String,
-) {
-    const maxD = eles.nodes().maxDegree(false);
-    eles.nodes().forEach(ele => {
-        if(ele.outdegree(false) == 0) { // If node is source/origin
-            // connect to course-node
-            cy.add(newCourseEdge(ele.id(), courseId));
-        } else if(ele.outdegree(false) == 0 && ele.indegree(false) == 0) { 
-            cy.add(newCourseEdge(ele.id(), courseId));
-        } else if(ele.degree(false) == maxD ) {
-            cy.add(newCourseEdge(ele.id(), courseId));
-        }
-    });
-}
-
-/**
- * Make a new edge pointing from a source to a target (course)
- * @param eleSource specify the origin 
- * @param eleTarget specify the target, i.e the course-node
- * @returns a new edge-element
- */
-function newCourseEdge(eleSource:String, eleTarget:String) {
-    return [ { group: "edges",
-    data: {
-        id: `${eleSource}-${eleTarget}`,
-        source: eleSource,
-        target: eleTarget,
-        }
-    }] as ElementDefinition[];
 }

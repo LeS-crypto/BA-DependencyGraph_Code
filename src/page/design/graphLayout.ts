@@ -1,6 +1,6 @@
 /* Bundels all Layout Options */
 
-import { NodeSingular } from "cytoscape";
+import cytoscape, { NodeSingular } from "cytoscape";
 
 function getDegree(ele:any) {
     return ele.isEdge() ? ele.target().degree() : ele.degree();
@@ -22,13 +22,48 @@ const getSeparation = (node:cytoscape.NodeSingular) => {
     return degree * 100;
 }
 
+export function setCourseNode (id:String, xPos:Number, yPos:Number) {
+    return [{nodeId: id, position: {x: xPos, y: yPos}}];
+}
+
+const getConstraint = () => {
+    [{nodeId: 'n1', position: {x: 100, y: 200}}]
+}
+
 export const fcose = {
     //https://github.com/iVis-at-Bilkent/cytoscape.js-fcose
     name: 'fcose',
-    quality: 'default',
-    radomize: false,
+    //quality: 'default',
+    randomize: false,
     animate: true,
     fit: true, 
+    packComponents: false,
+    padding: 15,
+    nodeDimensionsIncludeLabels: true,
+}
+
+// Optionen verbessern
+
+export const fcoseCourse = {
+    name: 'fcose',
+    //quality: 'default',
+    randomize: false,
+    animate: true,
+    fit: true, 
+    packComponents: false,
+    padding: 15,
+    nodeDimensionsIncludeLabels: true,
+    fixedNodeContraint: setCourseNode,
+}
+
+export const fcose2 = {
+    //https://github.com/iVis-at-Bilkent/cytoscape.js-fcose
+    name: 'fcose',
+    //quality: 'default',
+    randomize: false,
+    animate: true,
+    fit: true, 
+    packComponents: false,
     padding: 15,
     nodeDimensionsIncludeLabels: true,
     uniformNodeDimensions: false, // for simple nodes (non-compound)    
