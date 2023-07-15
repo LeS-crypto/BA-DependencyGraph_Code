@@ -10,7 +10,8 @@ import { MenuController } from "../util/MenuController";
 import { eventBus } from "../../global/EventBus";
 //import EIMI from "../data/eimi.json";
 //import { COURSES, EDUCATORS } from "../data/courseData";
-import { StyleController } from "../util/StyleController";
+import { StyleController } from "../util/StyleController-old"; // ALT
+import { Styler } from "../util/StyleController"; 
 import viewUtilities from "cytoscape-view-utilities";
 import { LayoutController } from "../util/LayoutController";
 
@@ -28,13 +29,10 @@ export class GraphViz {
     private visibleDegreeCourse: number = 2;
     private visibleDegree: number = 5; // ?? -> better solution?
     private readonly degreeFilter = "[[degree <"+ this.visibleDegree + "]]";
-    private oldZoom: any;
     private willEnter: Boolean = true;
-    private willExpand: Boolean = true;
     private layoutInstance: any;
-    private viewInstance: any;
-    private styleController: any;
     private layoutController: any;
+    private styler : any;
 
     constructor(
         graphModel: ElementDefinition[],
@@ -50,11 +48,7 @@ export class GraphViz {
         });
         //this.layoutController = new LayoutController(this.cy);
         this.cy.ready(this.layoutGraph());
-        this.layoutInstance = this.cy.layoutUtilities(); //options */
-        this.viewInstance = this.cy.viewUtilities({
-            setVisibilityOnHide: false,
-        })
-        // this.styleController = new StyleController(this.cy);
+        this.layoutInstance = this.cy.layoutUtilities(); //options
         this.initGraphEvents();
         this.initMenuEvents();
     }
@@ -84,8 +78,7 @@ export class GraphViz {
     private layoutGraph = () => {
         console.log("load the graph and start the layout");
         this.layoutController = new LayoutController(this.cy);
-        this.styleController = new StyleController(this.cy);
-        //addAndLayoutCoursesAndEducators(this.cy);
+        this.styler = new StyleController(this.cy);
         this.layoutController.layoutFullGraph();
         
         // https://js.cytoscape.org/#collection/layout -> eles.layout(options).run() for layout only on nodes   
@@ -100,7 +93,6 @@ export class GraphViz {
     }
 
     // Bundles all dblClick actions
-    // TODO: enter diff course from inside course -> currently only binary
     private onDblClick = (target:any) => {
         // evtl.: https://github.com/daniel-dx/cytoscape-all-paths 
         // evtl.: https://stackoverflow.com/questions/73038701/search-predecessors-only-upto-a-certain-node-in-cytoscape-js
@@ -126,14 +118,12 @@ export class GraphViz {
         } else { // if clicking normal node
             console.log("show connected");
             this.showConnected(target);  
-        } // TODO: what if clicking normal node bevore entering ? 
+        } 
 
     }
 
     // NOTE: nodes have the same class as the course has as an ID
-    // TODO: EIMI doesn't work properly -> edges get lost
-    // TODO: layout course + hiden nodes, when enter 
-        // -> hidden nodes are not layouted well, make graph unreadable -> therfore layout conencted
+    // TODO: EIMI doesn't work properly -> the course Node gets deleted + edges get lost
     private enterCourse(target:any) {
         const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
         this.layoutController.layoutCourse(courseNodes);
@@ -141,15 +131,11 @@ export class GraphViz {
         this.willEnter = false;
     }
 
-    // TODO:
+
     // Reload the graph was it was before -> Course-View
     private leaveCourse(){
-        // Reload graph as it was before -> ONLY STYLE
-        this.cy.elements().removeClass("hide"); // show rest of courses
-        styleEdgesAndNodes(false, this.cy.elements(), ["ghost-internal", "hide-edges"]);
-        this.layoutController.layoutFullGraph();
-        //layoutCourses(this.cy, this.cy.$(".course"));
-        //this.layoutController.layoutFullGraph();
+        this.layoutController.relayoutFullGraph();
+
         this.willEnter = true;
         // FIX: Educator disapears
     }

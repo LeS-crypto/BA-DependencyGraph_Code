@@ -1,37 +1,21 @@
 import cytoscape from "cytoscape";
+import viewUtilities from "cytoscape-view-utilities";
+import { style } from "../design/graphStyle";
 
-export class StyleController {
+// Class that bundels all graph stylings (using: view-utilities extension)
+export class Styler {
 
-    private readonly cy : any;
+    private cy : any;
+    private api : any;
 
-    constructor(cy:cytoscape.Core) {
+    constructor(cy: cytoscape.Core) {
         this.cy = cy;
+        this.initViewUtilities();
     }
 
-    public hide() {
-
-    }
-
-    public ghost(ghost:boolean, elements:cytoscape.Collection) {
-        this.styleEdgesAndNodes(ghost, elements, ["ghost", "hide-edges"]); 
-        //ghost-edges
-    }
-
-    public show() {
-
-    }
-
-    public toggleHoverStyle (target:any, show:boolean) {
-        // batch style-operations?
-        const outNodes = target.outgoers();
-        const inNodes = target.incomers();
-        target.toggleClass("hover", show);
-        this.styleEdgesAndNodes(show, outNodes, ["node-incoming", "edge-incoming"]);
-        this.styleEdgesAndNodes(show, inNodes, ["node-outgoing", "edge-outgoing"]);
-        /*outNodes.nodes().toggleClass("node-incoming", show);
-        outNodes.edges().toggleClass("edge-incoming", show);
-        inNodes.nodes().toggleClass("node-outgoing", show);
-        inNodes.edges().toggleClass("edge-outgoing", show);*/
+    private initViewUtilities() {
+        viewUtilities(cytoscape);
+        this.api = this.cy.viewUtilities(options);
     }
 
     /**
@@ -41,17 +25,77 @@ export class StyleController {
     * @param style A string array of the node style and the edge style
     */
     private styleEdgesAndNodes(
-       add:Boolean, 
-       collection: cytoscape.Collection, 
-       style:string[],
+        add:Boolean, 
+        collection: cytoscape.Collection, 
+        style:string[],
     ) {
+        const nodes = collection.nodes();
+        const edges = collection.edges();
         if(add) {
-           collection.nodes().addClass(style[0]);
-           collection.edges().addClass(style[1]);
+            nodes.addClass(style[0]);
+            edges.addClass(style[1]);
         } else {
-           collection.nodes().removeClass(style[0]);
-           collection.edges().removeClass(style[1]);
+            nodes.removeClass(style[0]);
+            edges.removeClass(style[1]);
         }
-    } 
+    }
+
+    /**
+     * Applies to ghost style to nodes and their connected Edges
+     * @param ghost if true: ghost | if false: unghost
+     * @param eles the elements(nodes) to style
+     */
+    public ghostConnected(
+        ghost: boolean, 
+        eles:cytoscape.Collection, 
+        internal:Boolean=false
+    ){
+        let nodeStyle;
+        internal ? nodeStyle = "ghost-internal" : nodeStyle = "ghost";
+        const nodes = eles.nodes();
+        const edges = nodes.connectedEdges();
+        if(ghost) {
+            nodes.addClass(nodeStyle);
+            edges.addClass("ghost-edges");
+        } else {
+            nodes.removeClass(nodeStyle);
+            edges.removeClass("ghost-edge");
+        }
+        //this.styleEdgesAndNodes(ghost, eles, ["ghost", "ghost-edges"]);
+    }
+
+    /**
+     * Applies to ghost style to nodes and edges in the collection
+     * @param ghost if true: ghost | if false: unghost
+     * @param eles the elements(nodes) to style
+     */
+    public ghost(
+        ghost: boolean, 
+        eles:cytoscape.Collection,
+        internal:Boolean=false
+    ){
+        let nodeStyle;
+        internal ? nodeStyle = "ghost-internal" : nodeStyle = "ghost";
+        this.styleEdgesAndNodes(ghost, eles, [nodeStyle, "ghost-edges"]);
+    }
+
+    public onHover(){
+
+    }
+
+    public show(eles:cytoscape.Collection){
+        this.api.show(eles);
+    }
+
+    public hide(eles:cytoscape.Collection){
+        this.api.hide(eles);
+    }
+
+
+
+
+}
+
+export const options = {
 
 }

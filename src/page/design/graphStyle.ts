@@ -76,7 +76,7 @@ export const style: Stylesheet[] = [
             //'opacity': 0.3, 
             'opacity': 0.75, 
             'background-color': nodeColors.lightgrey2,
-            'label': '', //Label doesn't take up space
+            'label': 'data(label)', //Label doesn't take up space
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
             'events': 'no',

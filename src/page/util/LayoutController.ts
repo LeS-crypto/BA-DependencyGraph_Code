@@ -5,16 +5,17 @@ import * as layoutOptions from "../design/graphLayout";
 
 import EIMI from "../data/eimi.json";
 import { COURSES, EDUCATORS } from "../data/courseData";
-import { StyleController } from "./StyleController";
+import { StyleController } from "./StyleController-old";
+import { Styler } from "./StyleController";
 
 export class LayoutController {
 
     private cy : any;
     private api: any;
     private api2: any;
-    private styleController: any;
+    private styleController: any; //OLD
+    private styler : any
     private readonly degreeFilter = "[[degree <"+ 5 + "]]"; // make global
-    private layout: any;
 
     constructor(cy:cytoscape.Core){
         this.cy = cy;
@@ -22,6 +23,7 @@ export class LayoutController {
         this.api = this.cy.layoutUtilities(); //options
         this.api2 = this.cy.viewUtilities();
         this.styleController = new StyleController(this.cy);
+        this.styler = new Styler(this.cy);
         //init layoutUtilities
         //init StyleController
     }
@@ -31,40 +33,32 @@ export class LayoutController {
         cytoscape.use(viewUtilities);
     }
 
-    private initLayout() {
-        this.layout = this.cy.makeLayout(layoutOptions.fcose);
-    }
-
-    public getLayout() {
-        return this.layout;
-    }
-
     /* ---- Layout Graph ---- */
-    public layoutFullGraph() {
-        this.addCourses();
-
-        this.initLayout();
-        this.layout.run();
-
-        //this.cy.elements().layout(layoutOptions.fcose).run();
+    private layoutGraph() {
+        this.cy.layout(layoutOptions.fcose).run();
 
         const notDisplayed = this.cy.elements().not(
             this.cy.$(".course").neighborhood("[[degree >"+ 2 + "]]")
         );
-        // TODO: union the connectedEdges() into a new variable for ghost()
-
-        //this.styleController.ghost(true, notDisplayed); // hides all edges
-        //this.api.placeHiddenNodes(notDisplayed);
-        
-        notDisplayed.nodes().addClass("ghost");
-        notDisplayed.connectedEdges().addClass("ghost-edges");
+        this.styler.ghostConnected(true, notDisplayed);
 
         //TEMPORARY: for empty course nodes;
         this.cy.elements(".course").removeClass("ghost"); 
 
-        //this.api2.hide(notDisplayed);
-
         //this.api.placeHiddenNodes(notDisplayed); // assumes pre-calculated layout 
+    }
+
+    public layoutFullGraph() {
+        this.addCourses();
+        this.layoutGraph(); 
+
+    }
+
+    public relayoutFullGraph() {
+        const eles = this.cy.elements();
+        this.styler.ghost(false, eles, true); // remove ghost style
+        this.styler.show(this.cy.elements()); // show all hidden elements
+        this.layoutGraph();
 
     }
 
@@ -78,24 +72,32 @@ export class LayoutController {
         this.cy.layout(layoutOptions.fcoseCourse).run();
 
         // hide the rest of the nodes -> ? temporarily remove ?
-        this.cy.elements().not(courseNodes).addClass("hide");
-        this.cy.elements(".course").removeClass("hide");
-        // do I need a second layouting ?
-
-        //this.cy.layout(layoutOptions.fcose).run();
+        this.styler.hide(this.cy.elements().not(courseNodes));
+        //this.cy.elements().not(courseNodes).addClass("hide");
+        //this.cy.elements(".course").removeClass("hide");
 
         // Restyle the graph, so that the true structure is shown
-        //this.styleController.ghost(false, courseNodes);
-        courseNodes.removeClass("ghost");
-        courseNodes.edges().removeClass("ghost-edges");
+        this.styler.ghost(false, courseNodes);
+        // courseNodes.removeClass("ghost");
+        // courseNodes.edges().removeClass("ghost-edges");
 
         courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
         const ghost = courseNodes.filter(this.degreeFilter);
         
-        ghost.nodes().addClass("ghost-internal");
-        ghost.connectedEdges().addClass("ghost-edges");
+        this.styler.ghostConnected(true, ghost, true);
+        // ghost.nodes().addClass("ghost-internal");
+        // ghost.connectedEdges().addClass("ghost-edges");
 
         //this.styleController.ghost(true, ghost); // doesn't work, bc. of connectedEdges();
+    }
+
+    public leaveCourse(){
+        this.styler.show(this.cy.elements());
+        this.styler.ghost(false, this.cy.elements(), true);
+        
+        // BUG: relayout the Graph incrementally
+        this.cy.layout(layoutOptions.fcoseCourse).stop();
+        this.layoutFullGraph();
     }
 
     /* ---- Utility Functions --- */
