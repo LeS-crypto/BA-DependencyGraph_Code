@@ -51,9 +51,21 @@ export const fcoseCourse = {
     animate: true,
     fit: true, 
     packComponents: false,
-    padding: 15,
+    padding: 5,
     nodeDimensionsIncludeLabels: true,
-    fixedNodeContraint: setCourseNode,
+
+    /* incremental layout options */
+    // Node repulsion (non overlapping) multiplier
+    nodeRepulsion: 20000,
+    // Ideal edge (non nested) length
+    idealEdgeLength: 250,
+    // Divisor to compute edge forces
+    edgeElasticity: 0.2,
+
+    nestingFactor: 0.1,
+    tile: true,
+    //tilingCompareBy: node => node.degree(),
+    //fixedNodeContraint: setCourseNode,
 }
 
 export const fcose2 = {
