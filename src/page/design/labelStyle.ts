@@ -35,26 +35,56 @@ const getOpacityIn = (edge:any) => {
     return isGhost ? 0.3 : 1;
 }
 
+let size : number[] = [];
+const maxWrap : string = '150';
+
+function setNodeSize(node:any) {
+    const letterSize = 5; // ~letter size in pixels
+    let w, h : number;
+    let str = node.data("label");
+    let l = str.length;
+    if(l % parseInt(maxWrap) == 0) {
+        //is mulitple
+        let num = l / parseInt(maxWrap);
+        w = 150 ;
+        h = num * 5;
+    } else {
+        w = l ;
+        h = 5; // ??
+    }
+
+    return [w*letterSize, h*letterSize];
+}
+const getNodeWidth = (node:any) => {
+    const size = setNodeSize(node);
+    return size[0];
+}
+
+const getNodeHeight = (node:any) => {
+    const size = setNodeSize(node);
+    return size[1];
+}
+
+
 /* ---- STYLESHEET ---- */
 export const labelStylesheet: Stylesheet[] = [
     // NODES:
     { selector: 'node',
     style: { // Show node with label
         'label': 'data(label)',
+        //'background-color': nodeColors.lightgrey2, 
         'text-wrap': 'wrap', //wrap text on second space
-        "text-max-width": '150',
-        //'border-color': "#666",
-        'width': 1,
-        'height': 1,
-        //'background-blacken': -1,
-        //'shape': 'rectangle',
+        "text-max-width": '120',
+        'width': 'label',
+        'height': 'label',
+        'shape': 'rectangle',
         'text-halign': 'center',
         'text-valign': 'center',
-        //'padding-relative-to': 'min', // ?
-        'z-compound-depth': 'bottom',
-        'text-background-color': nodeColors.lightgrey2,
-        'text-background-opacity': 1,
-        'text-background-padding': '5',
+        //'text-background-color': nodeColors.lightgrey2,
+        //'text-background-opacity': 1,
+        //'text-background-padding': '0',
+        // @ts-ignore
+        'padding': 5, // type doesn't exist
         'text-events': 'yes',
         }
     },
@@ -68,6 +98,7 @@ export const labelStylesheet: Stylesheet[] = [
     { selector: '.ghost-internal',
         style: {
             'opacity': 0.75,
+            'shape': 'ellipse',
             'label': 'data(label)',
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
@@ -82,6 +113,7 @@ export const labelStylesheet: Stylesheet[] = [
         style: {
             //'opacity': 0.3, 
             'opacity': 0.75, 
+            'shape': 'ellipse',
             'background-color': nodeColors.lightgrey2,
             'label': '', //Label doesn't take up space
             'text-opacity': 0,
