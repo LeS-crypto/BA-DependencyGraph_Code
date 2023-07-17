@@ -59,6 +59,9 @@ export class LayoutController {
         const eles = this.cy.elements();
         this.styler.ghost(false, eles, true); // remove ghost style
         this.styler.show(this.cy.elements()); // show all hidden elements
+        this.styler.styleEdgesAndNodes(
+            false, this.cy.elements(), ["connect", "edge-connect"]
+        ); // hide connected style
         this.layoutGraph();
 
     }
@@ -94,11 +97,14 @@ export class LayoutController {
         //this.styleController.ghost(true, ghost); // doesn't work, bc. of connectedEdges();
     }
 
+    // NOT USED
     public leaveCourse(){
         this.styler.show(this.cy.elements());
         this.styler.ghost(false, this.cy.elements(), true);
+
+        this.styler.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
         
-        // BUG: relayout the Graph incrementally
+        // BUG: relayout the Graph incrementally -> ??
         this.cy.layout(GLOBALS.courseLayout).stop();
         this.layoutFullGraph();
     }

@@ -143,6 +143,17 @@ export const style: Stylesheet[] = [
         }
     },
 
+    // Selection
+    { selector: ':selected',
+    style: {
+        'background-color': hoverColors.hover,
+        'font-weight': 'bold',
+        'text-background-color': 'white',
+        'text-background-opacity': 1, 
+        'z-compound-depth': 'top',
+        }
+    },
+
 
     // RESOURCES -> dont change on hover, etc
     { selector: '.resource',

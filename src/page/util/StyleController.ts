@@ -97,9 +97,8 @@ export class Styler {
 
     public styleConnected(target:cytoscape.NodeSingular, eles:cytoscape.Collection) {
 
-        // TODO: reload original course style
+        // Reload original course style
         this.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
-
         // Ghost all unconnected Elements
         const ghostEles = this.cy.elements().not(eles)
             .filter("[[degree <"+ this.visibleDegree + "]]");
@@ -118,7 +117,7 @@ export class Styler {
 
     }
 
-    // funktionier -> bin selber überrascht
+    // funktionier -> bin selber überrascht -> könnte aber besser sein
     setConnectedColor(eles:cytoscape.Collection) {
         let number = 0
         eles.forEach(ele => { // for each element in the collection, set a data fild to map to later

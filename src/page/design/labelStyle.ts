@@ -115,7 +115,7 @@ export const labelStylesheet: Stylesheet[] = [
             'opacity': 0.75, 
             'shape': 'ellipse',
             'background-color': nodeColors.lightgrey2,
-            'label': '', //Label doesn't take up space
+            'label': 'data(label)', //Label doesn't take up space
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
             'events': 'no',
@@ -145,6 +145,14 @@ export const labelStylesheet: Stylesheet[] = [
     style: {
         'background-color': hoverColors.incoming,
         'text-wrap': 'wrap',
+        'text-opacity': 1,
+        'color': 'black',
+        'width': 'label',
+        'height': 'label',
+        'shape': 'rectangle',
+        // @ts-ignore
+        'padding': 5,
+        'z-compound-depth': 'top',
         }
     },
     // outgoing node
@@ -152,6 +160,14 @@ export const labelStylesheet: Stylesheet[] = [
     style: {
         'background-color': hoverColors.outgoing,
         'text-wrap': 'wrap',
+        'text-opacity': 1,
+        'color': 'black',
+        'width': 'label',
+        'height': 'label',
+        'shape': 'rectangle',
+        // @ts-ignore
+        'padding': 5,
+        'z-compound-depth': 'top',
         }
     },
     // RESOURCES -> dont change on hover, etc
@@ -241,8 +257,10 @@ export const labelStylesheet: Stylesheet[] = [
     // COURSES:
     { selector: '.course',
         style: {
-        'width': 1,
-        'height': 1,
+        'width': 'label',
+        'height': 'label',
+        // @ts-ignore
+        'padding': 10,
         'background-blacken': 0.5,
         'label': 'data(label)',
         'events': 'yes',
@@ -252,6 +270,7 @@ export const labelStylesheet: Stylesheet[] = [
         'text-valign': 'center',
         'text-background-color': 'white',
         'text-background-opacity': 1,
+        'text-background-padding': '5', 
         'text-wrap': 'wrap',
         'text-events': "yes",
         }
