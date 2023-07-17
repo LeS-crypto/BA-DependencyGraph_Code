@@ -99,6 +99,20 @@ export const style: Stylesheet[] = [
         }
     },
 
+    { selector: '.connect',
+    style: {
+        'background-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
+        'border-color': nodeColors.darkgrey2,
+        'border-width': 3,
+        'border-opacity': 1,
+        }
+    },
+    { selector: '.un-connect',
+    style: {
+        'background-color': nodeColors.lightgrey2,
+        }
+    },
+
     // highlight on hover
     { selector: ".hover",
         style: {
@@ -126,20 +140,6 @@ export const style: Stylesheet[] = [
     style: {
         'background-color': hoverColors.outgoing,
         'text-wrap': 'wrap',
-        }
-    },
-
-    { selector: '.connect',
-    style: {
-        'background-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
-        'border-color': nodeColors.darkgrey2,
-        'border-width': 3,
-        'border-opacity': 1,
-        }
-    },
-    { selector: '.un-connect',
-    style: {
-        'background-color': nodeColors.lightgrey2,
         }
     },
 
@@ -203,28 +203,6 @@ export const style: Stylesheet[] = [
         'z-compound-depth': 'bottom',
         }
     },
-    // incoming edges
-    { selector: '.edge-incoming',
-    style: {
-        'line-fill': 'linear-gradient',
-        'line-gradient-stop-colors': [hoverColors.hover, hoverColors.incoming],
-        'source-arrow-color': hoverColors.hover,
-        'width': 7,
-        'z-compound-depth': 'top', 
-        'line-opacity': getOpacityIn,
-        }
-    },
-    // outgoing edges
-    { selector: '.edge-outgoing',
-    style: {
-        'line-fill': 'linear-gradient',
-        'line-gradient-stop-colors': [hoverColors.outgoing, hoverColors.hover],
-        'source-arrow-color': hoverColors.outgoing,
-        'width': 5,
-        'z-compound-depth': 'top', 
-        'line-opacity': getOpacityOut,
-        }
-    },
 
     { selector: '.edge-connect',
     style: {
@@ -238,6 +216,29 @@ export const style: Stylesheet[] = [
         'line-opacity': 1,
         'line-color': nodeColors.lightgrey2,
         'source-arrow-color': nodeColors.lightgrey2,
+        }
+    },
+
+    // HOVER: incoming edges
+    { selector: '.edge-incoming',
+    style: {
+        'line-fill': 'linear-gradient',
+        'line-gradient-stop-colors': [hoverColors.hover, hoverColors.incoming],
+        'source-arrow-color': hoverColors.hover,
+        'width': 7,
+        'z-compound-depth': 'top', 
+        'line-opacity': getOpacityIn,
+        }
+    },
+    // HOVER: outgoing edges
+    { selector: '.edge-outgoing',
+    style: {
+        'line-fill': 'linear-gradient',
+        'line-gradient-stop-colors': [hoverColors.outgoing, hoverColors.hover],
+        'source-arrow-color': hoverColors.outgoing,
+        'width': 5,
+        'z-compound-depth': 'top', 
+        'line-opacity': getOpacityOut,
         }
     },
 
