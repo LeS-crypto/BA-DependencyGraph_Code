@@ -53,6 +53,7 @@ export const fcoseCourse = {
     packComponents: false,
     padding: 5,
     nodeDimensionsIncludeLabels: true,
+    avoidOverlap: true,
 
     /* incremental layout options */
     // Node repulsion (non overlapping) multiplier

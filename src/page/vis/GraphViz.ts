@@ -14,6 +14,7 @@ import { StyleController } from "../util/StyleController-old"; // ALT
 import { Styler } from "../util/StyleController"; 
 import viewUtilities from "cytoscape-view-utilities";
 import { LayoutController } from "../util/LayoutController";
+import { GLOBALS } from "../../global/config";
 
 //Init extensions
 cytoscape.use(fcose);
@@ -25,7 +26,8 @@ cytoscape.use(viewUtilities);
 export class GraphViz {
     private readonly cy: any;
     private readonly $container: HTMLElement;
-    private layoutOps : LayoutOptions = layoutOptions.fcose;
+    // private graphLayout : LayoutOptions = layoutOptions.fcose;
+    // private courseLayout : LayoutOptions = layoutOptions.fcoseCourse;
     private visibleDegreeCourse: number = 2;
     private visibleDegree: number = 5; // ?? -> better solution?
     private readonly degreeFilter = "[[degree <"+ this.visibleDegree + "]]";
@@ -43,11 +45,12 @@ export class GraphViz {
             container: this.$container,
             elements: graphModel,
             style: style,
-            layout: layoutOptions.noLayout,
+            layout: GLOBALS.noLayout,
             zoom: 1, //TODO: adjust zoom level, make smoother
         });
         //this.layoutController = new LayoutController(this.cy);
         this.cy.ready(this.layoutGraph());
+        this.styler = new StyleController(this.cy);
         this.layoutInstance = this.cy.layoutUtilities(); //options
         this.initGraphEvents();
         this.initMenuEvents();
@@ -78,7 +81,7 @@ export class GraphViz {
     private layoutGraph = () => {
         console.log("load the graph and start the layout");
         this.layoutController = new LayoutController(this.cy);
-        this.styler = new StyleController(this.cy);
+        //this.styler = new StyleController(this.cy);
         this.layoutController.layoutFullGraph();
         
         // https://js.cytoscape.org/#collection/layout -> eles.layout(options).run() for layout only on nodes   
@@ -141,27 +144,32 @@ export class GraphViz {
     }
 
     private showConnected(target:any) {
+        this.styler = new Styler(this.cy); // otherwise, doesn't find
         const connected = this.getConnected(target);
         this.layoutInstance.placeHiddenNodes(connected);
 
-        const hide = this.cy.elements().not(connected)
+        this.styler.styleConnected(target, connected);
+
+        /*const hide = this.cy.elements().not(connected)
             .filter("[[degree <"+ this.visibleDegree + "]]");
-        //styleEdgesAndNodes(true, connected, ["ghost", "hide-edges"]);
+        
         hide.nodes().addClass("ghost-internal");
         hide.connectedEdges().addClass("ghost-edges"); // only works with connectedEdges()
 
-        styleEdgesAndNodes(false, connected, ["ghost-internal", "ghost-edges"]);
+        styleEdgesAndNodes(false, connected, ["ghost-internal", "ghost-edges"]);*/
+        //this.styler.ghost(false, connected, true); // doesn't work for some reason
 
-        connected.layout(layoutOptions.fcoseCourse).run();
+        connected.layout(GLOBALS.courseLayout).run();
         //this.cy.layout(layoutOptions.fcoseCourse).run(); // makes very wide layout
         // Adjust zoom level
     }
 
-    // ?? TODO: only get all connected, if the collection isn't too big
+    // Array: edge, it's node, edge, it's node,
     private getConnected (target:any) {
         const course = target.data("course")
         target = target.union(target.predecessors(course));
         target = target.union(target.successors(course));
+        // console.log("target", target);
         return target;
     }
 

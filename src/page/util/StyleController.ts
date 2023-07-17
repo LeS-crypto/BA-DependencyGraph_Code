@@ -1,12 +1,15 @@
 import cytoscape from "cytoscape";
 import viewUtilities from "cytoscape-view-utilities";
-import { style } from "../design/graphStyle";
+import { setConnectedColor, style } from "../design/graphStyle";
+import { nodeColors } from "../design/colorsCofig";
 
 // Class that bundels all graph stylings (using: view-utilities extension)
 export class Styler {
 
     private cy : any;
     private api : any;
+    private visibleDegree: number = 5; // ?? -> better solution? + make global
+    private readonly degreeFilter = "[[degree <"+ 5 + "]]"; // make global
 
     constructor(cy: cytoscape.Core) {
         this.cy = cy;
@@ -15,7 +18,7 @@ export class Styler {
 
     private initViewUtilities() {
         viewUtilities(cytoscape);
-        this.api = this.cy.viewUtilities(options);
+        this.api = this.cy.viewUtilities(options);;
     }
 
     /**
@@ -79,6 +82,53 @@ export class Styler {
         this.styleEdgesAndNodes(ghost, eles, [nodeStyle, "ghost-edges"]);
     }
 
+    // Initial course style
+    public styleCourse(courseNodes:cytoscape.Collection){
+        //this.cy.elements().removeStyle(); // remove all applied styles ??
+        this.hide(this.cy.elements().not(courseNodes));
+
+        // Restyle the graph, so that the true structure is shown
+        this.ghost(false, courseNodes);
+
+        courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
+        const ghost = courseNodes.filter(this.degreeFilter);
+        this.ghostConnected(true, ghost, true);
+    }
+
+    public styleConnected(target:cytoscape.NodeSingular, eles:cytoscape.Collection) {
+
+        // TODO: reload original course style
+        this.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
+
+        // Ghost all unconnected Elements
+        const ghostEles = this.cy.elements().not(eles)
+            .filter("[[degree <"+ this.visibleDegree + "]]");
+        this.ghostConnected(true, ghostEles, true);
+
+        this.ghost(false, eles, true); // unghost all connected Elements
+
+        // Highlight the connected Elements
+        this.setConnectedColor(eles);
+        this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]);
+
+        // Style the leftover Elements that are shown in the graph ??
+        let rest = this.cy.elements().not(eles)
+            .filter("[[degree >"+ 2 + "]]");
+
+
+    }
+
+    // funktionier -> bin selber überrascht
+    setConnectedColor(eles:cytoscape.Collection) {
+        let number = 0
+        eles.forEach(ele => { // for each element in the collection, set a data fild to map to later
+            ele.data("weight", number);
+            number += 2;
+            // for each element lighten the color a little bit
+            // map to data
+        });
+    }
+
     public onHover(){
 
     }
@@ -97,5 +147,18 @@ export class Styler {
 }
 
 export const options = {
+    highlightStyles: [
+        // Highlight connected Nodes and edges
+        { node: {
+            'background-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
+            'border-color': nodeColors.darkgrey2,
+            'border-width': 3,
+            'border-opacity': 1,
+        },
+        edge: {
+            'line-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey + ',' + nodeColors.lightgrey2 + ')',
+            'source-arrow-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey + ',' + nodeColors.lightgrey2 + ')',
+        }}
+    ]
 
 }

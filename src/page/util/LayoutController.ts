@@ -2,6 +2,7 @@ import cytoscape, { ElementDefinition } from "cytoscape";
 import layoutUtilities from "cytoscape-layout-utilities";
 import viewUtilities from "cytoscape-view-utilities";
 import * as layoutOptions from "../design/graphLayout";
+import { GLOBALS } from "../../global/config";
 
 import EIMI from "../data/eimi.json";
 import { COURSES, EDUCATORS } from "../data/courseData";
@@ -35,7 +36,7 @@ export class LayoutController {
 
     /* ---- Layout Graph ---- */
     private layoutGraph() {
-        this.cy.layout(layoutOptions.fcose).run();
+        this.cy.layout(GLOBALS.graphLayout).run();
 
         const notDisplayed = this.cy.elements().not(
             this.cy.$(".course").neighborhood("[[degree >"+ 2 + "]]")
@@ -65,12 +66,14 @@ export class LayoutController {
     public layoutCourse(courseNodes:cytoscape.Collection) {
         // BUG: doesn't display empty courses;
 
-        const course = courseNodes.filter(".course");
+        //const course = courseNodes.filter(".course");
 
-        // set constraint
+        // set constraint?
         //this.setCourseLayoutConstraint(course.id());
-        this.cy.layout(layoutOptions.fcoseCourse).run();
+        this.cy.layout(GLOBALS.courseLayout).run();
+        this.styler.styleCourse(courseNodes);
 
+        /*
         // hide the rest of the nodes -> ? temporarily remove ?
         this.styler.hide(this.cy.elements().not(courseNodes));
         //this.cy.elements().not(courseNodes).addClass("hide");
@@ -84,7 +87,7 @@ export class LayoutController {
         courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
         const ghost = courseNodes.filter(this.degreeFilter);
         
-        this.styler.ghostConnected(true, ghost, true);
+        this.styler.ghostConnected(true, ghost, true); */
         // ghost.nodes().addClass("ghost-internal");
         // ghost.connectedEdges().addClass("ghost-edges");
 
@@ -96,7 +99,7 @@ export class LayoutController {
         this.styler.ghost(false, this.cy.elements(), true);
         
         // BUG: relayout the Graph incrementally
-        this.cy.layout(layoutOptions.fcoseCourse).stop();
+        this.cy.layout(GLOBALS.courseLayout).stop();
         this.layoutFullGraph();
     }
 
@@ -109,7 +112,7 @@ export class LayoutController {
     }
 
     public addCourses() {
-        const courses = this.cy.add(COURSES);
+        this.cy.add(COURSES);
     
         this.connectCourse(this.cy, this.cy.elements(), "cgbv");
         this.cy.elements().data("course", "cgbv"); // add data field for access (magical "number"!)

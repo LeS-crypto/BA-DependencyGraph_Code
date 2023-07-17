@@ -17,7 +17,7 @@ export const COURSES : NodeDefinition[] = [
         },
         classes: "course"
     },
-    { group: "nodes",
+    /*{ group: "nodes",
         data: {
             id: "math1",
             label: "Mathematik für Medieninformatik 1",
@@ -61,7 +61,7 @@ export const COURSES : NodeDefinition[] = [
         source: "cgbv",
         target: "oop",
         }
-    },
+    }, */
 
 ];
 

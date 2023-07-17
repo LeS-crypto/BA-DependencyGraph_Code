@@ -23,7 +23,9 @@ export const hoverColors = {
 export const nodeColors = {
     white: "white", 
     lightgrey: "#eeeeee",
+    lightgrey05: "#dddddd",
     lightgrey2: "#d4d1d1",
     grey: "#858383",
     darkgrey: "#3e3e3e",
+    darkgrey2: "#232323",
 }

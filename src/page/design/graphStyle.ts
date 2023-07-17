@@ -35,23 +35,38 @@ const getOpacityIn = (edge:any) => {
     return isGhost ? 0.3 : 1;
 }
 
+export function setConnectedColor(target:cytoscape.NodeSingular, eles:cytoscape.Collection){
+    let number = 0
+    eles.nodes().forEach(ele => {
+        ele.data("weight", number);
+        amount++;
+        // for each element lighten the color a little bit
+        // map to data
+    });
+}
+
+let amount = 0;
+
+// blackens 0 to 1, whitens 0 to -1
+function setBlacken (node:any) :number {
+    amount = amount - 0.2;
+    return amount;
+}
+
 /* ---- STYLESHEET ---- */
 export const style: Stylesheet[] = [
     // NODES:
     { selector: 'node',
-    style: { // Show node with label
+    style: {
         'label': 'data(label)',
-        'text-wrap': 'wrap', //wrap text on second space
+        'text-wrap': 'wrap',
         "text-max-width": '150',
-        //'border-color': "#666",
         'width': nodeSize,
         'height': nodeSize,
-        //'padding-relative-to': 'min', // ?
-        //'z-compound-depth': 'top',
         'text-background-padding': '5',
         }
     },
-    // hide nodes
+    // hide nodes -> needed ??
     { selector: '.hide',
         style: {
         'display': 'none',
@@ -60,14 +75,13 @@ export const style: Stylesheet[] = [
     },
     { selector: '.ghost-internal',
         style: {
-            'opacity': 0.75,
+            'opacity': 0.5,
             'label': 'data(label)',
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
             'events': 'no',
             'width': ghostSize,
             'height': ghostSize,
-            //'overlay-padding': nodeSize, //?
             'text-background-padding': '100',
         }
     },
@@ -82,7 +96,6 @@ export const style: Stylesheet[] = [
             'events': 'no',
             'width': ghostSize,
             'height': ghostSize,
-            //'overlay-padding': nodeSize, //?
         }
     },
 
@@ -97,8 +110,8 @@ export const style: Stylesheet[] = [
             'text-background-color': 'white',
             'text-background-opacity': 1, 
             'text-wrap': 'wrap',
-            //'text-transform': 'uppercase',
-            // wrap text -> 
+            'z-compound-depth': 'top',
+            'z-index': 1000,
         }
     },
     // incoming node
@@ -115,6 +128,22 @@ export const style: Stylesheet[] = [
         'text-wrap': 'wrap',
         }
     },
+
+    { selector: '.connect',
+    style: {
+        'background-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
+        'border-color': nodeColors.darkgrey2,
+        'border-width': 3,
+        'border-opacity': 1,
+        }
+    },
+    { selector: '.un-connect',
+    style: {
+        'background-color': nodeColors.lightgrey2,
+        }
+    },
+
+
     // RESOURCES -> dont change on hover, etc
     { selector: '.resource',
     style: {
@@ -156,13 +185,11 @@ export const style: Stylesheet[] = [
         'z-compound-depth': 'auto',
         'width': 5,
         'line-opacity': 1, 
-        //'line-color': 'black',
-        //'source-arrow-color': 'black',
         }
     },
     { selector: '.ghost-edges',
     style: {
-        //'line-opacity': 0.3,
+        'line-opacity': 0.3, // 0.75
         'line-color': nodeColors.lightgrey,
         'source-arrow-color': nodeColors.lightgrey,
         'z-compound-depth': 'bottom',
@@ -196,6 +223,21 @@ export const style: Stylesheet[] = [
         'width': 5,
         'z-compound-depth': 'top', 
         'line-opacity': getOpacityOut,
+        }
+    },
+
+    { selector: '.edge-connect',
+    style: {
+        'line-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey + ',' + nodeColors.lightgrey2 + ')',
+        'source-arrow-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey + ',' + nodeColors.lightgrey2 + ')',
+        'z-compound-depth': 'auto',
+        }
+    },
+    { selector: '.edge-un-connect',
+    style: {
+        'line-opacity': 1,
+        'line-color': nodeColors.lightgrey2,
+        'source-arrow-color': nodeColors.lightgrey2,
         }
     },
 
