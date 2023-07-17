@@ -107,7 +107,9 @@ export class Styler {
         this.ghost(false, eles, true); // unghost all connected Elements
 
         // Highlight the connected Elements
-        this.setConnectedColor(eles);
+        //this.setConnectedColor(eles);
+        this.setConnectedColor2(target, eles);
+        console.log("connected colors", eles.data("weight"));
         this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]);
 
         // Style the leftover Elements that are shown in the graph ??
@@ -118,7 +120,7 @@ export class Styler {
     }
 
     // funktionier -> bin selber überrascht -> könnte aber besser sein
-    setConnectedColor(eles:cytoscape.Collection) {
+    private setConnectedColor(eles:cytoscape.Collection) {
         let number = 0
         eles.forEach(ele => { // for each element in the collection, set a data fild to map to later
             ele.data("weight", number);
@@ -128,6 +130,31 @@ export class Styler {
         });
     }
 
+    private setConnectedColor2(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
+        let number = 0;
+        //target.neighborhood().data("weight", number);
+        target.data("weight", 0);
+        eles.dfs({
+            root: target,
+            visit: function(v, e, u, i, depth) { // v = current node
+                if(e?.isEdge) {
+                    e.data("weight", depth);
+                }
+                if(v.isNode()){
+                    v.data("weight", depth); 
+                    console.log("v", v.data("weight"), v.data("label"));
+                }
+            }
+        });
+    }
+    // go over nodes in eles with target.neighborhood
+        // for every
+
+    private iterateConnected(eles:cytoscape.Collection, num:number){
+
+    }
+
+    // TODO
     public onHover(){
 
     }

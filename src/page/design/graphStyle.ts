@@ -101,7 +101,7 @@ export const style: Stylesheet[] = [
 
     { selector: '.connect',
     style: {
-        'background-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
+        'background-color': 'mapData(weight, 0, 20,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
         'border-color': nodeColors.darkgrey2,
         'border-width': 3,
         'border-opacity': 1,
@@ -143,8 +143,8 @@ export const style: Stylesheet[] = [
         }
     },
 
-    // Selection
-    { selector: ':selected',
+    // Selection -> also selects on dbl-click
+    /*{ selector: ':selected',
     style: {
         'background-color': hoverColors.hover,
         'font-weight': 'bold',
@@ -152,7 +152,7 @@ export const style: Stylesheet[] = [
         'text-background-opacity': 1, 
         'z-compound-depth': 'top',
         }
-    },
+    },*/
 
 
     // RESOURCES -> dont change on hover, etc
