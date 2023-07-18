@@ -1,7 +1,6 @@
 import cytoscape from "cytoscape";
 import viewUtilities from "cytoscape-view-utilities";
 import { nodeColors } from "../design/colorsCofig";
-import { setMaxDepth } from "../design/graphStyle";
 
 // Class that bundels all graph stylings (using: view-utilities extension)
 export class Styler {
@@ -121,20 +120,6 @@ export class Styler {
     // Verbesserung für setConnected()
     private setConnectedColor2(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
         //target.data("weight", 0);
-        // let maxDepth = 0;
-        /*eles.dfs({
-            root: target,
-            visit: function(v, e, u, i, depth) { // v = current node
-                if(e?.isEdge) {
-                    e.data("weight", depth);
-                }
-                if(v.isNode()){
-                    v.data("weight", depth); 
-                    console.log("v", v.data("weight"), v.data("label"));
-                }
-                //if(depth > maxDepth) {maxDepth = depth;}
-            }
-        });*/
         // set maxDepth for mapper ??
         eles.bfs({
             roots: target,
@@ -144,10 +129,10 @@ export class Styler {
                 }
                 if(v.isNode()){
                     v.data("weight", depth); 
-                    console.log("v", v.data("weight"), v.data("label"));
+                    //console.log("v", v.data("weight"), v.data("label"));
                 }
             }
-        })
+        });
     }
 
     // TODO

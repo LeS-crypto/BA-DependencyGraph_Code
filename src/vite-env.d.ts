@@ -8,4 +8,5 @@ declare module "cytoscape-layout-utilities";
 declare module "cytoscape-view-utilities";
 declare module "cytoscape-cise";
 declare module "cytoscape-spread";
+declare module "cytoscape-cola";
 declare const APP_VERSION: string;

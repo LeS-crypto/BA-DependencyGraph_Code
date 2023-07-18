@@ -108,6 +108,8 @@ export const style: Stylesheet[] = [
             'events': 'no',
             'width': ghostSize,
             'height': ghostSize,
+            // 'width': ghostSize,
+            // 'height': ghostSize,
         }
     },
 

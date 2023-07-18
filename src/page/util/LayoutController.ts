@@ -1,6 +1,7 @@
 import cytoscape, { ElementDefinition } from "cytoscape";
 import layoutUtilities from "cytoscape-layout-utilities";
 import viewUtilities from "cytoscape-view-utilities";
+import expandCollapse from "cytoscape-expand-collapse";
 import * as layoutOptions from "../design/graphLayout";
 import { GLOBALS } from "../../global/config";
 
@@ -14,6 +15,7 @@ export class LayoutController {
     private cy : any;
     private api: any;
     private api2: any;
+    private exCol: any;
     private styleController: any; //OLD
     private styler : any
     private readonly degreeFilter = "[[degree <"+ 5 + "]]"; // make global
@@ -23,6 +25,11 @@ export class LayoutController {
         this.initExtensions(); //Separate ??
         this.api = this.cy.layoutUtilities(); //options
         this.api2 = this.cy.viewUtilities();
+        this.exCol = this.cy.expandCollapse({
+            layoutBy: GLOBALS.graphLayout,
+            fisheye: true,
+            undoable: false,
+        });
         this.styleController = new StyleController(this.cy);
         this.styler = new Styler(this.cy);
         //init layoutUtilities
@@ -32,17 +39,27 @@ export class LayoutController {
     private initExtensions(){
         cytoscape.use(layoutUtilities);
         cytoscape.use(viewUtilities);
+        expandCollapse(cytoscape);
     }
 
     /* ---- Layout Graph ---- */
     private layoutGraph() {
-
-        this.cy.layout(GLOBALS.graphLayout).run();
-
+        // STYLE the graph first
         const notDisplayed = this.cy.elements().not(
-            this.cy.$(".course").neighborhood("[[degree >"+ 2 + "]]")
+            this.cy.$(".course").neighborhood("[[degree >"+ 4 + "]]")
         );
         this.styler.ghostConnected(true, notDisplayed);
+
+        // LAYOUT the graph 
+        this.cy.layout(GLOBALS.graphLayout).run();
+            // NOTE: Layout uses styles as conditions
+
+        //this.cy.elements("[course ='cgbv']").not(notDisplayed).layout(GLOBALS.graphLayout).run();
+        //this.cy.elements("[course ='eimi']").not(notDisplayed).layout(GLOBALS.graphLayout).run();
+        // Layout visible and ghosted Nodes separately
+        //this.cy.elements().not(notDisplayed).layout(layoutOptions.concentric).run();
+        // notDisplayed.layout(layoutOptions.grid).run();
+
         
 
         //TEMPORARY: for empty course nodes;
@@ -73,34 +90,11 @@ export class LayoutController {
 
         //const course = courseNodes.filter(".course");
 
-        // set constraint?
-        //this.setCourseLayoutConstraint(course.id());
-
         //this.layoutClusters();
 
         // WORKS:
-        this.cy.layout(GLOBALS.courseLayout).run(); // makes wider layout
+        this.cy.layout(GLOBALS.graphLayout).run();
         this.styler.styleCourse(courseNodes);
-
-        /*
-        // hide the rest of the nodes -> ? temporarily remove ?
-        this.styler.hide(this.cy.elements().not(courseNodes));
-        //this.cy.elements().not(courseNodes).addClass("hide");
-        //this.cy.elements(".course").removeClass("hide");
-
-        // Restyle the graph, so that the true structure is shown
-        this.styler.ghost(false, courseNodes);
-        // courseNodes.removeClass("ghost");
-        // courseNodes.edges().removeClass("ghost-edges");
-
-        courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
-        const ghost = courseNodes.filter(this.degreeFilter);
-        
-        this.styler.ghostConnected(true, ghost, true); */
-        // ghost.nodes().addClass("ghost-internal");
-        // ghost.connectedEdges().addClass("ghost-edges");
-
-        //this.styleController.ghost(true, ghost); // doesn't work, bc. of connectedEdges();
     }
 
     public layoutClusters() {
@@ -119,7 +113,7 @@ export class LayoutController {
         this.styler.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
         
         // BUG: relayout the Graph incrementally -> ??
-        this.cy.layout(GLOBALS.courseLayout).stop();
+        this.cy.layout(GLOBALS.graphLayout).stop();
         this.layoutFullGraph();
     }
 

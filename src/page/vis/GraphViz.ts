@@ -2,7 +2,9 @@ import cytoscape, { LayoutOptions } from "cytoscape";
 import fcose from "cytoscape-fcose";
 import spread from "cytoscape-spread";
 import cise from "cytoscape-cise";
+import cola from "cytoscape-cola";
 import layoutUtilities from "cytoscape-layout-utilities";
+import expandCollapse from "cytoscape-expand-collapse";
 import { ElementDefinition } from "cytoscape";
 import {style} from "../design/graphStyle";
 import * as layoutOptions from "../design/graphLayout";
@@ -21,8 +23,10 @@ import { GLOBALS } from "../../global/config";
 cytoscape.use(fcose);
 cytoscape.use(spread); //weaver.js
 cytoscape.use(cise);
+cytoscape.use(cola);
 cytoscape.use(layoutUtilities);
 cytoscape.use(viewUtilities);
+expandCollapse(cytoscape);
 
 /* Displays the Graph and bundles all graph functions */
 export class GraphViz {
@@ -37,6 +41,7 @@ export class GraphViz {
     private layoutInstance: any;
     private layoutController: any;
     private styler : any;
+    private exCol:any;
 
     constructor(
         graphModel: ElementDefinition[],
@@ -54,6 +59,12 @@ export class GraphViz {
         this.cy.ready(this.layoutGraph());
         this.styler = new StyleController(this.cy);
         this.layoutInstance = this.cy.layoutUtilities(); //options
+        this.exCol = this.cy.expandCollapse({
+            layoutBy: GLOBALS.courseLayout,
+            fisheye: true,
+            undoable: false,
+            cueEnabled: false,
+        })
         this.initGraphEvents();
         this.initMenuEvents();
     }
@@ -151,24 +162,17 @@ export class GraphViz {
     private showConnected(target:any) {
         this.styler = new Styler(this.cy); // otherwise, doesn't find
         const connected = this.getConnected(target);
+        this.cy.layout(GLOBALS.graphLayout).stop();
         
-        //this.layoutInstance.placeHiddenNodes(connected);
+        this.layoutInstance.placeHiddenNodes(connected); // does nothing
+
+        this.exCol.expand(connected); // does something strange
 
         this.styler.styleConnected(target, connected);
 
-        /*const hide = this.cy.elements().not(connected)
-            .filter("[[degree <"+ this.visibleDegree + "]]");
-        
-        hide.nodes().addClass("ghost-internal");
-        hide.connectedEdges().addClass("ghost-edges"); // only works with connectedEdges()
-
-        styleEdgesAndNodes(false, connected, ["ghost-internal", "ghost-edges"]);*/
-        //this.styler.ghost(false, connected, true); // doesn't work for some reason
-
-        connected.layout(GLOBALS.courseLayout).run(); // works
-        this.cy.center(connected); //Not anymore -> BUGGY -> centers something on enter course
-        //this.cy.layout(layoutOptions.fcoseCourse).run(); // makes very wide layout
-        // Adjust zoom level
+        //connected.layout(GLOBALS.courseLayout).run(); // works -> noch beste option
+        //this.cy.elements().not(connected).layout(GLOBALS.courseLayout).run();
+        //this.cy.layout(GLOBALS.courseLayout).run(); // wide layout
     }
 
     // Array: edge, it's node, edge, it's node,

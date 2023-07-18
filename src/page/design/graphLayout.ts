@@ -2,6 +2,7 @@
 
 import cytoscape, { NodeSingular } from "cytoscape";
 import { LayoutController } from "../util/LayoutController";
+import { graphLayout } from "./fcoseOptions";
 
 function getDegree(ele:any) {
     return ele.isEdge() ? ele.target().degree() : ele.degree();
@@ -43,8 +44,7 @@ export const fcose = {
     nodeDimensionsIncludeLabels: true,
 }
 
-// Optionen verbessern
-
+// Layout for inside course, when showConnected()
 export const fcoseCourse = {
     name: 'fcose',
     //quality: 'default',
@@ -58,9 +58,9 @@ export const fcoseCourse = {
 
     /* incremental layout options */
     // Node repulsion (non overlapping) multiplier
-    nodeRepulsion: 20000,
+    nodeRepulsion: 200,
     // Ideal edge (non nested) length
-    idealEdgeLength: 250,
+    idealEdgeLength: 100,
     // Divisor to compute edge forces
     edgeElasticity: 0.2,
 
@@ -112,10 +112,15 @@ export const fcoseInside = {
     tile: true,
 }
 
+// New Test
+// Run only one layout
+export const fcose3 = {
+
+}
+
 export const grid = {
     name: 'grid',
     fit: true,
-    cols: 2,
     avoidOverlap: true,
 }
 
@@ -124,12 +129,13 @@ export const concentric = {
     fit: true,
     minNodeSpacing: 10,
     avoidOverlap: true,
+    nodeDimensionsIncludeLabels: true,
     spacingFactor: 0.5,
     concentric: function(node:NodeSingular) {
-        return node.degree(false);
+        return (node.maxDegree(false) + node.minDegree(false)) - node.degree(false);
     },
     levelWidth: function( nodes:any ){ // the variation of concentric values in each level
-        return nodes.degree();
+        return nodes.maxDegree() / 4;
     },
 }
 
@@ -142,7 +148,7 @@ export const spread = {
     animate: false,
     fit: true,
     padding: 20,
-    prelayout: fcoseInside,
+    prelayout: graphLayout,
 }
 
 let clusters = [] as any;
