@@ -1,5 +1,5 @@
-import { Stylesheet } from "cytoscape";
-import { hoverColors, nodeColors } from "./colorsCofig";
+import cytoscape, { Stylesheet } from "cytoscape";
+import { connectColors, hoverColors, nodeColors } from "./colorsCofig";
 //import { url } from "inspector";
 import feed from "../../global/icons/feed.svg";
 import school from "../../global/icons/school.svg";
@@ -35,23 +35,14 @@ const getOpacityIn = (edge:any) => {
     return isGhost ? 0.3 : 1;
 }
 
-export function setConnectedColor(target:cytoscape.NodeSingular, eles:cytoscape.Collection){
-    let number = 0
-    eles.nodes().forEach(ele => {
-        ele.data("weight", number);
-        amount++;
-        // for each element lighten the color a little bit
-        // map to data
-    });
+// Doesn't work (sadly)
+const getGradientColors = (edge:cytoscape.EdgeSingular) => {
+    const col1 = edge.target().style("background-color") as string;
+    const col2 = edge.source().style("background-color") as string;
+    return [col1, col2];
 }
 
-let amount = 0;
-
-// blackens 0 to 1, whitens 0 to -1
-function setBlacken (node:any) :number {
-    amount = amount - 0.2;
-    return amount;
-}
+const amount = 5;
 
 /* ---- STYLESHEET ---- */
 export const style: Stylesheet[] = [
@@ -66,13 +57,34 @@ export const style: Stylesheet[] = [
         'text-background-padding': '5',
         }
     },
+
+    // COURSES:
+    { selector: '.course',
+        style: {
+        'width': courseSize,
+        'height': courseSize,
+        //'background-blacken': 0.2,
+        'background-color': nodeColors.darkgrey,
+        'label': 'data(label)',
+        'events': 'yes',
+        'font-weight': 'bold',
+        'text-transform': 'uppercase',
+        'text-halign': 'center',
+        'text-valign': 'center',
+        'text-background-color': 'white',
+        'text-background-opacity': 1,
+        'text-wrap': 'wrap',
+        'text-events': "yes",
+        }
+    },
+
     // hide nodes -> needed ??
-    { selector: '.hide',
+    /*{ selector: '.hide',
         style: {
         'display': 'none',
         //'visibility': 'hidden',
         }
-    },
+    }, */
     { selector: '.ghost-internal',
         style: {
             'opacity': 0.5,
@@ -99,12 +111,31 @@ export const style: Stylesheet[] = [
         }
     },
 
+    { selector: '.target-connect',
+    style: {
+        'background-color': connectColors.target,
+        'border-color': connectColors.tBorder,
+        'font-weight': 'bold',
+        'text-background-color': 'white',
+        'text-background-opacity': 1, 
+        'border-width': 5,
+        'border-opacity': 1,
+        }   
+    },
+
     { selector: '.connect',
     style: {
-        'background-color': 'mapData(weight, 0, 20,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
-        'border-color': nodeColors.darkgrey2,
-        'border-width': 3,
-        'border-opacity': 1,
+        // 'background-color': 'mapData(weight, 0, 20,' + nodeColors.darkgrey2 + ',' + nodeColors.lightgrey2 + ')', //??
+        // 'border-color': nodeColors.darkgrey2,
+        // for 10 -> make dynamic ??
+        'background-color': 'mapData(weight, 0,' 
+            + amount + ',' 
+            + connectColors.close + ',' 
+            + connectColors.far + ')', //??
+        // 'background-color': 'mapData(weight, 0, 10,' + connectColors.close + ',' + connectColors.far + ')', //??
+        // 'border-color': nodeColors.darkgrey2,
+        // 'border-width': 3,
+        //'border-opacity': 0,
         }
     },
     { selector: '.un-connect',
@@ -186,7 +217,7 @@ export const style: Stylesheet[] = [
     },
 
 
-    // EDGES:
+    /* ---- EDGES ---------------------------- */
     // NOTE: direction of edge correct?
     { selector: 'edge',
     style: {
@@ -217,8 +248,15 @@ export const style: Stylesheet[] = [
 
     { selector: '.edge-connect',
     style: {
-        'line-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey + ',' + nodeColors.lightgrey2 + ')',
-        'source-arrow-color': 'mapData(weight, 0, 100,' + nodeColors.darkgrey + ',' + nodeColors.lightgrey2 + ')',
+        'line-color': 'mapData(weight, 0, '
+            + amount +',' 
+            + connectColors.close + ',' 
+            + connectColors.far + ')',
+        'source-arrow-color': 'mapData(weight, 0, '
+            + amount +','  
+            + connectColors.close + ',' 
+            + connectColors.far + ')',
+        //'line-gradient-stop-colors': getGradientColors,
         'z-compound-depth': 'auto',
         }
     },
@@ -250,25 +288,6 @@ export const style: Stylesheet[] = [
         'width': 5,
         'z-compound-depth': 'top', 
         'line-opacity': getOpacityOut,
-        }
-    },
-
-    // COURSES:
-    { selector: '.course',
-        style: {
-        'width': courseSize,
-        'height': courseSize,
-        'background-blacken': 0.5,
-        'label': 'data(label)',
-        'events': 'yes',
-        'font-weight': 'bold',
-        'text-transform': 'uppercase',
-        'text-halign': 'center',
-        'text-valign': 'center',
-        'text-background-color': 'white',
-        'text-background-opacity': 1,
-        'text-wrap': 'wrap',
-        'text-events': "yes",
         }
     },
 

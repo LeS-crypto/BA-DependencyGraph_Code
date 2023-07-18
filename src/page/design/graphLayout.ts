@@ -1,6 +1,7 @@
 /* Bundels all Layout Options */
 
 import cytoscape, { NodeSingular } from "cytoscape";
+import { LayoutController } from "../util/LayoutController";
 
 function getDegree(ele:any) {
     return ele.isEdge() ? ele.target().degree() : ele.degree();
@@ -142,4 +143,16 @@ export const spread = {
     fit: true,
     padding: 20,
     prelayout: fcoseInside,
+}
+
+let clusters = [] as any;
+
+export function setClusters(eles:any){
+    clusters = eles;
+}
+
+export const cise = {
+    name: 'cise',
+    clusters: clusters,
+    nodeSeparation: 20,
 }

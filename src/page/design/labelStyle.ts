@@ -35,42 +35,12 @@ const getOpacityIn = (edge:any) => {
     return isGhost ? 0.3 : 1;
 }
 
-let size : number[] = [];
-const maxWrap : string = '150';
-
-function setNodeSize(node:any) {
-    const letterSize = 5; // ~letter size in pixels
-    let w, h : number;
-    let str = node.data("label");
-    let l = str.length;
-    if(l % parseInt(maxWrap) == 0) {
-        //is mulitple
-        let num = l / parseInt(maxWrap);
-        w = 150 ;
-        h = num * 5;
-    } else {
-        w = l ;
-        h = 5; // ??
-    }
-
-    return [w*letterSize, h*letterSize];
-}
-const getNodeWidth = (node:any) => {
-    const size = setNodeSize(node);
-    return size[0];
-}
-
-const getNodeHeight = (node:any) => {
-    const size = setNodeSize(node);
-    return size[1];
-}
-
 
 /* ---- STYLESHEET ---- */
 export const labelStylesheet: Stylesheet[] = [
     // NODES:
     { selector: 'node',
-    style: { // Show node with label
+    style: { // TODO: show size of node -> probably using font-size
         'label': 'data(label)',
         //'background-color': nodeColors.lightgrey2, 
         'text-wrap': 'wrap', //wrap text on second space

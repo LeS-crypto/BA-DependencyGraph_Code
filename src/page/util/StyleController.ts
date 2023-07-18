@@ -1,7 +1,7 @@
 import cytoscape from "cytoscape";
 import viewUtilities from "cytoscape-view-utilities";
-import { setConnectedColor, style } from "../design/graphStyle";
 import { nodeColors } from "../design/colorsCofig";
+import { setMaxDepth } from "../design/graphStyle";
 
 // Class that bundels all graph stylings (using: view-utilities extension)
 export class Styler {
@@ -96,21 +96,20 @@ export class Styler {
     }
 
     public styleConnected(target:cytoscape.NodeSingular, eles:cytoscape.Collection) {
-
         // Reload original course style
         this.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
+        this.cy.elements().removeClass("target-connect");
+
         // Ghost all unconnected Elements
         const ghostEles = this.cy.elements().not(eles)
             .filter("[[degree <"+ this.visibleDegree + "]]");
         this.ghostConnected(true, ghostEles, true);
-
         this.ghost(false, eles, true); // unghost all connected Elements
 
-        // Highlight the connected Elements
-        //this.setConnectedColor(eles);
+        // Highlight the connected Elements + get maxDepth
         this.setConnectedColor2(target, eles);
-        console.log("connected colors", eles.data("weight"));
         this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]);
+        target.addClass("target-connect");
 
         // Style the leftover Elements that are shown in the graph ??
         let rest = this.cy.elements().not(eles)
@@ -119,22 +118,11 @@ export class Styler {
 
     }
 
-    // funktionier -> bin selber überrascht -> könnte aber besser sein
-    private setConnectedColor(eles:cytoscape.Collection) {
-        let number = 0
-        eles.forEach(ele => { // for each element in the collection, set a data fild to map to later
-            ele.data("weight", number);
-            number += 2;
-            // for each element lighten the color a little bit
-            // map to data
-        });
-    }
-
+    // Verbesserung für setConnected()
     private setConnectedColor2(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
-        let number = 0;
-        //target.neighborhood().data("weight", number);
-        target.data("weight", 0);
-        eles.dfs({
+        //target.data("weight", 0);
+        // let maxDepth = 0;
+        /*eles.dfs({
             root: target,
             visit: function(v, e, u, i, depth) { // v = current node
                 if(e?.isEdge) {
@@ -144,14 +132,22 @@ export class Styler {
                     v.data("weight", depth); 
                     console.log("v", v.data("weight"), v.data("label"));
                 }
+                //if(depth > maxDepth) {maxDepth = depth;}
             }
-        });
-    }
-    // go over nodes in eles with target.neighborhood
-        // for every
-
-    private iterateConnected(eles:cytoscape.Collection, num:number){
-
+        });*/
+        // set maxDepth for mapper ??
+        eles.bfs({
+            roots: target,
+            visit: function(v, e, u, i, depth) {
+                if(e?.isEdge) {
+                    e.data("weight", depth);
+                }
+                if(v.isNode()){
+                    v.data("weight", depth); 
+                    console.log("v", v.data("weight"), v.data("label"));
+                }
+            }
+        })
     }
 
     // TODO
@@ -167,11 +163,9 @@ export class Styler {
         this.api.hide(eles);
     }
 
-
-
-
 }
 
+// funktioniert nicht wirklich
 export const options = {
     highlightStyles: [
         // Highlight connected Nodes and edges

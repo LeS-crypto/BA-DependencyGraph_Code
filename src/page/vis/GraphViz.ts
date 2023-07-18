@@ -1,6 +1,7 @@
 import cytoscape, { LayoutOptions } from "cytoscape";
 import fcose from "cytoscape-fcose";
 import spread from "cytoscape-spread";
+import cise from "cytoscape-cise";
 import layoutUtilities from "cytoscape-layout-utilities";
 import { ElementDefinition } from "cytoscape";
 import {style} from "../design/graphStyle";
@@ -19,6 +20,7 @@ import { GLOBALS } from "../../global/config";
 //Init extensions
 cytoscape.use(fcose);
 cytoscape.use(spread); //weaver.js
+cytoscape.use(cise);
 cytoscape.use(layoutUtilities);
 cytoscape.use(viewUtilities);
 
@@ -100,6 +102,9 @@ export class GraphViz {
         // evtl.: https://github.com/daniel-dx/cytoscape-all-paths 
         // evtl.: https://stackoverflow.com/questions/73038701/search-predecessors-only-upto-a-certain-node-in-cytoscape-js
         
+        // center the target
+        //this.cy.fit(target);
+
         const isResource = target.data("url");
         console.log(isResource);
         // if dbl-click on course node: "enter" course
@@ -146,7 +151,8 @@ export class GraphViz {
     private showConnected(target:any) {
         this.styler = new Styler(this.cy); // otherwise, doesn't find
         const connected = this.getConnected(target);
-        this.layoutInstance.placeHiddenNodes(connected);
+        
+        //this.layoutInstance.placeHiddenNodes(connected);
 
         this.styler.styleConnected(target, connected);
 
@@ -159,7 +165,8 @@ export class GraphViz {
         styleEdgesAndNodes(false, connected, ["ghost-internal", "ghost-edges"]);*/
         //this.styler.ghost(false, connected, true); // doesn't work for some reason
 
-        connected.layout(GLOBALS.courseLayout).run();
+        connected.layout(GLOBALS.courseLayout).run(); // works
+        this.cy.center(connected); //Not anymore -> BUGGY -> centers something on enter course
         //this.cy.layout(layoutOptions.fcoseCourse).run(); // makes very wide layout
         // Adjust zoom level
     }

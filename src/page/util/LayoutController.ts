@@ -36,17 +36,19 @@ export class LayoutController {
 
     /* ---- Layout Graph ---- */
     private layoutGraph() {
+
         this.cy.layout(GLOBALS.graphLayout).run();
 
         const notDisplayed = this.cy.elements().not(
             this.cy.$(".course").neighborhood("[[degree >"+ 2 + "]]")
         );
         this.styler.ghostConnected(true, notDisplayed);
+        
 
         //TEMPORARY: for empty course nodes;
-        this.cy.elements(".course").removeClass("ghost"); 
+        //this.cy.elements(".course").removeClass("ghost"); 
 
-        //this.api.placeHiddenNodes(notDisplayed); // assumes pre-calculated layout 
+        //this.api.placeHiddenNodes(notDisplayed); // assumes pre-calculated layout -> don't now if works
     }
 
     public layoutFullGraph() {
@@ -73,7 +75,11 @@ export class LayoutController {
 
         // set constraint?
         //this.setCourseLayoutConstraint(course.id());
-        this.cy.layout(GLOBALS.courseLayout).run();
+
+        //this.layoutClusters();
+
+        // WORKS:
+        this.cy.layout(GLOBALS.courseLayout).run(); // makes wider layout
         this.styler.styleCourse(courseNodes);
 
         /*
@@ -95,6 +101,14 @@ export class LayoutController {
         // ghost.connectedEdges().addClass("ghost-edges");
 
         //this.styleController.ghost(true, ghost); // doesn't work, bc. of connectedEdges();
+    }
+
+    public layoutClusters() {
+        const clusters = this.getClusters();
+        clusters.forEach(cluster => {
+            cluster.layout(GLOBALS.graphLayout).run();
+        });
+        this.cy.center(this.cy);
     }
 
     // NOT USED
@@ -174,6 +188,38 @@ export class LayoutController {
             target: eleTarget,
             }
         }] as ElementDefinition[];
+    }
+
+    private getClusters(
+        eles : any = this.cy.elements()
+    ) {
+        return eles.markovClustering({
+            attributes: [
+                function(edge:cytoscape.EdgeSingular){
+                    return edge.source().degree(false);
+                }
+            ]
+        }) as cytoscape.Collection[];
+    }
+
+    private ciseLayout(){
+        // TRY:
+        // needs parents in graph Data
+        const parents = this.cy.$(":parents");
+        let clusters = [] as Array<any>;
+        parents.forEach((parent: { descendants: () => any[]; }) => {
+            let p = [] as Array<string>;
+            parent.descendants().forEach(child => {
+                    p.push(child.id());
+            });
+            clusters.push(p);
+        });
+        console.log(clusters);
+        this.cy.layout({
+            name: 'cise',
+            clusters: clusters,
+            nodeSeparation: 20,
+        }).run();
     }
 
 }
