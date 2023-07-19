@@ -133,9 +133,9 @@ export const fcoseCourse = {
     avoidOverlap: true,
     /* incremental layout options */
     // Node repulsion (non overlapping) multiplier
-    nodeRepulsion: 200, // 200
+    nodeRepulsion: 200, // 200 
     // Ideal edge (non nested) length
-    idealEdgeLength: setLengthCourse, // 100
+    idealEdgeLength: 150, // 100 -> 150
     // Divisor to compute edge forces
     edgeElasticity: 0.2,
 

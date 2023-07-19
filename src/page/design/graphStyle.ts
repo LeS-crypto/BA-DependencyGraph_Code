@@ -42,7 +42,11 @@ const getGradientColors = (edge:cytoscape.EdgeSingular) => {
     return [col1, col2];
 }
 
-const amount = 5;
+const amount2 = 7;
+let amount : number = 7;
+export function setAmount(maxDepth:number) {
+    amount = maxDepth;
+}
 
 /* ---- STYLESHEET ---- */
 export const style: Stylesheet[] = [

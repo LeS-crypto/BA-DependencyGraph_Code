@@ -40,6 +40,7 @@ export class GraphViz {
     private willEnter: Boolean = true;
     private layoutInstance: any;
     private layoutController: any;
+    private menuController: any;
     private styler : any;
     private exCol:any;
 
@@ -80,10 +81,10 @@ export class GraphViz {
     }
 
     private initMenuEvents() {
-        const menuController = new MenuController(this.cy);
+        this.menuController = new MenuController(this.cy);
         new MenuEventController();
         eventBus.on("onMenuClick", (e:any) => {
-            menuController.onMenuClick(this.cy, e);
+            this.menuController.onMenuClick(this.cy, e);
         });
         // TODO:
         /*eventBus.on("onMouseOver", e => {
@@ -114,11 +115,12 @@ export class GraphViz {
         // evtl.: https://github.com/daniel-dx/cytoscape-all-paths 
         // evtl.: https://stackoverflow.com/questions/73038701/search-predecessors-only-upto-a-certain-node-in-cytoscape-js
         
-        // center the target
-        //this.cy.fit(target);
 
         const isResource = target.data("url");
-        console.log(isResource);
+
+        // updateSidebar
+        this.menuController.updateSidebar(target);
+
         // if dbl-click on course node: "enter" course
         if(isResource) { 
             //open resource link
@@ -169,16 +171,18 @@ export class GraphViz {
         // this.cy.layout(GLOBALS.courseLayout).run();
         
         // WORKS
-        this.cy.layout(GLOBALS.graphLayout).stop();
-            // this.layoutInstance.placeHiddenNodes(connected); // does nothing
-        this.exCol.expand(connected); // does something good?
+        // this.cy.layout(GLOBALS.graphLayout).stop();
+        this.layoutInstance.placeHiddenNodes(connected); // does nothing ??
+        // this.exCol.expand(connected); // does something good?
+        // this.cy.fit(connected);
 
         this.styler.styleConnected(target, connected);
 
         //OLD
-        //connected.layout(GLOBALS.courseLayout).run(); // works -> noch beste option
+        // connected.layout(GLOBALS.courseLayout).run(); // works -> noch beste option
         //this.cy.elements().not(connected).layout(GLOBALS.courseLayout).run();
-        //this.cy.layout(GLOBALS.courseLayout).run(); // wide layout
+        this.cy.layout(GLOBALS.courseLayout).run(); // wide layout
+        this.cy.fit(target.neighborhood());
     }
 
     // Array: edge, it's node, edge, it's node,

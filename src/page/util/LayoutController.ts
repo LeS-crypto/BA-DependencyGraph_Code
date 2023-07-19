@@ -97,9 +97,10 @@ export class LayoutController {
 
         //this.layoutClusters();
         this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
+        this.styler.hide(this.cy.elements().not(courseNodes));
 
         // WORKS:
-        this.cy.layout(GLOBALS.graphLayout).run();
+        this.cy.layout(GLOBALS.courseLayout).run(); 
         this.styler.styleCourse(courseNodes);
     }
 

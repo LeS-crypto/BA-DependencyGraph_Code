@@ -116,26 +116,9 @@ export class MenuController {
     
     }
 
+    public updateSidebar() {}
+
 }
-
-function populateSidebar(cy: any) {
-    const hotlist = document.getElementById("hotlist") as HTMLElement;
-    console.log("core", cy); //-> undefined ??
-    // list of all (important) nodes for the graph view
-    const courses = cy.$(".course") as cytoscape.Collection;
-
-    courses.nodes().forEach(course => {
-        var div = document.createElement("div");
-        div.setAttribute("class", "hotlist-items");
-        div.innerText = course.data("label");
-        hotlist.appendChild(div);
-        // create div element
-        // wirte content
-        // put in scrollable list
-        //div.addEventListener("mouseover", onMouseOver)
-    });
-
-} // update on enterCourse()?
 
 function onMouseOver () {
     eventBus.on("onMouseOver", (e:MouseEvent) => {

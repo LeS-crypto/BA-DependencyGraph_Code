@@ -1,6 +1,8 @@
 import cytoscape from "cytoscape";
 import viewUtilities from "cytoscape-view-utilities";
 import { nodeColors } from "../design/colorsCofig";
+import { machine } from "os";
+import { amount, setAmount } from "../design/graphStyle";
 
 // Class that bundels all graph stylings (using: view-utilities extension)
 export class Styler {
@@ -30,9 +32,12 @@ export class Styler {
         add:Boolean, 
         collection: cytoscape.Collection, 
         style:string[],
+        connected:Boolean=false,
     ) {
+        // if(connected) edge = nodes.connectedEdges();
         const nodes = collection.nodes();
-        const edges = collection.edges();
+        let edges;
+        connected ? edges = nodes.connectedEdges() : edges = collection.edges();
         if(add) {
             nodes.addClass(style[0]);
             edges.addClass(style[1]);
@@ -108,7 +113,7 @@ export class Styler {
 
         // Highlight the connected Elements + get maxDepth
         this.setConnectedColor2(target, eles);
-        this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]);
+        this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]); // + connected edges
         target.addClass("target-connect");
 
         // Style the leftover Elements that are shown in the graph ??
@@ -122,6 +127,7 @@ export class Styler {
     private setConnectedColor2(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
         //target.data("weight", 0);
         // set maxDepth for mapper ??
+        let maxDepth = 0;
         eles.bfs({
             roots: target,
             visit: function(v, e, u, i, depth) {
@@ -129,11 +135,15 @@ export class Styler {
                     e.data("weight", depth);
                 }
                 if(v.isNode()){
-                    v.data("weight", depth); 
+                    v.data("weight", depth);
+                    v.connectedEdges().data("weight", depth); 
                     //console.log("v", v.data("weight"), v.data("label"));
                 }
-            }
+                if(depth > maxDepth) maxDepth = depth
+            },
+            directed: false,
         });
+        setAmount(maxDepth);
     }
 
     // TODO
