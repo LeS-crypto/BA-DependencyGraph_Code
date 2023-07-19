@@ -49,6 +49,7 @@ export class LayoutController {
             this.cy.$(".course").neighborhood("[[degree >"+ 4 + "]]")
         );
         this.styler.ghostConnected(true, notDisplayed);
+        this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
 
         // LAYOUT the graph 
         this.cy.layout(GLOBALS.graphLayout).run();

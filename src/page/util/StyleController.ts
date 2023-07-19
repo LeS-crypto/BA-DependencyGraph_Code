@@ -89,7 +89,7 @@ export class Styler {
         // Restyle the graph, so that the true structure is shown
         this.ghost(false, courseNodes);
 
-        courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
+        // courseNodes.filter("node[url]").addClass("resource-hide"); // hide all Resources -> specific class
         const ghost = courseNodes.filter(this.degreeFilter);
         this.ghostConnected(true, ghost, true);
     }
@@ -104,6 +104,7 @@ export class Styler {
             .filter("[[degree <"+ this.visibleDegree + "]]");
         this.ghostConnected(true, ghostEles, true);
         this.ghost(false, eles, true); // unghost all connected Elements
+        //eles.filter("node[url]").addClass("resource");
 
         // Highlight the connected Elements + get maxDepth
         this.setConnectedColor2(target, eles);

@@ -107,6 +107,18 @@ export const graphLayout = {
 };
 // Source: https://github.com/iVis-at-Bilkent/cytoscape.js-fcose 
 
+// keine wirkliche veränderung
+const setRepulsionCourse = (node:cytoscape.NodeSingular) => {
+    const weight = node.data("weight");
+    return weight ? weight * 200 : 200;
+}
+
+const setLengthCourse = (edge:cytoscape.EdgeSingular) => {
+    const weight = edge.target().data("weight");
+    return weight ? weight * 50 : 100;
+    return 100;
+    //return edge.hasClass("ghost-edges") ? 1 : 100;
+}
 
 // Layout for inside course, when showConnected()
 export const fcoseCourse = {
@@ -121,9 +133,9 @@ export const fcoseCourse = {
     avoidOverlap: true,
     /* incremental layout options */
     // Node repulsion (non overlapping) multiplier
-    nodeRepulsion: 2000,
+    nodeRepulsion: 200, // 200
     // Ideal edge (non nested) length
-    idealEdgeLength: 100,
+    idealEdgeLength: setLengthCourse, // 100
     // Divisor to compute edge forces
     edgeElasticity: 0.2,
 

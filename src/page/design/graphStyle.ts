@@ -197,6 +197,7 @@ export const style: Stylesheet[] = [
         'background-image': feed,
         'background-fit': 'contain',
         'background-opacity': 0,
+        'label': "",
         }
     },
     { selector: '.resource-hide',
@@ -207,6 +208,7 @@ export const style: Stylesheet[] = [
         'background-fit': 'contain',
         'background-opacity': 0,
         'background-image-opacity': 0.5,
+        'label': "",
         }
     },
     // EDUCATROS
@@ -224,20 +226,13 @@ export const style: Stylesheet[] = [
     { selector: 'edge',
     style: {
         'source-arrow-shape': 'triangle',
+        'line-color': nodeColors.grey1,
+        'source-arrow-color': nodeColors.grey1,
         'curve-style': 'straight',
         'events': 'no',
         'z-compound-depth': 'auto',
         'width': 5,
         'line-opacity': 1, 
-        }
-    },
-    { selector: '.ghost-edges',
-    style: {
-        'line-opacity': 0.3, // 0.75
-        'line-color': nodeColors.lightgrey,
-        'source-arrow-color': nodeColors.lightgrey,
-        'z-compound-depth': 'bottom',
-        'source-arrow-shape': 'none'
         }
     },
     { selector: '.hide-edges',
@@ -290,6 +285,16 @@ export const style: Stylesheet[] = [
         'width': 5,
         'z-compound-depth': 'top', 
         'line-opacity': getOpacityOut,
+        }
+    },
+
+    { selector: '.ghost-edges',
+    style: {
+        'line-opacity': 0.3, // 0.75
+        'line-color': nodeColors.lightgrey,
+        'source-arrow-color': nodeColors.lightgrey,
+        'z-compound-depth': 'bottom',
+        'source-arrow-shape': 'none'
         }
     },
 

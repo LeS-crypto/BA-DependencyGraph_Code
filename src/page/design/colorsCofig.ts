@@ -26,6 +26,7 @@ export const nodeColors = {
     lightgrey: "#eeeeee",
     lightgrey05: "#dddddd",
     lightgrey2: "#d4d1d1",
+    grey1: "#a6a2a2",
     grey: "#858383",
     darkgrey: "#3e3e3e",
     darkgrey2: "#232323",
