@@ -73,13 +73,14 @@ export class GraphViz {
         new GraphEventController(this.cy);
         //eventBus.on("changeZoomLevel", this.adjustGraph);
         eventBus.on("dblclick", this.onDblClick);
+        eventBus.on("click", this.onClick);
         eventBus.on("mouseover", this.hightlightNodeOnHover);
         eventBus.on("mouseout", this.noHightlightNodeOnHover);
         eventBus.on("keyDown", this.onKeyEvent);
     }
 
     private initMenuEvents() {
-        const menuController = new MenuController();
+        const menuController = new MenuController(this.cy);
         new MenuEventController();
         eventBus.on("onMenuClick", (e:any) => {
             menuController.onMenuClick(this.cy, e);
@@ -162,14 +163,19 @@ export class GraphViz {
     private showConnected(target:any) {
         this.styler = new Styler(this.cy); // otherwise, doesn't find
         const connected = this.getConnected(target);
-        this.cy.layout(GLOBALS.graphLayout).stop();
-        
-        this.layoutInstance.placeHiddenNodes(connected); // does nothing
 
-        this.exCol.expand(connected); // does something strange
+        // EVTL.
+        // connected.move({parent: "conPa"});
+        // this.cy.layout(GLOBALS.courseLayout).run();
+        
+        // WORKS
+        this.cy.layout(GLOBALS.graphLayout).stop();
+            // this.layoutInstance.placeHiddenNodes(connected); // does nothing
+        this.exCol.expand(connected); // does something good?
 
         this.styler.styleConnected(target, connected);
 
+        //OLD
         //connected.layout(GLOBALS.courseLayout).run(); // works -> noch beste option
         //this.cy.elements().not(connected).layout(GLOBALS.courseLayout).run();
         //this.cy.layout(GLOBALS.courseLayout).run(); // wide layout
@@ -182,6 +188,28 @@ export class GraphViz {
         target = target.union(target.successors(course));
         // console.log("target", target);
         return target;
+    }
+
+    private onClick (target:any) {
+        //console.log("click on", target.data("label"));
+        // Display label in the corner
+        const nameDiv = document.getElementById("nameDiv") as HTMLElement;
+        const name : string = target.data("label");
+        // name ? nameDiv!.innerText = target.data("label") : null;
+
+        const res = target.neighborhood("node[url]") as cytoscape.Collection;
+        if (res.length == 0) nameDiv.innerHTML = ""; // remove all children (resources)
+
+        name ? nameDiv!.innerText = target.data("label") : null;
+
+        // Display the connected Resources if they are available
+        res.forEach(r => {
+            let div = document.createElement("div");
+            div.setAttribute("class", "resource-items");
+            div.innerText = r.data("label");
+            nameDiv.appendChild(div);
+        });
+
     }
 
 

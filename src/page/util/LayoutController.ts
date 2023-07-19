@@ -70,6 +70,10 @@ export class LayoutController {
     }
 
     public layoutFullGraph() {
+        // test
+        this.cy.add({
+            group: "nodes", data: {id: "conPa"}
+        })
         this.addCourses();
         this.layoutGraph(); 
 
@@ -92,6 +96,7 @@ export class LayoutController {
         //const course = courseNodes.filter(".course");
 
         //this.layoutClusters();
+        this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
 
         // WORKS:
         this.cy.layout(GLOBALS.graphLayout).run();

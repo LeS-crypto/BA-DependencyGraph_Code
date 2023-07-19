@@ -11,24 +11,31 @@ export class MenuController {
     private openMenu : boolean = true;
 
     constructor(
-        //cy : any,
+        cy : any,
         //container : HTMLElement,*/
     ) {
-        //this.populateSidebar(this.cy);
+        this.cy = cy;
+        this.populateSidebar(this.cy);
         //this.cy = cy;
         // this.container = container; */
-        //this.initMenuEvents();
+        // this.initMenuEvents();
     }
 
-    /*private initMenuEvents() {
+    private initMenuEvents() {
         //new MenuEventController();
         eventBus.on("onMenuClick", this.onMenuClick);
-    }*/
+    }
 
     /* ---- EVENT FUNCTIONS --- */
 
     public onMenuClick(cy:any, e:any) {
-        console.log(e.target.checked);
+        if(e.target.id == "menuBtn" && this.openMenu) {
+            this.openSideBar(cy);
+            this.openMenu = false;
+        } else if (e.target.id == "menuBtn" && !this.openMenu) {
+            this.closeSideBar(cy);
+            this.openMenu = true;
+        } else this.toggleNodes(e.target.checked, cy);
         /*if(this.openMenu){
             this.openSideBar(cy);
             this.openMenu = false;
@@ -38,7 +45,7 @@ export class MenuController {
         } else if (e.target.id() == "toggleNodes") {
             this.toggleNodes(e.target.checked(), cy);
         } */
-        this.toggleNodes(e.target.checked, cy);
+        //this.toggleNodes(e.target.checked, cy);
     }
 
     public openSideBar (cy:any) {

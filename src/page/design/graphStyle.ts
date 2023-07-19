@@ -78,6 +78,20 @@ export const style: Stylesheet[] = [
         }
     },
 
+    // Selection -> also selects on dbl-click
+    { selector: ':selected',
+    style: {
+        //'background-color': hoverColors.hover,
+        'background-color': nodeColors.grey,
+        'font-weight': 'bold',
+        'text-background-color': 'white',
+        'text-background-opacity': 1, 
+        'z-compound-depth': 'top',
+        'border-color': hoverColors.hover,
+        'border-width': 5,
+        }
+    },
+
     // hide nodes -> needed ??
     /*{ selector: '.hide',
         style: {
@@ -175,17 +189,6 @@ export const style: Stylesheet[] = [
         'text-wrap': 'wrap',
         }
     },
-
-    // Selection -> also selects on dbl-click
-    /*{ selector: ':selected',
-    style: {
-        'background-color': hoverColors.hover,
-        'font-weight': 'bold',
-        'text-background-color': 'white',
-        'text-background-opacity': 1, 
-        'z-compound-depth': 'top',
-        }
-    },*/
 
 
     // RESOURCES -> dont change on hover, etc
@@ -303,7 +306,7 @@ export const style: Stylesheet[] = [
     // hide parents in graph
     { selector: ':parents',
     style: {
-        'background-opacity': 0,
+        'background-opacity': 1,
         'border-width': 0,
         'label': '',
         'events': 'no',

@@ -37,5 +37,5 @@ export const connectColors = {
     target: "#3c3245", //483c53
     tBorder: "#c28ffc", // #c5a8e6
     close: "#483c53", //60506f
-    far: "#a093ad",
+    far: "#bcadcc", //a093ad
 }

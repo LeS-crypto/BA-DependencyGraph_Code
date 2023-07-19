@@ -48,6 +48,7 @@ export class MenuEventController {
     // ---- EVENTS ----
 
     private onMenuClick = (e:MouseEvent) => {
+        console.log("click");
         eventBus.emit("onMenuClick", e);
     }
 
