@@ -1,6 +1,6 @@
 import cytoscape from "cytoscape";
 import viewUtilities from "cytoscape-view-utilities";
-import { nodeColors } from "../design/colorsCofig";
+import { connectColors, nodeColors } from "../design/colorsCofig";
 import { machine } from "os";
 import { amount, setAmount } from "../design/graphStyle";
 
@@ -143,7 +143,8 @@ export class Styler {
             },
             directed: false,
         });
-        setAmount(maxDepth);
+        eles.data("maxDepth", maxDepth); // probably needs custom mapper
+        // setAmount(maxDepth);
     }
 
     // TODO

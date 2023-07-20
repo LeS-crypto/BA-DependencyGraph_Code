@@ -1,5 +1,5 @@
 import { Stylesheet } from "cytoscape";
-import { hoverColors, nodeColors } from "./colorsCofig";
+import { connectColors, hoverColors, nodeColors } from "./colorsCofig";
 //import { url } from "inspector";
 import feed from "../../global/icons/feed.svg";
 import school from "../../global/icons/school.svg";
@@ -35,6 +35,14 @@ const getOpacityIn = (edge:any) => {
     return isGhost ? 0.3 : 1;
 }
 
+// default font size = 14
+const setFontSize = (node:any) => {
+    const degree = node.degree();
+    return degree > 30 ? degree : 14 + degree;
+    return 14 + degree;
+}
+
+let amount : number = 4;
 
 /* ---- STYLESHEET ---- */
 export const labelStylesheet: Stylesheet[] = [
@@ -50,12 +58,23 @@ export const labelStylesheet: Stylesheet[] = [
         'shape': 'rectangle',
         'text-halign': 'center',
         'text-valign': 'center',
-        //'text-background-color': nodeColors.lightgrey2,
-        //'text-background-opacity': 1,
-        //'text-background-padding': '0',
+        'font-size': setFontSize, 
         // @ts-ignore
-        'padding': 5, // type doesn't exist
+        'padding': 10, // type doesn't exist
         'text-events': 'yes',
+        }
+    },
+    // Selection -> also selects on dbl-click
+    { selector: ':selected',
+    style: {
+        //'background-color': hoverColors.hover,
+        'background-color': nodeColors.grey,
+        'font-weight': 'bold',
+        'text-background-color': 'white',
+        'text-background-opacity': 1, 
+        'z-compound-depth': 'top',
+        'border-color': hoverColors.hover,
+        'border-width': 5,
         }
     },
     // hide nodes
@@ -67,7 +86,7 @@ export const labelStylesheet: Stylesheet[] = [
     },
     { selector: '.ghost-internal',
         style: {
-            'opacity': 0.75,
+            'opacity': 0.5,
             'shape': 'ellipse',
             'label': 'data(label)',
             'text-opacity': 0,
@@ -95,6 +114,27 @@ export const labelStylesheet: Stylesheet[] = [
         }
     },
 
+    { selector: '.target-connect',
+    style: {
+        'background-color': connectColors.target,
+        'border-color': connectColors.tBorder,
+        'font-weight': 'bold',
+        'text-background-color': 'white',
+        'text-background-opacity': 1, 
+        'border-width': 5,
+        'border-opacity': 1,
+        }   
+    },
+
+    { selector: '.connect',
+    style: {
+        'background-color': 'mapData(weight, 0,' 
+            + amount + ','  // not dynamic -> should be maxDepth, but how?
+            + connectColors.close + ',' 
+            + connectColors.far + ')', //??
+        }
+    },
+
     // highlight on hover
     { selector: ".hover",
         style: {
@@ -106,8 +146,8 @@ export const labelStylesheet: Stylesheet[] = [
             'text-background-color': 'white',
             'text-background-opacity': 1, 
             'text-wrap': 'wrap',
-            //'text-transform': 'uppercase',
-            // wrap text -> 
+            'z-compound-depth': 'top',
+            'z-index': 1000,
         }
     },
     // incoming node
@@ -149,6 +189,7 @@ export const labelStylesheet: Stylesheet[] = [
         'background-image': feed,
         'background-fit': 'contain',
         'background-opacity': 0,
+        'label': "",
         }
     },
     { selector: '.resource-hide',
@@ -159,6 +200,7 @@ export const labelStylesheet: Stylesheet[] = [
         'background-fit': 'contain',
         'background-opacity': 0,
         'background-image-opacity': 0.5,
+        'label': "",
         }
     },
     // EDUCATROS
@@ -176,18 +218,18 @@ export const labelStylesheet: Stylesheet[] = [
     { selector: 'edge',
     style: {
         'source-arrow-shape': 'triangle',
+        'line-color': nodeColors.grey1,
+        'source-arrow-color': nodeColors.grey1,
         'curve-style': 'straight',
         'events': 'no',
         'z-compound-depth': 'auto',
         'width': 5,
         'line-opacity': 1, 
-        //'line-color': 'black',
-        //'source-arrow-color': 'black',
         }
     },
     { selector: '.ghost-edges',
     style: {
-        //'line-opacity': 0.3,
+        'line-opacity': 0.3,
         'line-color': nodeColors.lightgrey,
         'source-arrow-color': nodeColors.lightgrey,
         'z-compound-depth': 'bottom',
@@ -201,6 +243,22 @@ export const labelStylesheet: Stylesheet[] = [
         'z-compound-depth': 'bottom',
         }
     },
+
+    { selector: '.edge-connect',
+    style: {
+        'line-color': 'mapData(weight, 0, '
+            + amount +',' 
+            + connectColors.close + ',' 
+            + connectColors.far + ')',
+        'source-arrow-color': 'mapData(weight, 0, '
+            + amount +','  
+            + connectColors.close + ',' 
+            + connectColors.far + ')',
+        //'line-gradient-stop-colors': getGradientColors,
+        'z-compound-depth': 'auto',
+        }
+    },
+
     // incoming edges
     { selector: '.edge-incoming',
     style: {

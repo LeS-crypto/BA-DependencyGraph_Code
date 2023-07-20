@@ -118,9 +118,6 @@ export class GraphViz {
 
         const isResource = target.data("url");
 
-        // updateSidebar
-        this.menuController.updateSidebar(target);
-
         // if dbl-click on course node: "enter" course
         if(isResource) { 
             //open resource link
@@ -149,6 +146,9 @@ export class GraphViz {
     private enterCourse(target:any) {
         const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
         this.layoutController.layoutCourse(courseNodes);
+        // this.layoutController.layoutLeitMotif(courseNodes); //TEST
+
+        this.menuController.updateSidebar(target, courseNodes);
 
         this.willEnter = false;
     }
@@ -194,12 +194,11 @@ export class GraphViz {
         return target;
     }
 
+    private previousID : any = "";
+    // Show the name of the selected Node in the upper right corner
     private onClick (target:any) {
-        //console.log("click on", target.data("label"));
-        // Display label in the corner
         const nameDiv = document.getElementById("nameDiv") as HTMLElement;
         const name : string = target.data("label");
-        // name ? nameDiv!.innerText = target.data("label") : null;
 
         const res = target.neighborhood("node[url]") as cytoscape.Collection;
         if (res.length == 0) nameDiv.innerHTML = ""; // remove all children (resources)
@@ -213,6 +212,12 @@ export class GraphViz {
             div.innerText = r.data("label");
             nameDiv.appendChild(div);
         });
+
+        // Highlight node in sidebar
+        const nodeDivs = document.getElementById(target.data("label"));
+        nodeDivs?.setAttribute("class", "select-hotlist-child");
+
+        // TODO: remove previously selected
 
     }
 

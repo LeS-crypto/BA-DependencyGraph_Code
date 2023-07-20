@@ -18,12 +18,13 @@ export class MenuController {
         this.populateSidebar(this.cy);
         //this.cy = cy;
         // this.container = container; */
-        // this.initMenuEvents();
+        this.initMenuEvents();
     }
 
     private initMenuEvents() {
         //new MenuEventController();
-        eventBus.on("onMenuClick", this.onMenuClick);
+        //eventBus.on("onMenuClick", this.onMenuClick);
+        eventBus.on("onMouseOver", this.onMenuHover);
     }
 
     /* ---- EVENT FUNCTIONS --- */
@@ -36,16 +37,6 @@ export class MenuController {
             this.closeSideBar(cy);
             this.openMenu = true;
         } else this.toggleNodes(e.target.checked, cy);
-        /*if(this.openMenu){
-            this.openSideBar(cy);
-            this.openMenu = false;
-        } else if (!this.openMenu) {
-            this.closeSideBar(cy);
-            this.openMenu = true;
-        } else if (e.target.id() == "toggleNodes") {
-            this.toggleNodes(e.target.checked(), cy);
-        } */
-        //this.toggleNodes(e.target.checked, cy);
     }
 
     public openSideBar (cy:any) {
@@ -55,7 +46,6 @@ export class MenuController {
         sidebar.style.display = "block";
         // cy.resize()
         console.log("click");
-        //populateSidebar(cy);
     }
 
     public closeSideBar (cy:any) {
@@ -67,56 +57,84 @@ export class MenuController {
 
     private toggleNodes(checked:Boolean, cy:cytoscape.Core){
         cy.elements().removeStyle();
-        if(checked){
-            // show labels
+        if(checked){ // show labels
             cy.style(labelStylesheet);
-            //cy.elements().style(labelStylesheet);
-
-        } else {
-            // show nodes
+        } else { // show nodes
             cy.style(style);
         }
     }
 
     // TODO: make work
-    public onMouseOver(e:any) {
+    public onMenuHover(e:any) {
         console.log ("mouse over1");
         // https://stackoverflow.com/questions/23508221/vanilla-javascript-event-delegation
         //console.log(e.target.closest(".hotlist-element"));
         // TODO: highlight in graph -> highlight node on hover
     }
 
-    // TODO: close sidebar + move cy-container = app
-
-    /*public onMenuClick(e:MouseEvent, cy:any) {
-        const sidebar = document.getElementById("sidebar") as HTMLElement;
-        // open Sidebar
-        sidebar.style.width = "25%";
-        sidebar.style.display = "block";
-        console.log("click");
-        populateSidebar(cy);
-    }*/
-
     private populateSidebar(cy: any) {
         const hotlist = document.getElementById("hotlist") as HTMLElement;
         console.log("core", cy); //-> undefined ??
         // list of all (important) nodes for the graph view
         const courses = cy.$(".course") as cytoscape.Collection;
-    
-        courses.nodes().forEach(course => {
-            var div = document.createElement("div");
-            div.setAttribute("class", "hotlist-items");
-            div.innerText = course.data("label");
-            hotlist.appendChild(div);
-            // create div element
-            // wirte content
-            // put in scrollable list
-            //div.addEventListener("mouseover", onMouseOver)
+
+        courses.forEach(course => {
+            const childs = course.neighborhood().not(".ghost").not(".course");
+            this.addDivs(course, childs, hotlist);
         });
     
     }
 
-    public updateSidebar() {}
+    public updateSidebar(target:any, courseNodes:cytoscape.Collection) {
+        const hotlist = document.getElementById("hotlist") as HTMLElement;
+        hotlist.innerHTML = "";
+        // Find good and easy way to look for visible nodes in graph
+        this.addDivs(target, courseNodes, hotlist);
+
+    }
+
+    // Make work ??
+    public sidebarSelect(target:cytoscape.NodeSingular) {
+        const nodeDivs = document.getElementById(target.data("label"));
+        nodeDivs?.setAttribute("class", "select-hotlist-child");
+    }
+
+    public sidebarConnect() {
+
+    }
+
+    public sidebarHover() {
+
+    }
+
+    /**
+     * Creates a tree-view of parent and their childs
+     * @param parent The parent to create
+     * @param childs The childs to append to the parent
+     * @param div The div to append the parent and then the childs
+     */
+    private addDivs(
+        parent:cytoscape.NodeSingular, 
+        childs:cytoscape.Collection, 
+        div:HTMLElement
+    ) {
+        var pDiv = document.createElement("div");
+        pDiv.setAttribute("class", "hotlist-items");
+        pDiv.innerText = parent.data("label");
+        div.appendChild(pDiv);
+
+        childs.forEach(child => {
+            if(child.data("label") != undefined) {
+                var cDiv = document.createElement("div");
+                cDiv.setAttribute("class", "hotlist-childs");
+                cDiv.setAttribute("id", child.data("label"));
+                cDiv.innerText = child.data("label");
+                pDiv.appendChild(cDiv);
+            }
+
+        });
+
+    }
 
 }
 

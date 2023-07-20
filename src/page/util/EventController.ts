@@ -5,30 +5,22 @@ import { eventBus } from "../../global/EventBus";
 // HANDLE MENU EVENTS
 export class MenuEventController {
     
-    /*private readonly $container : HTMLDivElement;
-    private readonly $dropBtn : HTMLSelectElement;
-    private readonly $searchBtn : HTMLButtonElement;
-    private readonly $toggleBtn1 : HTMLInputElement;
-    private readonly $toggleBtn2 : HTMLInputElement;*/
     private readonly $menuBtn : HTMLDivElement;
     private readonly $toggleNodes : HTMLElement;
+    private readonly $sidebar : HTMLElement;
     // private readonly $closeBtn : HTMLDivElement;
     private readonly $hotlist : HTMLElement;
+    private readonly hotlistItems: any;
     private readonly $app : HTMLElement;
-    private readonly $cy : any;
+    // private readonly $cy : any;
 
     constructor(){
-        //this.$cy = cy;
-        /*this.$container = document.getElementById("toolbar") as HTMLDivElement;
-        this.$dropBtn = document.getElementById("layout-options") as HTMLSelectElement;
-        this.$searchBtn = document.getElementById("searchBtn") as HTMLButtonElement;
-        this.$toggleBtn1 = document.getElementById("toggle1") as HTMLInputElement;
-        this.$toggleBtn2 = document.getElementById("toggle2") as HTMLInputElement;*/
         this.$app = document.getElementById("app") as HTMLElement;
         this.$menuBtn = document.getElementById("menuBtn") as HTMLDivElement;
         this.$toggleNodes = document.getElementById("toggleNodes") as HTMLElement;
         // this.$closeBtn = document.getElementById("closeBtn") as HTMLDivElement;
-        this.$hotlist = document.getElementById("hotlist") as HTMLElement;
+        //this.hotlistItems = document.getElementsByClassName("hotlist-items") as HTMLCollectionOf<Element>;
+        this.$sidebar = document.getElementById("sidebar") as HTMLElement;
         this.$initListeners();
     }
 
@@ -36,13 +28,8 @@ export class MenuEventController {
     private $initListeners() {
         this.$menuBtn.addEventListener("click", this.onMenuClick);
         this.$toggleNodes.addEventListener("click", this.onMenuClick);
-        // this.$closeBtn.addEventListener("click", this.onMenuClick);
-        this.$hotlist.addEventListener("mouseover", this.onMouseOver);
-        /*this.$dropBtn.selectedIndex = 0; // Change Dropdown back to default value
-        this.$dropBtn.addEventListener("change", this.onLayoutChange);
-        this.$searchBtn.addEventListener("click", this.onSearch);
-        this.$toggleBtn1.addEventListener("click", this.onToggleBubbleSet);
-        this.$toggleBtn2.addEventListener("click", this.onTogglePacking);*/
+        //this.$hotlist.addEventListener("mouseover", this.onMouseOver);
+        //this.$sidebar.addEventListener("mouse")
     };
 
     // ---- EVENTS ----
@@ -52,29 +39,14 @@ export class MenuEventController {
         eventBus.emit("onMenuClick", e);
     }
 
+    private onHotlistClick = (e:MouseEvent) => {
+        console.log("click hotlist");
+    }
+
     private onMouseOver = (e:MouseEvent) => {
         eventBus.emit("onMouseOver");
     }
 
-    // Event to change to layout depending on selecte option (dropdown-menu)
-    private onLayoutChange = (e:any) => {
-        var layoutVar = e.target.value;
-        eventBus.emit("layoutChange", layoutVar);
-    };
-
-    private onToggleBubbleSet = (e:any) => {
-        var toggleVar = e.target;
-        eventBus.emit("toggleBubble", toggleVar);
-    };
-
-    private onTogglePacking = (e:any) => {
-        var toggleVar = e.target;
-        eventBus.emit("togglePacking", toggleVar);
-    }
-
-    private onSearch = (e:any) => {
-        eventBus.emit("searchNode", e)
-    };
 
 }
 

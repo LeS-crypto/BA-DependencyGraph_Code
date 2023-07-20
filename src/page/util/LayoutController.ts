@@ -104,6 +104,39 @@ export class LayoutController {
         this.styler.styleCourse(courseNodes);
     }
 
+    //When opening a course, show the shortest path from start to end
+    // Find a path from a source to a sink
+    public layoutLeitMotif(courseNodes:cytoscape.Collection){
+        this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
+        this.styler.hide(this.cy.elements().not(courseNodes));
+        const tempEdges = (courseNodes.edges("edge[temp]")); // Hide all edges that have been added to connect nodes to courses
+
+        this.cy.remove(tempEdges);
+        //this.styler.ghost(false, courseNodes);
+
+        const inDegree = this.cy.elements().minIndegree(); // Ends
+        const outDegree = this.cy.elements().minOutdegree();
+
+        const sinks = this.cy.$("[[indegree=" + inDegree + "]]").filter("[[degree > 5 ]]");
+        const sources = this.cy.$("[[outdegree=" + outDegree + "]]").filter("[[degree < 5 ]]");
+
+        const start = this.cy.$("node[label='Pixels']");
+        const end = this.cy.$("node[label='OpenCV Basic Concepts']");
+        var aStar = courseNodes.aStar({
+            root: start,
+            goal: end,
+            directed: false,
+        });
+        //aStar.path.select();
+        console.log(aStar.path);
+
+        aStar.path.removeClass("ghost");
+        aStar.path.edges().removeClass("ghost-edges");
+
+        aStar.path.layout(GLOBALS.courseLayout).run();
+        
+    }
+
     public layoutClusters() {
         const clusters = this.getClusters();
         clusters.forEach(cluster => {
@@ -187,8 +220,10 @@ export class LayoutController {
             id: `${eleSource}-${eleTarget}`,
             source: eleSource,
             target: eleTarget,
+            temp: true,
             }
-        }] as ElementDefinition[];
+        }
+    ] as ElementDefinition[];
     }
 
     private getClusters(

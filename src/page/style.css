@@ -90,10 +90,20 @@ body,
 	overflow: scroll;
 }
 
-.hotlist-item {
+.hotlist-items {
 	padding: 5px;
-	padding-left: 5px;
-	margin: 2px;
 	background-color: whitesmoke;
-	display: none;
+	align-self: center;
+}
+
+.hotlist-childs {
+	padding-left: 20px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	font-size: small;
+	background-color: white;
+}
+
+.select-hotlist-child {
+	background-color: var(--hover);
 }

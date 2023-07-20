@@ -43,9 +43,15 @@ const getGradientColors = (edge:cytoscape.EdgeSingular) => {
 }
 
 const amount2 = 7;
-let amount : number = 7;
-export function setAmount(maxDepth:number) {
-    amount = maxDepth;
+let amount : number = 4;
+
+function gradientMapper(ele:any) {
+    const maxDepth = ele.data("maxDepth");
+    console.log("md", maxDepth);
+    return 'mapData(weight, 0,' 
+    + maxDepth + ',' 
+    + connectColors.close + ',' 
+    + connectColors.far + ')'
 }
 
 /* ---- STYLESHEET ---- */
@@ -149,9 +155,13 @@ export const style: Stylesheet[] = [
         // 'border-color': nodeColors.darkgrey2,
         // for 10 -> make dynamic ??
         'background-color': 'mapData(weight, 0,' 
-            + amount + ',' 
+            + amount + ','  // not dynamic -> should be maxDepth, but how?
             + connectColors.close + ',' 
             + connectColors.far + ')', //??
+        // 'background-opacity': 'mapData(weight, 0,' 
+        //     + amount + ',' 
+        //     + 1 + ',' 
+        //     + 0 + ')',
         // 'background-color': 'mapData(weight, 0, 10,' + connectColors.close + ',' + connectColors.far + ')', //??
         // 'border-color': nodeColors.darkgrey2,
         // 'border-width': 3,
