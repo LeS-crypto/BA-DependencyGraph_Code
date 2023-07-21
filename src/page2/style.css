@@ -64,18 +64,49 @@ body {
         font-size: small;
     }
 
-/* Info about the Resources */
-    #resource-container {
-        margin-top: 50px;
-        margin-left: 35px;
+/* Displayes the text: Resources */
+    #resources {
+        margin-top: 20px;
+        margin-left: 5px;
+        grid-column: 2;
+        grid-row: 3;
+        padding-top: 10px;
     }
 
+/* A container for the displayed resources */
+#resource-container {
+    display: flex;
+    flex-direction: column;
+    /* display: inline-flex; */
+    height: fit-content;
+}
+
+    /* Parent class for a Resource-item (icon+name) */
     .resource-items {
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
         font-size: small;
         font-weight: normal;
         margin-left: 15px;
         padding-bottom: 5px;
     }
+
+        .resource-icon {
+            content: url("../global/icons/open-in-new.svg"); /*oder: link*/
+            height: 15px;
+            width: 15px;
+            display: block;
+            flex-grow: 0;
+            padding: 5px;
+        }
+
+        .resource-name {
+            display: block;
+            flex-grow: 1;
+            align-self: center;
+            padding: 5px;
+        }
 
 
 /* A graph field showing the learning graph of the selected node */

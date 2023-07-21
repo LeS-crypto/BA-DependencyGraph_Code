@@ -89,17 +89,6 @@ export class MainGraph {
         eles = learners.data();
 
         this.pathViz.setElements(learners);
-
-        // GEHT prinzipell 
-        // TODO: layout soll nicht null sein -> 
-        // const path = document.getElementById("path");
-        // const cyPath = cytoscape({
-        //     container: path,
-        //     elements: eles,
-        //     layout: GLOBALS.gridLayout,
-        // });
-        // cyPath.add(learners);
-        // console.log(cyPath);
     }
 
 
@@ -133,11 +122,21 @@ export class MainGraph {
     
         // Resource-names
         const res = target.neighborhood("node[url]") as cytoscape.Collection;
-        resDiv.innerHTML = "Resourcen";
+        resDiv.innerHTML = "";
         res.forEach(r => {
             let div = document.createElement("div");
             div.setAttribute("class", "resource-items");
-            div.innerText = r.data("label");
+
+            let icon = document.createElement("div");
+            icon.setAttribute("class", "resource-icon");
+
+            let name = document.createElement("div");
+            name.setAttribute("class", "resource-name");
+            name.innerHTML = r.data("label");
+
+            div.appendChild(icon)
+            div.appendChild(name);
+
             resDiv.appendChild(div);
         });
 
