@@ -1,6 +1,7 @@
 import cytoscape from "cytoscape";
 import { stylesheet } from "../design/stylesheet";
 import { GLOBALS } from "../../global/config";
+import { INFO_NODES } from "../../global/data/infoNodes";
 
 export class PathViz {
 
@@ -12,8 +13,8 @@ export class PathViz {
         this.cy = cytoscape({
             container: this.$container,
             style: stylesheet,
-            layout: GLOBALS.noLayout,
-            zoom: 1,
+            elements: INFO_NODES,
+            layout: GLOBALS.breadthLayout,
         });       
         //this.cy.ready(this.layoutGraph);
     }
@@ -22,7 +23,7 @@ export class PathViz {
         console.log("start path layout");
         // TODO Dagre
         this.cy.layout(GLOBALS.breadthLayout).run();
-        console.log(this.cy);
+        // TODO styling
     }
 
     public setElements(

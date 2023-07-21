@@ -1,4 +1,4 @@
-import cytoscape, { NodeDefinition } from "cytoscape";
+import { NodeDefinition } from "cytoscape";
 
 // Parent nodes for the courses depicted in the graph
 // Currently static

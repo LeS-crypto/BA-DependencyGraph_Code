@@ -6,6 +6,9 @@ let amount : number = 4;
 /* ---- Utility Functions ---- */
 
 const setFontSize = (node:any) => {
+    if(node.hasClass("ghost")) {
+        return 14;
+    }
     const degree = node.degree();
     return degree > 30 ? degree : 14 + degree;
 }
@@ -52,10 +55,9 @@ export const stylesheet: Stylesheet[] =  [
             'label': 'data(label)', //Label doesn't take up space
             'text-opacity': 0,
             'z-compound-depth': 'bottom',
-            'events': 'no',
+            //'events': 'no',
             'width': ghostSize,
             'height': ghostSize,
-            //'overlay-padding': nodeSize, //?
         }
     },
 
@@ -66,25 +68,43 @@ export const stylesheet: Stylesheet[] =  [
             + amount + ','
             + connectColors.close + ',' 
             + connectColors.far + ')',
-        // 'background-opacity': 1,
+        }
+    },
+    { selector: '.target-connect',
+    style: {
+        'border-color': connectColors.tBorder,
+        'border-width': 5,
+        'border-opacity': 1,
+        'background-color': connectColors.target,
+        'color': 'white',
+        'text-opacity': 1,
+        'width': 'label',
+        'height': 'label',
+        'shape': 'rectangle',
         }
     },
 
     // HIGHLIGHT on HOVER
     { selector: ".hover",
-        style: {
-            //TODO
-            'border-width': 5,
-            'border-color': 'black',
-            //'background-color': hoverColors.hover,
-            'font-weight': 'bold',
-            'text-background-color': 'white',
-            // 'text-background-opacity': 1, 
-            'text-wrap': 'wrap',
-            'z-compound-depth': 'top',
-            'z-index': 1000,
-        }
+    style: {
+        'border-width': 5,
+        'border-color': 'black',
+        'label': 'data(label)',
+        'font-weight': 'bold',
+        'text-opacity': 1,
+        'width': 'label',
+        'height': 'label',
+        'shape': 'rectangle',
+        'font-size': setFontSize,
+        //'text-background-color': 'white',
+        // 'text-background-opacity': 1, 
+        'text-wrap': 'wrap',
+        'z-compound-depth': 'top',
+        'z-index': 1000,
+        }   
     },
+
+
     // incoming node
     { selector: '.node-incoming',
     style: {
@@ -92,6 +112,7 @@ export const stylesheet: Stylesheet[] =  [
         // 'border-color': 'black',
         'text-wrap': 'wrap',
         'text-opacity': 1,
+        'font-size': setFontSize,
         'color': 'black',
         'width': 'label',
         'height': 'label',
@@ -107,6 +128,7 @@ export const stylesheet: Stylesheet[] =  [
         //'background-color': hoverColors.outgoing,
         'text-wrap': 'wrap',
         'text-opacity': 1,
+        'font-size': setFontSize,
         'color': 'black',
         'width': 'label',
         'height': 'label',
@@ -137,6 +159,7 @@ export const stylesheet: Stylesheet[] =  [
         'z-compound-depth': 'auto',
         'width': 5,
         'line-opacity': 1, 
+        'label': '',
         }
     },
 
@@ -146,7 +169,8 @@ export const stylesheet: Stylesheet[] =  [
         'line-color': nodeColors.lightgrey,
         'source-arrow-color': nodeColors.lightgrey,
         'z-compound-depth': 'bottom',
-        'source-arrow-shape': 'none'
+        'source-arrow-shape': 'none',
+        'label': '',
         }
     },
 
@@ -161,8 +185,10 @@ export const stylesheet: Stylesheet[] =  [
             + connectColors.close + ',' 
             + connectColors.far + ')',
         'z-compound-depth': 'auto',
+        'label': '',
         }
     },
+
         
 
 ]

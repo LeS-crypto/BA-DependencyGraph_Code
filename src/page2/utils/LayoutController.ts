@@ -34,8 +34,10 @@ export class LayoutController {
     public relayoutFullGraph() {
         const eles = this.cy.elements();
         this.styler.ghost(false, eles, true);
-        this.styler.show(true, eles);
-        // Hide connected style
+        this.styler.hide(false, eles);
+        this.styler.styleEdgesAndNodes(
+            false, this.cy.elements(), ["connect", "edge-connect"]
+        ); // hide connected style
         this.layoutGraph();
     }
 

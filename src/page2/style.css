@@ -13,14 +13,14 @@ body {
 
 /* The main graph view */
 #graph {
-    width: 80%;
+    width: 75%;
     height: 100%;
     display: inline-block;
 }
 
 /* A multi purpose view on the left side of the screen */
 #view {
-    width: 20%;
+    width: 25%;
     height: 100%;
     display: inline-flex;
     flex-direction: column;
@@ -32,9 +32,10 @@ body {
     display: grid;
     /* display: inline-flex; */
     margin-top: 10px;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 40px auto;
     grid-auto-rows: minmax(10px, 20px);
     height: fit-content;
+    width: 100%;
 }
 
 /* Info for the node */
@@ -44,8 +45,7 @@ body {
         grid-row: 1 / 2;
         width: 50px;
         height: 50px;
-        align-content: center;
-
+        /* align-content: center; */
     }
 
     #node-name {
@@ -98,14 +98,14 @@ body {
             width: 15px;
             display: block;
             flex-grow: 0;
-            padding: 5px;
+            padding: 3px;
         }
 
         .resource-name {
             display: block;
             flex-grow: 1;
             align-self: center;
-            padding: 5px;
+            padding: 3px;
         }
 
 
@@ -114,4 +114,6 @@ body {
     display: block;
     flex-grow: 2;
     height: 50%;
+    padding-bottom: 10px;
+    margin-bottom: 5%;
 }

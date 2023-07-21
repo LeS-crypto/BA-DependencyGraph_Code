@@ -1,4 +1,4 @@
-import cytoscape, { ElementDefinition } from "cytoscape";
+import cytoscape, { ElementDefinition, EventObject } from "cytoscape";
 import fcose from "cytoscape-fcose";
 import { GLOBALS } from "../../global/config";
 import { stylesheet } from "../design/stylesheet";
@@ -7,6 +7,7 @@ import { eventBus } from "../../global/EventBus";
 import { GraphEvents } from "../events/GraphEventController";
 import { StyleController } from "../utils/StyleController";
 import { PathViz } from "./PathViz";
+import { MenuEventController } from "../events/MenuEventController";
 
 // INIT EXTENSIONS
 cytoscape.use(fcose);
@@ -71,10 +72,17 @@ export class MainGraph {
 
     /* ---- UTIL FUNCTIONS ---- */
 
+    // TODO: show less, if a course has not been entered yet
+        // ?? how much ?? -> nur neighbors
     private showConnected(target: cytoscape.NodeSingular) {
         console.log("show Connected-Nodes for:", target.data("label"));
         this.styler = new StyleController(this.cy);
-        const connected = this.getConnected(target);
+        let connected: cytoscape.Collection;
+        if(this.willEnter){
+            connected = target.neighborhood();
+        } else {
+            connected = this.getConnected(target);
+        }
         this.styler.styleConnected(target, connected);
     }
 
@@ -85,9 +93,6 @@ export class MainGraph {
             .not("edge[target=" + "'" + target.data("course") + "'" + "]");
         console.log(learners);
         learners = learners.union(target);
-        let eles : ElementDefinition[];
-        eles = learners.data();
-
         this.pathViz.setElements(learners);
     }
 
@@ -106,6 +111,7 @@ export class MainGraph {
     }
 
     private displayInfo(target:any) {
+        const menuer = new MenuEventController();
         const nodeDiv = document.getElementById("node-name") as HTMLElement; 
         const courseDiv = document.getElementById("course-name") as HTMLElement;
         const resDiv = document.getElementById("resource-container") as HTMLElement;
@@ -129,6 +135,7 @@ export class MainGraph {
 
             let icon = document.createElement("div");
             icon.setAttribute("class", "resource-icon");
+            icon.addEventListener("click", () => eventBus.emit("menuClick", r));
 
             let name = document.createElement("div");
             name.setAttribute("class", "resource-name");
@@ -145,8 +152,12 @@ export class MainGraph {
     /* ---- EVENT FUNCTIONS ---- */
     private onClick = (target:any) => {
         console.log("click", target.data("label"));
-        // Display name of clicked node
+        
         this.displayInfo(target);
+
+        // only allow clicking for ghosted nodes, if already hover
+        // const allowClickOnGhost = target.filter(".ghost").hasClass("hover");
+        // console.log(allowClickOnGhost);
 
         if(target.hasClass("course") && this.willEnter) {
             console.log("enter course ", target.id());
@@ -185,16 +196,16 @@ export class MainGraph {
 
 // Auslagern
 function toggleHoverStyle (target:any, show:boolean) {
-    // batch style-operations?
-    const outNodes = target.outgoers();
-    const inNodes = target.incomers();
     target.toggleClass("hover", show);
-    styleEdgesAndNodes(show, outNodes, ["node-incoming", "edge-incoming"]);
-    styleEdgesAndNodes(show, inNodes, ["node-outgoing", "edge-outgoing"]);
-    /*outNodes.nodes().toggleClass("node-incoming", show);
-    outNodes.edges().toggleClass("edge-incoming", show);
-    inNodes.nodes().toggleClass("node-outgoing", show);
-    inNodes.edges().toggleClass("edge-outgoing", show);*/
+    if(!target.hasClass("ghost")){
+        const outNodes = target.outgoers();
+        const inNodes = target.incomers();
+        styleEdgesAndNodes(show, outNodes, ["node-incoming", "edge-incoming"]);
+        styleEdgesAndNodes(show, inNodes, ["node-outgoing", "edge-outgoing"]);
+    }
+    // Only style connected edges, if the node isn't ghosted
+    // styleEdgesAndNodes(show, outNodes, ["node-incoming", "edge-incoming"]);
+    // styleEdgesAndNodes(show, inNodes, ["node-outgoing", "edge-outgoing"]);
 }
 
 function styleEdgesAndNodes(

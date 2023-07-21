@@ -30,6 +30,8 @@ export class StyleController {
         connected:Boolean=false
     ) {
         this.styleEdgesAndNodes(ghost, eles, ["ghost", "ghost-edges"], connected);
+        ghost ? eles.nodes().ungrabify() : eles.nodes().grabify();
+        //ghost ? eles.nodes().lock() : eles.nodes().unlock(); //Lock their positions
     }
 
     /**
@@ -57,6 +59,7 @@ export class StyleController {
         this.ghost(true, ghost, true);
     }
 
+    // BUG: sometimes Edges stay as labels
     public styleConnected(
         target:cytoscape.NodeSingular,
         eles: cytoscape.Collection
@@ -64,17 +67,22 @@ export class StyleController {
         // (re)ghost all nodes that are not important
         const ghost = this.cy.elements().not(eles).not("node[important]");
         this.ghost(true, ghost, true);
+        ghost.removeClass("node-outgoing");
 
         // Unghost elements in the collection
         this.ghost(false, eles, false);
 
         // Remove previous connected Style on all elements
         this.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
+        this.cy.elements().removeClass("target-connect");
 
         // Highlight the directed connected Elements
-        // Little buggy 
-        this.setConnected(target, eles);
+        const weights = eles.nodes().successors();
+        this.setConnectedColor(target, weights);
+
+        // Style all connected edges and nodes
         this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]);
+        target.addClass("target-connect");
     }
 
     /* ---- Utility Functions ---- */
@@ -105,6 +113,8 @@ export class StyleController {
     }
 
     // Funktioniert fast
+    // Only add weights on nodes, that are dependents 
+        // -> 
     private setConnected(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
         let maxDepth = 0;
         eles.bfs({
@@ -118,7 +128,7 @@ export class StyleController {
                 }
                 if(depth > maxDepth) maxDepth = depth
             },
-            directed: false,
+            directed: false, //wrong direction
         });
     }
 
@@ -140,7 +150,7 @@ export class StyleController {
                 }
                 if(v.isNode()){
                     v.data("weight", depth);
-                    v.connectedEdges().data("weight", depth); //??
+                    //v.connectedEdges().data("weight", depth); //??
                     console.log("v", v.data("weight"));
                 }
                 if(depth > maxDepth) maxDepth = depth
