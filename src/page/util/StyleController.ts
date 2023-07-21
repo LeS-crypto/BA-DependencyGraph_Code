@@ -1,6 +1,6 @@
 import cytoscape from "cytoscape";
 import viewUtilities from "cytoscape-view-utilities";
-import { connectColors, nodeColors } from "../design/colorsCofig";
+import { connectColors, nodeColors } from "../../global/colorsCofig";
 import { machine } from "os";
 import { amount, setAmount } from "../design/graphStyle";
 
@@ -158,6 +158,7 @@ export class Styler {
 
     public hide(eles:cytoscape.Collection){
         this.api.hide(eles);
+        eles.addClass("hide");
     }
 
 }

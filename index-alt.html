@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/global/icons/logo.svg" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BA-Prototyp</title>
+  </head>
+  <body>
+
+    <!-- Temporary -->
+    <input type="checkbox" id="toggleNodes">
+    <label for="toggleNodes">Show only labels</label>
+
+    <!-- Top Menu Bar -->
+    <div class="flex-container">
+      <div class="left" id="menuBtn"></div>
+      <div class="center"></div>
+      <div class="right" id="nameDiv"></div>
+    </div>
+
+    <!-- Side-Bar -->
+    <div id="sidebarBase" class="sidebarBase">
+      <!-- <div id="menuBtn"></div> -->
+      <div id="sidebar">
+        <div id="hotlist"></div>
+      </div>
+    </div>
+
+    <div id="app"></div>
+    <script type="module" src="/src/page/main.ts"></script>
+
+  </body>
+</html>

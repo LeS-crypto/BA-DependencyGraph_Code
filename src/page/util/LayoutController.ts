@@ -5,8 +5,8 @@ import expandCollapse from "cytoscape-expand-collapse";
 import * as layoutOptions from "../design/graphLayout";
 import { GLOBALS } from "../../global/config";
 
-import EIMI from "../data/eimi.json";
-import { COURSES, EDUCATORS } from "../data/courseData";
+import EIMI from "../../global/data/eimi.json";
+import { COURSES, EDUCATORS } from "../../global/data/courseData";
 import { StyleController } from "./StyleController-old";
 import { Styler } from "./StyleController";
 
@@ -45,9 +45,9 @@ export class LayoutController {
     /* ---- Layout Graph ---- */
     private layoutGraph() {
         // STYLE the graph first
-        const notDisplayed = this.cy.elements().not(
-            this.cy.$(".course").neighborhood("[[degree >"+ 4 + "]]")
-        );
+        const displayed = this.cy.$(".course").neighborhood("[[degree >"+ 4 + "]]");
+        displayed.data("important", true); // added for easier access
+        const notDisplayed = this.cy.elements().not(displayed);
         this.styler.ghostConnected(true, notDisplayed);
         this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
 
@@ -92,6 +92,7 @@ export class LayoutController {
 
     public layoutCourse(courseNodes:cytoscape.Collection) {
         // BUG: doesn't display empty courses;
+        // BUG: in labels, werden noch der andere Kurs mit angezeigt -> evtl. problem mit hide
 
         //const course = courseNodes.filter(".course");
 
@@ -106,19 +107,20 @@ export class LayoutController {
 
     //When opening a course, show the shortest path from start to end
     // Find a path from a source to a sink
+    // TEST
     public layoutLeitMotif(courseNodes:cytoscape.Collection){
         this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
         this.styler.hide(this.cy.elements().not(courseNodes));
         const tempEdges = (courseNodes.edges("edge[temp]")); // Hide all edges that have been added to connect nodes to courses
 
         this.cy.remove(tempEdges);
+
         //this.styler.ghost(false, courseNodes);
 
-        const inDegree = this.cy.elements().minIndegree(); // Ends
-        const outDegree = this.cy.elements().minOutdegree();
-
-        const sinks = this.cy.$("[[indegree=" + inDegree + "]]").filter("[[degree > 5 ]]");
-        const sources = this.cy.$("[[outdegree=" + outDegree + "]]").filter("[[degree < 5 ]]");
+        // const inDegree = this.cy.elements().minIndegree(); // Ends
+        // const outDegree = this.cy.elements().minOutdegree();
+        // const sinks = this.cy.$("[[indegree=" + inDegree + "]]").filter("[[degree > 5 ]]");
+        // const sources = this.cy.$("[[outdegree=" + outDegree + "]]").filter("[[degree < 5 ]]");
 
         const start = this.cy.$("node[label='Pixels']");
         const end = this.cy.$("node[label='OpenCV Basic Concepts']");
@@ -133,8 +135,36 @@ export class LayoutController {
         aStar.path.removeClass("ghost");
         aStar.path.edges().removeClass("ghost-edges");
 
-        aStar.path.layout(GLOBALS.courseLayout).run();
-        
+        courseNodes.layout(GLOBALS.courseLayout).run();
+    }
+
+    public defineCoursePath(courseNodes:cytoscape.Collection) {
+        this.styler.hide(this.cy.$("node[url]")); // Hide all resources in the graph
+        this.styler.hide(this.cy.elements().not(courseNodes));
+
+        // Hide all edges that have been added to connect nodes to courses
+        const tempEdges = (courseNodes.edges("edge[temp]")); 
+        this.cy.remove(tempEdges);
+
+        // course Path through all important nodes
+        const impNodes = courseNodes.filter("node[important]");
+        let paths = [];
+        for (let i = 0; i < impNodes.length - 1; i++) {
+            let aStar = courseNodes.aStar({
+                root: impNodes[i],
+                goal: impNodes[i+1],
+                directed: false,
+            });
+            paths.push(aStar);
+            if(aStar.path) {
+                aStar.path.removeClass("ghost");
+                aStar.path.edges().removeClass("ghost-edges");
+            }
+        }
+        console.log(paths);
+
+        courseNodes.layout(GLOBALS.courseLayout).run();
+
     }
 
     public layoutClusters() {

@@ -122,6 +122,8 @@ export const grid = {
     name: 'grid',
     fit: true,
     avoidOverlap: true,
+    // cols: 2,
+    condense: false,
 }
 
 export const concentric = {

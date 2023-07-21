@@ -146,7 +146,8 @@ export class GraphViz {
     private enterCourse(target:any) {
         const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
         this.layoutController.layoutCourse(courseNodes);
-        // this.layoutController.layoutLeitMotif(courseNodes); //TEST
+            // this.layoutController.layoutLeitMotif(courseNodes); //TEST
+        // this.layoutController.defineCoursePath(courseNodes);
 
         this.menuController.updateSidebar(target, courseNodes);
 

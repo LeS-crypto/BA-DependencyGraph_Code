@@ -1,0 +1,86 @@
+/* maximize root, body and app */
+html,
+body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+    display: inline-flex;
+    flex-direction: row;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* The main graph view */
+#graph {
+    width: 80%;
+    height: 100%;
+    display: inline-block;
+}
+
+/* A multi purpose view on the left side of the screen */
+#view {
+    width: 20%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+/* A text field giving info about the selected node */
+.info {
+    flex-grow: 1;
+    display: grid;
+    /* display: inline-flex; */
+    margin-top: 10px;
+    grid-template-columns: 15% 85%;
+    grid-auto-rows: minmax(10px, 20px);
+    height: fit-content;
+}
+
+/* Info for the node */
+    #node-icon {
+        content: url("../global/icons/node-course.svg");
+        grid-column: 1;
+        grid-row: 1 / 2;
+        width: 50px;
+        height: 50px;
+        align-content: center;
+
+    }
+
+    #node-name {
+        grid-column: 2;
+        grid-row: 1;
+        margin-right: 5px;
+        height: 25px;
+        font-size: medium;
+    }
+
+    #course-name {
+        grid-column: 2;
+        grid-row: 2;
+        margin-left: 10px;
+        margin-top: 12px;
+        font-size: small;
+    }
+
+/* Info about the Resources */
+    #resource-container {
+        margin-top: 50px;
+        margin-left: 35px;
+    }
+
+    .resource-items {
+        font-size: small;
+        font-weight: normal;
+        margin-left: 15px;
+        padding-bottom: 5px;
+    }
+
+
+/* A graph field showing the learning graph of the selected node */
+.path {
+    display: block;
+    flex-grow: 2;
+    height: 50%;
+}

@@ -1,5 +1,5 @@
 import cytoscape, { Stylesheet } from "cytoscape";
-import { connectColors, hoverColors, nodeColors } from "./colorsCofig";
+import { connectColors, hoverColors, nodeColors } from "../../global/colorsCofig";
 //import { url } from "inspector";
 import feed from "../../global/icons/feed.svg";
 import school from "../../global/icons/school.svg";

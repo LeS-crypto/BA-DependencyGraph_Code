@@ -6,29 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BA-Prototyp</title>
   </head>
+
   <body>
+    <!-- For the main Graph -->
+    <div id="graph"></div>
 
-    <!-- Temporary -->
-    <input type="checkbox" id="toggleNodes">
-    <label for="toggleNodes">Show only labels</label>
+    <!-- For the view on the right side -->
+    <div id="view">
 
-    <!-- Top Menu Bar -->
-    <div class="flex-container">
-      <div class="left" id="menuBtn"></div>
-      <div class="center"></div>
-      <div class="right" id="nameDiv"></div>
-    </div>
+      <div class="info">
+          <div id="node-icon"></div>
+          <div id="node-name">Knoten</div>
+          <!-- <div id="course-icon"></div> -->
+          <div id="course-name">in Kurs</div>
+          <div id="resource-container"> Resourcen </div>
 
-    <!-- Side-Bar -->
-    <div id="sidebarBase" class="sidebarBase">
-      <!-- <div id="menuBtn"></div> -->
-      <div id="sidebar">
-        <div id="hotlist"></div>
       </div>
-    </div>
 
-    <div id="app"></div>
-    <script type="module" src="/src/page/main.ts"></script>
+      <div class="path" id="path"></div> 
+
+    </div>
+    <script type="module" src="/src/page2/main.ts"></script>
 
   </body>
+
 </html>

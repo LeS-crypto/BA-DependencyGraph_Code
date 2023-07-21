@@ -1,8 +1,8 @@
 import { ElementDefinition } from "cytoscape";
 import "./style.css";
 import { GraphViz } from "./vis/GraphViz";
-import CGBV from "./data/cgbv.json";
-import EIMI from "./data/eimi.json";
+import CGBV from "../global/data/cgbv.json";
+import EIMI from "../global/data/eimi.json";
 
 async function main() {
     console.log("main");

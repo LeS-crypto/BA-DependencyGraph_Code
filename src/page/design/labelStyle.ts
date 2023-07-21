@@ -1,5 +1,5 @@
 import { Stylesheet } from "cytoscape";
-import { connectColors, hoverColors, nodeColors } from "./colorsCofig";
+import { connectColors, hoverColors, nodeColors } from "../../global/colorsCofig";
 //import { url } from "inspector";
 import feed from "../../global/icons/feed.svg";
 import school from "../../global/icons/school.svg";
@@ -20,7 +20,7 @@ const courseSize = (ele: any) => {
 }
 
 const ghostSize = (ele:any) => {
-    return nodeSize(ele) / 1.5;
+    return nodeSize(ele) / 2;
 }
 
 const getOpacityOut = (edge:any) => {
@@ -120,6 +120,7 @@ export const labelStylesheet: Stylesheet[] = [
         'border-color': connectColors.tBorder,
         'font-weight': 'bold',
         'text-background-color': 'white',
+        // 'color': 'white',
         'text-background-opacity': 1, 
         'border-width': 5,
         'border-opacity': 1,
@@ -184,8 +185,8 @@ export const labelStylesheet: Stylesheet[] = [
     { selector: '.resource',
     style: {
         'background-color': hoverColors.resource,
-        'width': nodeSize,
-        'height': nodeSize,
+        'width': 'label',
+        'height': 'label',
         'background-image': feed,
         'background-fit': 'contain',
         'background-opacity': 0,
@@ -194,8 +195,8 @@ export const labelStylesheet: Stylesheet[] = [
     },
     { selector: '.resource-hide',
     style: {
-        'width': nodeSize,
-        'height': nodeSize,
+        'width': 'label',
+        'height': 'label',
         'background-image': feed,
         'background-fit': 'contain',
         'background-opacity': 0,
