@@ -20,6 +20,7 @@ export class MainGraph {
     private layouter: any;
     private styler: any;
     private pathViz: any
+    private menuer: any;
 
     private willEnter: Boolean = true;
 
@@ -38,6 +39,7 @@ export class MainGraph {
         });
         this.cy.ready(this.layoutGraph);
         this.pathViz = new PathViz();
+        this.menuer = new MenuEventController(this.cy);
         
         this.initGraphEvents();
     }
@@ -51,7 +53,7 @@ export class MainGraph {
     }
 
     private initGraphEvents() {
-        new GraphEvents(this.cy);
+        new GraphEvents(this.cy, this.pathViz.getCore());
         eventBus.on("click", this.onClick);
         eventBus.on("mouseover", this.hightlightNodeOnHover);
         eventBus.on("mouseout", this.noHightlightNodeOnHover);
@@ -76,6 +78,7 @@ export class MainGraph {
         // ?? how much ?? -> nur neighbors
     private showConnected(target: cytoscape.NodeSingular) {
         console.log("show Connected-Nodes for:", target.data("label"));
+        target = this.cy.$id(target.id());
         this.styler = new StyleController(this.cy);
         let connected: cytoscape.Collection;
         if(this.willEnter){
@@ -111,7 +114,7 @@ export class MainGraph {
     }
 
     private displayInfo(target:any) {
-        const menuer = new MenuEventController();
+        this.menuer = new MenuEventController(this.cy);
         const nodeDiv = document.getElementById("node-name") as HTMLElement; 
         const courseDiv = document.getElementById("course-name") as HTMLElement;
         const resDiv = document.getElementById("resource-container") as HTMLElement;

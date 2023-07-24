@@ -15,7 +15,7 @@ export class PathViz {
             style: stylesheet,
             elements: INFO_NODES,
             layout: GLOBALS.breadthLayout,
-        });       
+        });  
         //this.cy.ready(this.layoutGraph);
     }
 
@@ -33,5 +33,11 @@ export class PathViz {
         this.cy.add(pathElements);
         this.layoutGraph();
     }
+
+    public getCore(){
+        return this.cy;
+    }
+
+    /* ---- EVENT FUNCTIONS ---- */
 
 }

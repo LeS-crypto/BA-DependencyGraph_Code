@@ -68,6 +68,8 @@ export const stylesheet: Stylesheet[] =  [
             + amount + ','
             + connectColors.close + ',' 
             + connectColors.far + ')',
+        'color': 'mapData(weight, 0 ,'
+            + 1 + ', white, black)',
         }
     },
     { selector: '.target-connect',

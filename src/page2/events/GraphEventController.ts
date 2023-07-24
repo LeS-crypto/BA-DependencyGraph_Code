@@ -4,9 +4,11 @@ import { eventBus } from "../../global/EventBus";
 export class GraphEvents {
 
     private readonly $cy : cytoscape.Core;
+    private readonly $cyPath: cytoscape.Core; // For path view
 
-    constructor(cy: cytoscape.Core) {
+    constructor(cy: cytoscape.Core, cyPath: cytoscape.Core) {
         this.$cy = cy;
+        this.$cyPath = cyPath;
         this.initListeners();
     }
 
@@ -14,6 +16,10 @@ export class GraphEvents {
         this.$cy.on("click", "node", this.onClick);
         this.$cy.on("mouseover", "node", this.onMouseOver);
         this.$cy.on("mouseout", "node", this.onMouseOut);
+
+        this.$cyPath.on("click", "node", this.onClick);
+        this.$cyPath.on("mouseover", "node", this.onMouseOver);
+        this.$cyPath.on("mouseout", "node", this.onMouseOut);
 
         this.initDoubleClick();
         this.$cy.on("dblclick", this.onDoubleClick);

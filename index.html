@@ -8,8 +8,19 @@
   </head>
 
   <body>
-    <!-- For the main Graph -->
+
+
+    <!-- A top-bar that bundels multiple menu icons: Left: sidebar, Right: -->
+    <div id="sidebar-container">
+      <div id="sidebar-icon"></div>
+      <div id="sidebar"></div>
+      <div id="graph-info" class="info-icon"></div>
+    </div>
+
     <div id="graph"></div>
+
+    <!-- <div id="graph-info" class="info-icon"></div>
+    <div id="graph"></div> -->
 
     <!-- For the view on the right side -->
     <div id="view">
@@ -22,10 +33,12 @@
           <div id="resources"> Resourcen: 
             <div id="resource-container"></div>
           </div>
-
       </div>
 
-      <div class="path" id="path"></div> 
+      <div id="path-info" class="info-icon"></div>
+      <div class="path" id="path"> </div> 
+
+      <!-- <div class="path" id="path"> </div>  -->
 
     </div>
     <script type="module" src="/src/page2/main.ts"></script>

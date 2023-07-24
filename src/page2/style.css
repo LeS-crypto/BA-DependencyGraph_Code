@@ -11,17 +11,80 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* ----------------------------------------------------------------------------- */
+
+/* The main window containing the main graph view and a top-bar menu */
+
+/* The menu bar*/
+#sidebar-container {
+    /* flex-grow: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    /* padding: 10px; */
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+}
+
+#sidebar-icon {
+    display: block;
+    flex-grow: 0;
+    content: url("../global/icons/menu-rounded.svg");
+    width: 25px;
+    height: 25px;
+    order: 0;
+    padding: 10px;
+}
+
+#sidebar {
+    display: none;
+    flex-grow: 1;
+    order: 1;
+    width: 25px;
+    z-index: 100;
+    background-color: white;
+}
+
+.sidebar-items {
+	padding: 5px;
+	background-color: whitesmoke;
+	align-self: center;
+}
+
+.sidebar-childs {
+    padding-left: 20px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	font-size: small;
+	background-color: white; 
+}
+
+#graph-info {
+    display: block;
+    flex-grow: 0;
+    order: 2;
+    align-self: flex-start;
+    /* float: ; */
+}
+
 /* The main graph view */
 #graph {
-    width: 75%;
+    width: auto;
     height: 100%;
     display: inline-block;
+    flex-grow: 1;
 }
+
+/* ----------------------------------------------------------------------------- */
 
 /* A multi purpose view on the left side of the screen */
 #view {
     width: 25%;
     height: 100%;
+    padding-right: 10px;
     display: inline-flex;
     flex-direction: column;
 }
@@ -108,6 +171,35 @@ body {
             padding: 3px;
         }
 
+.info-icon {
+    content: url("../global/icons/info.svg");
+    width: 25px;
+    height: 25px;
+    opacity: 60%;
+    display: block;
+    align-self: self-end;
+    float: right;
+    margin: 10px;
+    flex-grow: 0;
+}
+
+/* A box displaying a information for a section*/
+.info-box {
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+    background-color: white;
+    padding: 10px;
+}
+
+.info-box-close {
+    content: url("../global/icons/close.svg");
+    width: 15px;
+    height: 15px;
+}
 
 /* A graph field showing the learning graph of the selected node */
 .path {
