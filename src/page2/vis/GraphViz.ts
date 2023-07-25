@@ -40,6 +40,7 @@ export class MainGraph {
         this.cy.ready(this.layoutGraph);
         this.pathViz = new PathViz();
         this.menuer = new MenuEventController(this.cy);
+        // this.menuer.populateSideBar();
         
         this.initGraphEvents();
     }
@@ -55,6 +56,7 @@ export class MainGraph {
     private initGraphEvents() {
         new GraphEvents(this.cy, this.pathViz.getCore());
         eventBus.on("click", this.onClick);
+        eventBus.on("sidebarSelect", this.onClick);
         eventBus.on("mouseover", this.hightlightNodeOnHover);
         eventBus.on("mouseout", this.noHightlightNodeOnHover);
         eventBus.on("dblclick", this.onDblClick);
@@ -74,8 +76,7 @@ export class MainGraph {
 
     /* ---- UTIL FUNCTIONS ---- */
 
-    // TODO: show less, if a course has not been entered yet
-        // ?? how much ?? -> nur neighbors
+    // Show the connected Elements
     private showConnected(target: cytoscape.NodeSingular) {
         console.log("show Connected-Nodes for:", target.data("label"));
         target = this.cy.$id(target.id());
@@ -114,7 +115,7 @@ export class MainGraph {
     }
 
     private displayInfo(target:any) {
-        this.menuer = new MenuEventController(this.cy);
+        // this.menuer = new MenuEventController(this.cy);
         const nodeDiv = document.getElementById("node-name") as HTMLElement; 
         const courseDiv = document.getElementById("course-name") as HTMLElement;
         const resDiv = document.getElementById("resource-container") as HTMLElement;
@@ -157,10 +158,6 @@ export class MainGraph {
         console.log("click", target.data("label"));
         
         this.displayInfo(target);
-
-        // only allow clicking for ghosted nodes, if already hover
-        // const allowClickOnGhost = target.filter(".ghost").hasClass("hover");
-        // console.log(allowClickOnGhost);
 
         if(target.hasClass("course") && this.willEnter) {
             console.log("enter course ", target.id());

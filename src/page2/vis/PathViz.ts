@@ -16,12 +16,10 @@ export class PathViz {
             elements: INFO_NODES,
             layout: GLOBALS.breadthLayout,
         });  
-        //this.cy.ready(this.layoutGraph);
     }
 
     private layoutGraph() {
-        console.log("start path layout");
-        // TODO Dagre
+        // TODO Dagre ??
         this.cy.layout(GLOBALS.breadthLayout).run();
         // TODO styling
     }

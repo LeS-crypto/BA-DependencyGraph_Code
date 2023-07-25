@@ -141,7 +141,7 @@ export class StyleController {
     private setConnectedColor(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
         //target.data("weight", 0);
         // set maxDepth for mapper ??
-        let maxDepth = 0;
+        // let maxDepth = 0;
         eles.bfs({
             roots: target,
             visit: function(v, e, u, i, depth) {
@@ -150,10 +150,8 @@ export class StyleController {
                 }
                 if(v.isNode()){
                     v.data("weight", depth);
-                    //v.connectedEdges().data("weight", depth); //??
-                    console.log("v", v.data("weight"));
                 }
-                if(depth > maxDepth) maxDepth = depth
+                // if(depth > maxDepth) maxDepth = depth
             },
             directed: true,
         });
