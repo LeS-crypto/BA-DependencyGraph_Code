@@ -160,6 +160,8 @@ export class MainGraph {
     }
 
     /* ---- EVENT FUNCTIONS ---- */
+    // NOTE: verbesserung -> if course entered -> click different course -> enter this course
+    // also usefull for sidebar
     private onClick = (target:any) => {
         console.log("click", target.data("label"));
         

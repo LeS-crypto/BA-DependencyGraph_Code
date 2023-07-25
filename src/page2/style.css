@@ -48,28 +48,42 @@ body {
     background-color: white;
 }
 
+/* container for hotlist*/
 .sidebar-items {
 	padding: 5px;
 	background-color: whitesmoke;
 	align-self: center;
 }
 
-.sidebar-childs {
-    padding-left: 20px;
-	padding-bottom: 2px;
-	padding-top: 2px;
-	font-size: small;
-	background-color: white; 
-}
+    .sidebar-parents {
+        padding: 5px;
+        background-color: whitesmoke;
+        align-self: center;
+    }
 
-.highlight-childs {
-    padding-left: 20px;
-	padding-bottom: 2px;
-	padding-top: 2px;
-	font-size: small;
-    background-color: #3c3245;
-    color: white;
-}
+        .sidebar-childs {
+            padding-left: 20px;
+            padding-bottom: 2px;
+            padding-top: 2px;
+            font-size: small;
+            background-color: white; 
+        }
+
+        .highlight-childs {
+            padding-left: 20px;
+            padding-bottom: 2px;
+            padding-top: 2px;
+            font-size: small;
+            background-color: #3c3245;
+            color: white;
+        }
+
+    .highlight-parents {
+        padding: 5px;
+        font-size: medium;
+        background-color: #3c3245;
+        color: white;
+    }
 
 #graph-info {
     display: block;

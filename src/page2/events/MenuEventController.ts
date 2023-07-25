@@ -63,18 +63,23 @@ export class MenuEventController {
         window.open(res.data("url"), "_blank")?.focus();
     }
 
-    // BUG: starts getting called for several times after a couple of clicks
+    // TDOD: separte click on course + nodes
     private clickSideBar = (e: MouseEvent) => {
-        console.log(eventBus.listeners("click"));
+        console.log(e.target); //has attribute "sidebar-items"
         const target = e.target as HTMLElement;
-        // target.removeEventListener("click", this.clickSideBar);
-
+        
+        // Remove previous highlight
         const previous = document.getElementsByClassName("highlight-childs");
         previous[0]?.setAttribute("class", "sidebar-childs"); // should only ever be one
+        const previousP = document.getElementsByClassName("highlight-parents");
+        previousP[0]?.setAttribute("class", "sidebar-parents");
 
-        target.setAttribute("class", "highlight-childs");
+        if(target.className == "sidebar-parents"){
+            console.log("clicked parent");
+            target.setAttribute("class", "highlight-parents");
+        } else target.setAttribute("class", "highlight-childs");
         
-        // Synk changes to graph
+        // Synk changes to graph -> works
         const targetNode = this.cy.$("node[label ='" + target.id + "']" );
         eventBus.emit("sidebarSelect", targetNode);
     }
@@ -149,10 +154,18 @@ export class MenuEventController {
         div:HTMLElement
     ) {
         console.log("!! add divs");
+        var container = document.createElement("div");
+        container.setAttribute("class", "sidebar-items");
+        div.appendChild(container);
+
         var pDiv = document.createElement("div");
-        pDiv.setAttribute("class", "sidebar-items");
+        pDiv.setAttribute("class", "sidebar-parents");
+        pDiv.setAttribute("id", parent.data("label"));
         pDiv.innerText = parent.data("label");
-        div.appendChild(pDiv);
+        container.appendChild(pDiv);
+
+        // container.innerText = parent.data("label");
+        // div.appendChild(container);
 
         childs.forEach(child => {
             if(child.data("label") != undefined) {
@@ -160,12 +173,13 @@ export class MenuEventController {
                 cDiv.setAttribute("class", "sidebar-childs");
                 cDiv.setAttribute("id", child.data("label"));
                 cDiv.innerText = child.data("label");
-                pDiv.appendChild(cDiv);
+                container.appendChild(cDiv);
                 cDiv.addEventListener("click", (e:MouseEvent) => eventBus.emit("hotlistClick", e));
             }
             //child.addListener("click", (e:EventObject) => eventBus.emit("hotlistClick", e));
 
         });
+        container.addEventListener("click", (e:MouseEvent) => eventBus.emit("hotlistClick", e));
 
         // TODO: add click-event listeners !!!
         console.log("!!", eventBus.listenerCount("hotlistClick"))
