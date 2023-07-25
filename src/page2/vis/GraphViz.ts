@@ -20,7 +20,7 @@ export class MainGraph {
     private layouter: any;
     private styler: any;
     private pathViz: any
-    private menuer: any;
+    // private menuer: any;
 
     private willEnter: Boolean = true;
 
@@ -39,7 +39,7 @@ export class MainGraph {
         });
         this.cy.ready(this.layoutGraph);
         this.pathViz = new PathViz();
-        this.menuer = new MenuEventController(this.cy);
+        new MenuEventController(this.cy);
         // this.menuer.populateSideBar();
         
         this.initGraphEvents();
@@ -65,7 +65,10 @@ export class MainGraph {
     /* ---- GRAPH FUNCTIONS ---- */
     private enterCourse(target:any) {
         const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
-        this.layouter.layoutCourse(courseNodes);
+        
+        // this.layouter.layoutCourse(courseNodes);
+        this.layouter.layoutRedString(courseNodes);
+
         this.willEnter = false;
     }
 
@@ -95,7 +98,7 @@ export class MainGraph {
         let learners = target.successors()
             .not(".course")
             .not("edge[target=" + "'" + target.data("course") + "'" + "]");
-        console.log(learners);
+        // console.log(learners);
         learners = learners.union(target);
         this.pathViz.setElements(learners);
     }

@@ -48,7 +48,7 @@ export class StyleController {
 
     public styleGraph(eles: cytoscape.Collection) {
         const displayed = this.cy.$(".course").neighborhood("[[degree >"+ 4 + "]]");
-        displayed.data("important", true); // added for easier access
+        displayed.data("important", "true"); // added for easier access
         const notDisplayed = eles.not(displayed);
         this.ghost(true, notDisplayed, true);
         this.hide(true, this.cy.$("node[url]"));
@@ -77,7 +77,8 @@ export class StyleController {
         this.cy.elements().removeClass("target-connect");
 
         // Highlight the directed connected Elements
-        const weights = eles.nodes().successors();
+        let weights = target.successors();
+        // weights = weights.union(target);
         this.setConnectedColor(target, weights);
 
         // Style all connected edges and nodes
@@ -137,7 +138,7 @@ export class StyleController {
     * @param target The first node
     * @param eles The rest of the node collection
     */
-    // TODO: only dependents
+    // TODO: only dependents !!
     private setConnectedColor(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
         //target.data("weight", 0);
         // set maxDepth for mapper ??

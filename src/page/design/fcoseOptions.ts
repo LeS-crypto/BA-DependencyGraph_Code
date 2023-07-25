@@ -141,4 +141,7 @@ export const fcoseCourse = {
 
     nestingFactor: 0.1,
     tile: true,
+
+    // relativePlacementConstraint: null as any,
+    // fixedNodeConstraint: null as any,
 }

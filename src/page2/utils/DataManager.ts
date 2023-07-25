@@ -63,8 +63,8 @@ export class DataManager {
 
     /**
      * Make a new edge pointing from a source to a target (course)
-     * @param eleSource specify the origin 
-     * @param eleTarget specify the target, i.e the course-node
+     * @param eleSource specify the id of the origin 
+     * @param eleTarget specify the id of the target, i.e the course-node
      * @returns a new edge-element
      */
     private newCourseEdge(eleSource:String, eleTarget:String) {

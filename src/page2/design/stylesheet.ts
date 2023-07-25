@@ -6,10 +6,12 @@ let amount : number = 4;
 /* ---- Utility Functions ---- */
 
 const setFontSize = (node:any) => {
+    const degree = node.degree();
     if(node.hasClass("ghost")) {
         return 14;
+    } else if(node.hasClass("course")){
+        return degree < 30 ? 30 : degree;
     }
-    const degree = node.degree();
     return degree > 30 ? degree : 14 + degree;
 }
 
@@ -68,8 +70,8 @@ export const stylesheet: Stylesheet[] =  [
             + amount + ','
             + connectColors.close + ',' 
             + connectColors.far + ')',
-        'color': 'mapData(weight, 0 ,'
-            + 1 + ', white, black)',
+        // 'color': 'mapData(weight, 0 ,'
+        //     + 1 + ', white, black)',
         }
     },
     { selector: '.target-connect',
@@ -140,11 +142,24 @@ export const stylesheet: Stylesheet[] =  [
         'z-compound-depth': 'top',
         }
     },
-    
 
-    
-
-
+    // COURSES:
+    { selector: '.course',
+        style: {
+        'width': 'label',
+        'height': 'label',
+        'label': 'data(label)',
+        'font-weight': 'bold',
+        'font-size': setFontSize,
+        'text-transform': 'uppercase',
+        'text-halign': 'center',
+        'text-valign': 'center',
+        'text-wrap': 'wrap',
+        'border-color': 'black',
+        'border-opacity': 1,
+        'border-width': 5,
+        }
+    },
 
 /* ---------------------------------------- */
 
@@ -191,6 +206,12 @@ export const stylesheet: Stylesheet[] =  [
         }
     },
 
+    { selector: '.path-edges',
+    style: {
+        'line-color': nodeColors.grey,
+        'source-arrow-color': nodeColors.grey,
+        }
+    },
         
 
 ]

@@ -17,6 +17,16 @@ export const COURSES : NodeDefinition[] = [
         },
         classes: "course"
     },
+
+    { group: "edges",
+    data: {
+        id: "eimi-cgbv",
+        source: "cgbv",
+        target: "eimi",
+        course: "true",
+        }
+    },
+
     /*{ group: "nodes",
         data: {
             id: "math1",
