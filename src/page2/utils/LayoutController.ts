@@ -26,6 +26,9 @@ export class LayoutController {
     // The main layout function
     private layoutGraph() {
         this.tempEdges = this.cy.elements().edges("edge[temp]");
+
+        console.log("temp-edges", this.tempEdges);
+
         this.cy.layout(GLOBALS.graphLayout).run();
         this.styler.styleGraph(this.cy.elements());
     }
@@ -36,11 +39,13 @@ export class LayoutController {
         this.layoutGraph();
     }
 
+    // BUG: EIMI looses its edges
     public relayoutFullGraph() {
         const eles = this.cy.elements();
 
         this.cy.remove(this.tempConnect); //remove temporary connection btw course and first red string elements
         this.cy.add(this.tempEdges);
+        this.styler.hide(false, this.tempEdges); // unhide hidden temp edges
 
         // Restyle graph to initial styling
         this.styler.ghost(false, eles, true);
@@ -67,7 +72,7 @@ export class LayoutController {
         // -> a path through the course, that goes over the most important topics
     public layoutRedString(courseNodes: cytoscape.Collection) {
         console.log("layout red string", courseNodes.classes());
-        
+
         this.styler.hide(true, this.cy.elements().not(courseNodes)); // hide other
         
         // remove temporary edges, i.e. edges that connect nodes to the course
@@ -76,7 +81,7 @@ export class LayoutController {
         const pathNodes = courseNodes.filter("node[important]");
         this.setCoursePath(courseNodes, pathNodes);
 
-        // Layout the courses on the top of the core
+        // Layout the courses
         const course = this.cy.$id(courseNodes.data("course"));
         this.setCoursesAfterPath(course, pathNodes[0]);
 

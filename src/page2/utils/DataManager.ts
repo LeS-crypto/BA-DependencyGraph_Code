@@ -49,11 +49,12 @@ export class DataManager {
         courseId:String,
     ) {
         const maxD = eles.nodes().maxDegree(false);
+
         eles.nodes().forEach(ele => {
             if(ele.outdegree(false) == 0) { // If node is source/origin
                 // connect to course-node
                 cy.add(this.newCourseEdge(ele.id(), courseId));
-            } else if(ele.outdegree(false) == 0 && ele.indegree(false) == 0) { 
+            } else if(ele.outdegree(false) == 0 && ele.indegree(false) == 0) { // If node is orphan ??
                 cy.add(this.newCourseEdge(ele.id(), courseId));
             } else if(ele.degree(false) == maxD ) {
                 cy.add(this.newCourseEdge(ele.id(), courseId));

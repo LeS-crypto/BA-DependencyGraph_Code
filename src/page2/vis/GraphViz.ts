@@ -64,8 +64,9 @@ export class MainGraph {
 
     /* ---- GRAPH FUNCTIONS ---- */
     private enterCourse(target:any) {
-        const courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
-        
+        let courseNodes = this.cy.$("[course =" + "'" + target.id() + "'" + "]");
+        courseNodes = courseNodes.union(target);
+
         // this.layouter.layoutCourse(courseNodes);
         this.layouter.layoutRedString(courseNodes);
 
