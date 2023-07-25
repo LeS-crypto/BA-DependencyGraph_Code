@@ -168,7 +168,7 @@ body {
     }
 
         .resource-icon {
-            content: url("../global/icons/open-in-new.svg"); /*oder: link*/
+            content: url("../global/icons/open.png"); /*oder: link*/
             height: 15px;
             width: 15px;
             display: block;
@@ -208,7 +208,7 @@ body {
 }
 
 .info-box-close {
-    content: url("../global/icons/close.svg");
+    content: url("../global/icons/close.png");
     width: 15px;
     height: 15px;
 }
