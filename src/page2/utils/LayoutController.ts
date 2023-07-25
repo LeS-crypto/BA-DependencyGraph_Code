@@ -65,9 +65,10 @@ export class LayoutController {
 
     // Layout the course with a red String
         // -> a path through the course, that goes over the most important topics
-    public layoutRedString(courseNodes: cytoscape.Collection){
-        console.log("layout red string");
-        this.styler.hide(true, this.cy.elements().not(courseNodes));
+    public layoutRedString(courseNodes: cytoscape.Collection) {
+        console.log("layout red string", courseNodes.classes());
+        
+        this.styler.hide(true, this.cy.elements().not(courseNodes)); // hide other
         
         // remove temporary edges, i.e. edges that connect nodes to the course
         this.cy.remove(this.tempEdges);

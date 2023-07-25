@@ -164,6 +164,7 @@ export class MainGraph {
 
         if(target.hasClass("course") && this.willEnter) {
             console.log("enter course ", target.id());
+            toggleHoverStyle(target, false); // unhover all elements on enter
             this.enterCourse(target);
         } else if(target.hasClass("course") && !this.willEnter) {
             console.log("leave course");
