@@ -97,9 +97,11 @@ export class MainGraph {
         console.log("show learning path for:", target.data("label"));
         let learners = target.successors()
             .not(".course")
-            .not("edge[target=" + "'" + target.data("course") + "'" + "]");
-        // console.log(learners);
+            .not("edge[target=" + "'" + target.data("course") + "'" + "]")
+            .not("edge[source=" + "'" + target.data("course") + "'" + "]");
+        console.log(learners);
         learners = learners.union(target);
+        this.styler.styleConnected(target, learners);
         this.pathViz.setElements(learners);
     }
 

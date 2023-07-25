@@ -151,6 +151,7 @@ export class StyleController {
                 }
                 if(v.isNode()){
                     v.data("weight", depth);
+                    // v.connectedEdges().data("weight", depth); //??
                 }
                 // if(depth > maxDepth) maxDepth = depth
             },

@@ -36,6 +36,4 @@ export class PathViz {
         return this.cy;
     }
 
-    /* ---- EVENT FUNCTIONS ---- */
-
 }
