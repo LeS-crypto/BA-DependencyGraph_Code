@@ -78,6 +78,7 @@ export class LayoutController {
         // remove temporary edges, i.e. edges that connect nodes to the course
         this.cy.remove(this.tempEdges);
 
+        // set the path through the course
         const pathNodes = courseNodes.filter("node[important]");
         this.setCoursePath(courseNodes, pathNodes);
 
@@ -95,6 +96,11 @@ export class LayoutController {
     }
 
 
+    /**
+     * Creates a learning path for the current course
+     * @param nodes All the current course nodes
+     * @param pathNodes The nodes to include in the learning path
+     */
     private setCoursePath(nodes: cytoscape.Collection, pathNodes: cytoscape.Collection) {
         // let paths = [];
         for (let i = 0; i < pathNodes.length - 1; i++) {
@@ -103,14 +109,19 @@ export class LayoutController {
                 goal: pathNodes[i+1],
                 directed: false,
             });
-            // paths.push(aStar);
             if(aStar.path) {
                 this.styler.ghost(false, aStar.path);
+                aStar.path.nodes().data("important", true);
                 aStar.path.edges().addClass("path-edges");
             }
         }
     }
 
+    /**
+     * Connect the course to the first node of the path
+     * @param course The current course
+     * @param start The first node of the path through the course
+     */
     private setCoursesAfterPath(course: cytoscape.NodeSingular, start: cytoscape.NodeSingular){
         // const courses = this.cy.$(".course");
         // Connect the courses to the first node of the red string

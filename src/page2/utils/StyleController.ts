@@ -64,6 +64,9 @@ export class StyleController {
         target:cytoscape.NodeSingular,
         eles: cytoscape.Collection
     ) {
+
+        console.log("connected in StyleController", eles);
+
         // (re)ghost all nodes that are not important
         const ghost = this.cy.elements().not(eles).not("node[important]");
         this.ghost(true, ghost, true);
@@ -73,17 +76,22 @@ export class StyleController {
         this.ghost(false, eles, false);
 
         // Remove previous connected Style on all elements
+        this.styleEdgesAndNodes(false, this.cy.elements(), ["direct", "edge-direct"], true);
         this.styleEdgesAndNodes(false, this.cy.elements(), ["connect", "edge-connect"]);
         this.cy.elements().removeClass("target-connect");
 
-        // Highlight the directed connected Elements
-        let weights = target.successors();
-        // weights = weights.union(target);
+        
+        // Highlight the learning path with color
+        let path = target.successors(); 
+        // filter for only successors in eles
+        let weights = eles.intersection(path); // GEHT NICHT
         this.setConnectedColor(target, weights);
+        this.styleEdgesAndNodes(true, weights, ["direct", "edge-direct"], true);
 
-        // Style all connected edges and nodes
-        this.styleEdgesAndNodes(true, eles, ["connect", "edge-connect"]);
+        // Style all connected edges and nodes -> make visible
+        this.styleEdgesAndNodes(true, eles.not(weights), ["connect", "edge-connect"]);
         target.addClass("target-connect");
+
     }
 
     /* ---- Utility Functions ---- */
@@ -95,7 +103,7 @@ export class StyleController {
     * @param style A string array of the node style and the edge style
     * @param connected Default=false | if true: styles the connectedEdges()
     */
-    private styleEdgesAndNodes(
+    public styleEdgesAndNodes(
         add:Boolean, 
         collection: cytoscape.Collection, 
         style:string[],
@@ -139,7 +147,7 @@ export class StyleController {
     * @param eles The rest of the node collection
     */
     // TODO: only dependents !!
-    private setConnectedColor(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
+    public setConnectedColor(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
         //target.data("weight", 0);
         // set maxDepth for mapper ??
         // let maxDepth = 0;

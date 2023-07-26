@@ -59,7 +59,7 @@ export class MainGraph {
         eventBus.on("sidebarSelect", this.onClick);
         eventBus.on("mouseover", this.hightlightNodeOnHover);
         eventBus.on("mouseout", this.noHightlightNodeOnHover);
-        eventBus.on("dblclick", this.onDblClick);
+        // eventBus.on("dblclick", this.onDblClick);
     }
 
     /* ---- GRAPH FUNCTIONS ---- */
@@ -87,8 +87,10 @@ export class MainGraph {
         this.styler = new StyleController(this.cy);
         let connected: cytoscape.Collection;
         if(this.willEnter){
+            console.log("style only neightbors");
             connected = target.neighborhood();
         } else {
+            console.log("style all connected");
             connected = this.getConnected(target);
         }
         this.styler.styleConnected(target, connected);
@@ -100,9 +102,8 @@ export class MainGraph {
             .not(".course")
             .not("edge[target=" + "'" + target.data("course") + "'" + "]")
             .not("edge[source=" + "'" + target.data("course") + "'" + "]");
-        console.log(learners);
-        learners = learners.union(target);
-        this.styler.styleConnected(target, learners);
+        learners = target.union(learners); // target is first item
+        //this.styler.styleConnected(target, learners); // BUG hides element in main graph
         this.pathViz.setElements(learners);
     }
 
@@ -116,12 +117,10 @@ export class MainGraph {
         const course = target.data("course")
         target = target.union(target.predecessors(course));
         target = target.union(target.successors(course));
-        // console.log("target", target);
         return target;
     }
 
     private displayInfo(target:any) {
-        // this.menuer = new MenuEventController(this.cy);
         const nodeDiv = document.getElementById("node-name") as HTMLElement; 
         const courseDiv = document.getElementById("course-name") as HTMLElement;
         const resDiv = document.getElementById("resource-container") as HTMLElement;
@@ -191,16 +190,16 @@ export class MainGraph {
     }
 
     // ??
-    private onDblClick = (target:any) => {
-        if(target.hasClass("course") && this.willEnter) {
-            console.log("enter course ", target.id());
-            this.enterCourse(target);
-        } else if(target.hasClass("course") && !this.willEnter) {
-            console.log("leave course");
-            this.leaveCourse()
-        }
+    // private onDblClick = (target:any) => {
+    //     if(target.hasClass("course") && this.willEnter) {
+    //         console.log("enter course ", target.id());
+    //         this.enterCourse(target);
+    //     } else if(target.hasClass("course") && !this.willEnter) {
+    //         console.log("leave course");
+    //         this.leaveCourse()
+    //     }
 
-    }
+    // }
 }
 
 // Auslagern

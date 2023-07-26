@@ -63,8 +63,19 @@ export const stylesheet: Stylesheet[] =  [
         }
     },
 
-    // HIGHLIGHT connected
+    // Show connected
     { selector: '.connect',
+    style: {
+        'background-color': nodeColors.lightgrey2,
+        'text-opacity': 1,
+        'width': 'label',
+        'height': 'label',
+        'shape': 'rectangle',
+        }
+    },
+
+    // HIGHLIGHT learning path -> i.e direct connected
+    { selector: '.direct',
     style: {
         'background-color': 'mapData(weight, 0,' 
             + amount + ','
@@ -74,6 +85,7 @@ export const stylesheet: Stylesheet[] =  [
         //     + 1 + ', white, black)',
         }
     },
+
     { selector: '.target-connect',
     style: {
         'border-color': connectColors.tBorder,
@@ -191,7 +203,23 @@ export const stylesheet: Stylesheet[] =  [
         }
     },
 
-    { selector: '.edge-connect',
+    { selector: '.edge-connected',
+    style: {
+        'line-color': nodeColors.lightgrey,
+        'source-arrow-color': nodeColors.lightgrey,
+        'z-compound-depth': 'auto',
+        'label': '',
+        }
+    },
+
+    { selector: '.path-edges',
+    style: {
+        'line-color': nodeColors.grey,
+        'source-arrow-color': nodeColors.grey,
+        }
+    },
+
+    { selector: '.edge-direct',
     style: {
         'line-color': 'mapData(weight, 0, '
             + amount +',' 
@@ -203,13 +231,6 @@ export const stylesheet: Stylesheet[] =  [
             + connectColors.far + ')',
         'z-compound-depth': 'auto',
         'label': '',
-        }
-    },
-
-    { selector: '.path-edges',
-    style: {
-        'line-color': nodeColors.grey,
-        'source-arrow-color': nodeColors.grey,
         }
     },
         
