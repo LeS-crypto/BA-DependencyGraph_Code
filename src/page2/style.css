@@ -147,6 +147,7 @@ body {
         grid-row: 2;
         margin-left: 10px;
         margin-top: 12px;
+        padding: 5px;
         font-size: small;
     }
 

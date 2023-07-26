@@ -134,7 +134,7 @@ export class MainGraph {
         const courseName = this.cy.$id(course).data("label");
         const courseStr : string = `in Kurs: ${courseName}`;
         courseName ? courseDiv!.innerText = courseStr : "ohne Kurs";
-    
+
         // Resource-names
         const res = target.neighborhood("node[url]") as cytoscape.Collection;
         resDiv.innerHTML = "";

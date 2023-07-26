@@ -115,7 +115,7 @@ const setRepulsionCourse = (node:cytoscape.NodeSingular) => {
 
 const setLengthCourse = (edge:cytoscape.EdgeSingular) => {
     const weight = edge.target().data("weight");
-    return weight ? weight * 50 : 100;
+    return weight ? weight * 150 : 200;
     return 100;
     //return edge.hasClass("ghost-edges") ? 1 : 100;
 }
@@ -133,9 +133,9 @@ export const fcoseCourse = {
     avoidOverlap: true,
     /* incremental layout options */
     // Node repulsion (non overlapping) multiplier
-    nodeRepulsion: 200, // 200 
+    nodeRepulsion: setRepulsionCourse, // 200 
     // Ideal edge (non nested) length
-    idealEdgeLength: 150, // 100 -> 150
+    idealEdgeLength: setLengthCourse, // 100 -> 150
     // Divisor to compute edge forces
     edgeElasticity: 0.2,
 

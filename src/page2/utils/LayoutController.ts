@@ -68,8 +68,10 @@ export class LayoutController {
         this.styler.styleCourse(courseNodes)
     }
 
-    // Layout the course with a red String
-        // -> a path through the course, that goes over the most important topics
+    /**
+     * Create a learning path for the entered course
+     * @param courseNodes The nodes of the current course
+     */
     public layoutRedString(courseNodes: cytoscape.Collection) {
         console.log("layout red string", courseNodes.classes());
 
