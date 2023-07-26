@@ -88,13 +88,24 @@ export class LayoutController {
         const course = this.cy.$id(courseNodes.data("course"));
         this.setCoursesAfterPath(course, pathNodes[0]);
 
-        // Set a constraint to put the course above the first pathNode
+        // TRY -> not that great
+        // Set a constraint to put first path node top left & last n bot-ri
         // let layoutoptions = GLOBALS.courseLayout;
-        // layoutoptions.relativePlacementConstraint = [{
-        //     top: course.id(), bottom: pathNodes[0].id(), gap: 100
-        // }]
+        // const w = this.cy.width();
+        // const h = this.cy.height();
+        // layoutoptions.fixedNodeConstraint = [
+        //     {nodeId: pathNodes[0].id() , position: {x: -900, y: -500}},
+        //     {nodeId: pathNodes[pathNodes.length-4].id(), position: {x: 300, y: 800}}
+        // ]
 
+        console.log("layout", GLOBALS.courseLayout);
+
+        // WORKS
         courseNodes.layout(GLOBALS.courseLayout).run();
+        // pathNodes.layout(GLOBALS.courseLayout).run();
+
+        // console.log(pathNodes[0].position());
+
     }
 
 

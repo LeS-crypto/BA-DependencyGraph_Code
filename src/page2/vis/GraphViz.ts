@@ -162,7 +162,7 @@ export class MainGraph {
     // NOTE: verbesserung -> if course entered -> click different course -> enter this course
     // also usefull for sidebar
     private onClick = (target:any) => {
-        console.log("click", target.data("label"));
+        console.log("click", target.data("label"), target.position());
         
         this.displayInfo(target);
 

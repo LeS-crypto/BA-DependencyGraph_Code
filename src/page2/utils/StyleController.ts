@@ -85,11 +85,13 @@ export class StyleController {
         let path = target.successors(); 
         // filter for only successors in eles
         let weights = eles.intersection(path); // GEHT NICHT
+
         this.setConnectedColor(target, weights);
         this.styleEdgesAndNodes(true, weights, ["direct", "edge-direct"], true);
 
-        // Style all connected edges and nodes -> make visible
-        this.styleEdgesAndNodes(true, eles.not(weights), ["connect", "edge-connect"]);
+        // Style all connected edges and nodes that aren't in the learning path or red string
+        const unstyle = weights.union("node[important]");
+        this.styleEdgesAndNodes(true, eles.not(unstyle), ["connect", "edge-connect"]);
         target.addClass("target-connect");
 
     }

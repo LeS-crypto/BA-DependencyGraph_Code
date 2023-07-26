@@ -66,7 +66,7 @@ export const stylesheet: Stylesheet[] =  [
     // Show connected
     { selector: '.connect',
     style: {
-        'background-color': nodeColors.lightgrey2,
+        'background-color': nodeColors.lightgrey,
         'text-opacity': 1,
         'width': 'label',
         'height': 'label',
@@ -203,10 +203,10 @@ export const stylesheet: Stylesheet[] =  [
         }
     },
 
-    { selector: '.edge-connected',
+    { selector: '.edge-connect',
     style: {
-        'line-color': nodeColors.lightgrey,
-        'source-arrow-color': nodeColors.lightgrey,
+        'line-color': nodeColors.lightgrey05,
+        'source-arrow-color': nodeColors.lightgrey05,
         'z-compound-depth': 'auto',
         'label': '',
         }
