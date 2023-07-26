@@ -37,6 +37,7 @@ body {
     height: 25px;
     order: 0;
     padding: 10px;
+    cursor: pointer;
 }
 
 #sidebar {
@@ -59,6 +60,8 @@ body {
         padding: 5px;
         background-color: whitesmoke;
         align-self: center;
+        /* display: inline-block; */
+        cursor: pointer;  
     }
 
         .sidebar-childs {
@@ -67,6 +70,7 @@ body {
             padding-top: 2px;
             font-size: small;
             background-color: white; 
+            cursor: pointer;
         }
 
         .highlight-childs {
@@ -76,6 +80,7 @@ body {
             font-size: small;
             background-color: #3c3245;
             color: white;
+            cursor: pointer;
         }
 
     .highlight-parents {
@@ -90,6 +95,7 @@ body {
     flex-grow: 0;
     order: 2;
     align-self: flex-start;
+    cursor:help;
     /* float: ; */
 }
 
@@ -189,6 +195,7 @@ body {
             display: block;
             flex-grow: 0;
             padding: 3px;
+            cursor: pointer;
         }
 
         .resource-name {
@@ -208,6 +215,7 @@ body {
     float: right;
     margin: 10px;
     flex-grow: 0;
+    cursor: help;
 }
 
 /* A box displaying a information for a section*/
@@ -232,8 +240,15 @@ body {
 .path {
     display: block;
     flex-grow: 2;
-    height: 50%;
+    height: 40%; /*usually 50% -> if no eval*/
     padding-bottom: 10px;
     margin-bottom: 5%;
     z-index: 0;
+}
+
+
+/* For the evaluation tasks and texts*/
+#eval {
+    height: 15%;
+    background-color: whitesmoke;
 }
