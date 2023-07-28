@@ -10,5 +10,5 @@ export const GLOBALS = {
     noLayout: layoutOptions.noLayout,
     gridLayout: layoutOptions.grid,
     breadthLayout: layouts.breadthfirst,
-
+    dagre: layouts.dagre,
 }

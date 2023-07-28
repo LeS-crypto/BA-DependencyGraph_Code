@@ -1,5 +1,6 @@
 import cytoscape, { ElementDefinition, EventObject } from "cytoscape";
 import fcose from "cytoscape-fcose";
+import dagre from "cytoscape-dagre";
 import { GLOBALS } from "../../global/config";
 import { stylesheet } from "../design/stylesheet";
 import { LayoutController } from "../utils/LayoutController";
@@ -11,6 +12,7 @@ import { MenuEventController } from "../events/MenuEventController";
 
 // INIT EXTENSIONS
 cytoscape.use(fcose);
+cytoscape.use(dagre)
 
 /* Displays the Main Graph */
 export class MainGraph {
@@ -98,12 +100,19 @@ export class MainGraph {
 
     private showPath(target: cytoscape.NodeSingular) {
         console.log("show learning path for:", target.data("label"));
+
+        if(target.data("important") == "true") {
+            let preview = target.neighborhood();
+            preview = target.union(preview);
+            this.pathViz.setPreview(preview);
+            return;
+        }
+
         let learners = target.successors()
             .not(".course")
             .not("edge[target=" + "'" + target.data("course") + "'" + "]")
             .not("edge[source=" + "'" + target.data("course") + "'" + "]");
         learners = target.union(learners); // target is first item
-        //this.styler.styleConnected(target, learners); // BUG hides element in main graph
         this.pathViz.setElements(learners);
     }
 
@@ -161,8 +170,16 @@ export class MainGraph {
     /* ---- EVENT FUNCTIONS ---- */
     // NOTE: verbesserung -> if course entered -> click different course -> enter this course
     // also usefull for sidebar
-    private onClick = (target:any) => {
-        console.log("click", target.data("label"), target.position());
+    private onClick = (target:cytoscape.NodeSingular) => {
+        console.log("click", target.data("label"), target.position(), target.classes());
+        console.log("click", target.cy());
+
+        const targetCore = target.cy() as cytoscape.Core;
+        console.log(targetCore.container()?.id);
+        if(targetCore.container()?.id == "path") {
+            // this.cy.fit(target.neighborhood(), 200);
+            this.cy.fit(target, 400);
+        }
         
         this.displayInfo(target);
 

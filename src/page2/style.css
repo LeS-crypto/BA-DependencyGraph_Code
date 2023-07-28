@@ -103,14 +103,19 @@ body {
 #graph {
     width: auto;
     height: 100%;
+    /* min-height: min-content; */
     display: inline-block;
     flex-grow: 1;
+    resize: horizontal;
+    overflow: hidden;
+    /* geht nicht, irgendwo, ist das width zu fest */
 }
 
 /* ----------------------------------------------------------------------------- */
 
 /* A multi purpose view on the left side of the screen */
 #view {
+    /* width: max-content; */
     width: 25%;
     height: 100%;
     padding-right: 10px;
@@ -244,6 +249,8 @@ body {
     padding-bottom: 10px;
     margin-bottom: 5%;
     z-index: 0;
+    /* resize: horizontal;
+    overflow: auto; */
 }
 
 

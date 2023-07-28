@@ -5,14 +5,16 @@ let amount : number = 4;
 
 /* ---- Utility Functions ---- */
 
+const minFont = 18;
+const maxFont = 40;
 const setFontSize = (node:any) => {
     const degree = node.degree();
     if(node.hasClass("ghost")) {
-        return 14;
+        return minFont;
     } else if(node.hasClass("course")){
-        return degree < 30 ? 30 : degree;
+        return degree < maxFont ? maxFont : degree;
     }
-    return degree > 30 ? degree : 14 + degree;
+    return degree > maxFont ? degree : minFont + degree;
 }
 
 const ghostSize = (ele:any) => {
@@ -35,7 +37,7 @@ export const stylesheet: Stylesheet[] =  [
         'label': 'data(label)',
         'background-color': nodeColors.grey1, 
         'text-wrap': 'wrap',
-        "text-max-width": '120',
+        "text-max-width": '180',
         'width': 'label',
         'height': 'label',
         'shape': 'rectangle',
@@ -97,6 +99,7 @@ export const stylesheet: Stylesheet[] =  [
         'width': 'label',
         'height': 'label',
         'shape': 'rectangle',
+        "z-index": 100,
         }
     },
 
@@ -106,7 +109,7 @@ export const stylesheet: Stylesheet[] =  [
         'border-width': 5,
         'border-color': 'black',
         'label': 'data(label)',
-        'font-weight': 'bold',
+        // 'font-weight': 'bold',
         'text-opacity': 1,
         'width': 'label',
         'height': 'label',

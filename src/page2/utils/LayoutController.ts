@@ -102,6 +102,7 @@ export class LayoutController {
 
         // WORKS
         courseNodes.layout(GLOBALS.courseLayout).run();
+        // pathNodes.layout(GLOBALS.breadthLayout).run();
         // pathNodes.layout(GLOBALS.courseLayout).run();
 
         // console.log(pathNodes[0].position());

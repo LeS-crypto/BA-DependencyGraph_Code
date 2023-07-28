@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/cytoscape": "^3.19.9",
+    "@types/cytoscape-dagre": "^2.3.0",
     "@types/cytoscape-fcose": "^2.2.1",
     "@types/events": "^3.0.0",
     "@types/node": "^20.4.2",
@@ -20,6 +21,7 @@
     "cytoscape": "^3.23.0",
     "cytoscape-cise": "^1.0.0",
     "cytoscape-cola": "^2.5.1",
+    "cytoscape-dagre": "^2.5.0",
     "cytoscape-expand-collapse": "^4.1.0",
     "cytoscape-fcose": "^2.2.0",
     "cytoscape-layout-utilities": "^1.1.1",

@@ -65,7 +65,7 @@ export class StyleController {
         eles: cytoscape.Collection
     ) {
 
-        console.log("connected in StyleController", eles);
+        // console.log("connected in StyleController", eles);
 
         // (re)ghost all nodes that are not important
         const ghost = this.cy.elements().not(eles).not("node[important]");
@@ -93,6 +93,8 @@ export class StyleController {
         const unstyle = weights.union("node[important]");
         this.styleEdgesAndNodes(true, eles.not(unstyle), ["connect", "edge-connect"]);
         target.addClass("target-connect");
+
+        // this.cy.center(target); // nur wenn click auf Pathviz
 
     }
 

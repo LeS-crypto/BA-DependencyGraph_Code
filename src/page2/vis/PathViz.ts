@@ -4,6 +4,8 @@ import { GLOBALS } from "../../global/config";
 import { INFO_NODES } from "../../global/data/infoNodes";
 import { StyleController } from "../utils/StyleController";
 
+// Dagre ?? u/o taxi edges
+
 export class PathViz {
 
     private readonly cy: cytoscape.Core;
@@ -28,16 +30,37 @@ export class PathViz {
     }
 
     public setElements(
-        pathElements: cytoscape.Collection
+        pathElements: cytoscape.Collection,
     ) {
-        this.cy.remove(this.cy.elements());
-        this.cy.add(pathElements);
-        this.layoutGraph();
-
-        // Style only shows up after hovering over final node
+        // Style the elements
+        this.styler.ghost(false, pathElements);
+        pathElements.removeClass("hover");
         this.styler.setConnectedColor(pathElements[0], pathElements);
         this.styler.styleEdgesAndNodes(true, pathElements, ["direct", "edge-direct"], true);
+
+        this.cy.remove(this.cy.elements());
+        this.cy.add(pathElements);
+
+        this.layoutGraph();
     }
+
+    public setPreview(eles:cytoscape.Collection) {
+
+        this.styler.ghost(false, eles);
+        eles.removeClass("hover");
+
+        this.cy.remove(this.cy.elements());
+        this.cy.add(eles);
+
+        this.styler.hide(true, this.cy.$("node[url]")); // hide resources
+
+        this.cy.fit(eles);
+
+        // keep a SIMILAR layout as the graph
+        this.cy.layout(GLOBALS.courseLayout).run();
+    }
+
+    // Anzeige für Sinks??
 
     public getCore(){
         return this.cy;
