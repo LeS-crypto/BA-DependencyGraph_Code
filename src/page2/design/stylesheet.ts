@@ -27,6 +27,15 @@ const nodeSize = (ele: any) => {
 	return res > 100 ? 100 : res;
 };
 
+// Make font white for the first two gradient colors
+const getFontColor = (ele:any) => {
+    console.log(ele.style("background-color"));
+    const bg = ele.style("background-color");
+    if (bg == "rgb(119, 103, 134)" || bg == "rgb(142, 127, 158)") {
+        return "white"
+    } else return "black";
+}
+
 export const stylesheet: Stylesheet[] =  [
 
     /* NODES */
@@ -83,6 +92,7 @@ export const stylesheet: Stylesheet[] =  [
             + amount + ','
             + connectColors.close + ',' 
             + connectColors.far + ')',
+        'color': getFontColor,
         // 'color': 'mapData(weight, 0 ,'
         //     + 1 + ', white, black)',
         }

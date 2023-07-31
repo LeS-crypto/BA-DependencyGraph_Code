@@ -133,6 +133,7 @@ body {
     grid-auto-rows: minmax(10px, 20px);
     height: max-content;
     width: 100%;
+    z-index: 100;
 }
 
 /* Info for the node */

@@ -70,7 +70,10 @@ export class MainGraph {
         courseNodes = courseNodes.union(target);
 
         // this.layouter.layoutCourse(courseNodes);
-        this.layouter.layoutRedString(courseNodes);
+        const redString = this.layouter.layoutRedString(courseNodes);
+
+        //TEST -> PathViz -> show the red String on enter
+        this.pathViz.setRedString(redString);
 
         this.willEnter = false;
     }

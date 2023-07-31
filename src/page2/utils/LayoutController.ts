@@ -82,7 +82,7 @@ export class LayoutController {
 
         // set the path through the course
         const pathNodes = courseNodes.filter("node[important]");
-        this.setCoursePath(courseNodes, pathNodes);
+        let paths = this.setCoursePath(courseNodes, pathNodes);
 
         // Layout the courses
         const course = this.cy.$id(courseNodes.data("course"));
@@ -107,6 +107,10 @@ export class LayoutController {
 
         // console.log(pathNodes[0].position());
 
+        paths = paths.union(this.tempConnect); // Add the temporary connected btw course and first path
+
+        return paths; // return redString-path for PathViz
+
     }
 
 
@@ -116,7 +120,7 @@ export class LayoutController {
      * @param pathNodes The nodes to include in the learning path
      */
     private setCoursePath(nodes: cytoscape.Collection, pathNodes: cytoscape.Collection) {
-        // let paths = [];
+        let paths: cytoscape.Collection = pathNodes;
         for (let i = 0; i < pathNodes.length - 1; i++) {
             let aStar = nodes.aStar({
                 root: pathNodes[i],
@@ -127,8 +131,13 @@ export class LayoutController {
                 this.styler.ghost(false, aStar.path);
                 aStar.path.nodes().data("important", true);
                 aStar.path.edges().addClass("path-edges");
+                // aStar.path.edges().data("redString", true);
+
+                paths = paths.union(aStar.path.nodes());
+                paths = paths.union(aStar.path.edges());
             }
         }
+        return paths;
     }
 
     /**

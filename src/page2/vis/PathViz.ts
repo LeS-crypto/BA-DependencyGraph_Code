@@ -23,11 +23,11 @@ export class PathViz {
         this.styler = new StyleController(this.cy);
     }
 
-    private layoutGraph() {
-        // TODO Dagre ??
-        this.cy.layout(GLOBALS.breadthLayout).run();
-        // TODO styling
-    }
+    // private layoutGraph() {
+    //     // TODO Dagre ??
+    //     this.cy.layout(GLOBALS.breadthLayout).run();
+    //     // TODO styling
+    // }
 
     public setElements(
         pathElements: cytoscape.Collection,
@@ -41,7 +41,9 @@ export class PathViz {
         this.cy.remove(this.cy.elements());
         this.cy.add(pathElements);
 
-        this.layoutGraph();
+        // this.cy.layout(GLOBALS.breadthLayout).run();
+        this.cy.layout(GLOBALS.dagre).run();
+        // this.layoutGraph();
     }
 
     public setPreview(eles:cytoscape.Collection) {
@@ -58,6 +60,22 @@ export class PathViz {
 
         // keep a SIMILAR layout as the graph
         this.cy.layout(GLOBALS.courseLayout).run();
+    }
+
+    public setRedString(eles: cytoscape.Collection) {
+        console.log("r", eles.nodes().connectedEdges().classes(), eles.nodes().classes());
+        console.log("r", eles);
+        
+        // const pathEdges = eles.nodes().connectedEdges(".path-edges");
+
+        this.styler.ghost(false, eles);
+        eles.removeClass("hover");
+
+        this.cy.remove(this.cy.elements());
+        this.cy.add(eles);
+        // this.cy.add(pathEdges);
+
+        this.cy.layout(GLOBALS.dagre).run();
     }
 
     // Anzeige für Sinks??
