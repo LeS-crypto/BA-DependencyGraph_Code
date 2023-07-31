@@ -26,13 +26,10 @@ export class PathViz {
     public setElements(
         pathElements: cytoscape.Collection,
         futureEles: cytoscape.Collection,
-    ) {
-        console.log("fE", futureEles);
-        
+    ) { 
         // Style the elements
         this.styler.ghost(false, pathElements);
         this.styler.ghost(false, futureEles);
-        pathElements.removeClass("hover");
 
         this.styler.setConnectedColor(pathElements[0], pathElements);
         // const pathers = pathElements.filter("node[weight]");
@@ -44,6 +41,8 @@ export class PathViz {
         this.cy.remove(this.cy.elements());
         this.cy.add(pathElements);
         this.cy.add(futureEles);
+
+        this.cy.elements().removeClass("hover"); // remove hover style
 
         this.cy.layout(GLOBALS.dagre).run();
     }
