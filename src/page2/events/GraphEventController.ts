@@ -17,6 +17,7 @@ export class GraphEvents {
         this.$cy.on("click", "node", this.onClick);
         this.$cy.on("mouseover", "node", this.onMouseOver);
         this.$cy.on("mouseout", "node", this.onMouseOut);
+        // this.$cy.on("zoom", this.onZoom);
         document.getElementById("graph")?.addEventListener("wheel", this.onZoom);
 
         this.$cyPath.on("click", "node", this.onClick);

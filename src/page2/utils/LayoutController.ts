@@ -86,7 +86,9 @@ export class LayoutController {
 
         // Layout the courses
         const course = this.cy.$id(courseNodes.data("course"));
-        this.setCoursesAfterPath(course, pathNodes[0]);
+        // this.setCoursesAfterPath(course, pathNodes[0]);
+        // TODO: set in data -> make dynamic
+        this.setCoursesAfterPath(course, pathNodes.filter("[label = 'Pixels']"));
 
         // TRY -> not that great
         // Set a constraint to put first path node top left & last n bot-ri

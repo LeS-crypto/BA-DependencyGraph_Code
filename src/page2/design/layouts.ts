@@ -55,7 +55,7 @@ export const dagre = {
         // currently staggers the connected nodes, so that the PathViz-graph is not as wide
         if(node.hasClass("connect")) {
             if(count % 2 != 0) {
-                pos.y = 0;
+                pos.y = pos.y * 0.5;
                 // pos.x = pos.x - 200;
             } else {
                 pos.y = pos.y * 2;

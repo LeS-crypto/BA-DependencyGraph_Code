@@ -56,7 +56,7 @@ export class PathViz {
         this.cy.remove(this.cy.elements());
         this.cy.add(eles);
 
-        this.cy.fit(eles);
+        // this.cy.fit(eles);
 
         // keep a SIMILAR layout as the grap
         this.cy.layout(GLOBALS.courseLayout).run();
