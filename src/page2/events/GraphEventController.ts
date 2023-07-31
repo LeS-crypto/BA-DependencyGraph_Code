@@ -17,12 +17,12 @@ export class GraphEvents {
         this.$cy.on("click", "node", this.onClick);
         this.$cy.on("mouseover", "node", this.onMouseOver);
         this.$cy.on("mouseout", "node", this.onMouseOut);
-        // this.$cy.on("zoom", this.onZoom);
-        document.getElementById("graph")?.addEventListener("wheel",this.onZoom);
+        document.getElementById("graph")?.addEventListener("wheel", this.onZoom);
 
         this.$cyPath.on("click", "node", this.onClick);
         this.$cyPath.on("mouseover", "node", this.onMouseOver);
         this.$cyPath.on("mouseout", "node", this.onMouseOut);
+        document.getElementById("path")?.addEventListener("wheel", this.onZoom);
 
         this.initDoubleClick();
         this.$cy.on("dblclick", this.onDoubleClick);
@@ -47,6 +47,7 @@ export class GraphEvents {
     * (altered:) via: https://github.com/cytoscape/cytoscape.js/issues/789#issuecomment-1311479154
     */
     private onZoom = () => {
+        console.log("zooming...");
         let defaultEdgeSize = 5;
         let currentZoom = this.$cy.zoom();
         let zoomFactor = 1 / currentZoom;
