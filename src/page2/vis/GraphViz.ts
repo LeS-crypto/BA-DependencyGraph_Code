@@ -210,34 +210,6 @@ export class MainGraph {
         // this.styleController.toggleHoverStyle(target, false);
     }
 
-    // Handle the zoom behaviour, so that the nodes don't change size on zoom
-    // Easier in GraphEventController
-    private onZoomChange (target:any) {
-        console.log("zooming...");
-        let defaultEdgeSize = 5;
-        let defaultNodeSize = 15;
-        // via: https://github.com/cytoscape/cytoscape.js/issues/789#issuecomment-1311479154
-        let currentZoom = this.cy.zoom();
-        let zoomFactor = 1 / currentZoom;
-        let nodeSize = zoomFactor * defaultNodeSize;
-        let edgeSize = zoomFactor * defaultEdgeSize;
-        let fontSize = nodeSize / 2;
-
-
-        console.log("cy", this.cy);
-
-        this.cy.style()
-        .selector('edge')
-        .style('width', edgeSize)
-        .selector('node')
-        .style('width', nodeSize)
-        .style('height', nodeSize)
-        .style('font-size', fontSize)
-        .style('text-valign', 'center')
-        .style('text-halign', 'center')
-        .style('label', 'data(id)')
-        .update();
-}
 
     // ??
     // private onDblClick = (target:any) => {

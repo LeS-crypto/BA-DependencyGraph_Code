@@ -4,16 +4,16 @@ const setInclude = (node:cytoscape.NodeSingular) => {
     return node.hasClass("ghost") ? false : true;
 }
 
+// keine wirkliche Veränderung
 const setRepulsion = (node:cytoscape.NodeSingular) => {
     if(node.hasClass("ghost")) {
-        return 0;
+        return 1000;
     } else if (node.hasClass("course")) {
         return 50000;
     } else {
         const degree = node.degree(false);
         return degree * 100;
     }
-    //return node.hasClass("ghost") ? 50 : 100000;
 }
 
 const setLength = (edge:cytoscape.EdgeSingular) => {
@@ -116,7 +116,6 @@ const setRepulsionCourse = (node:cytoscape.NodeSingular) => {
 const setLengthCourse = (edge:cytoscape.EdgeSingular) => {
     const weight = edge.target().data("weight");
     return weight ? weight * 150 : 200;
-    return 100;
     //return edge.hasClass("ghost-edges") ? 1 : 100;
 }
 

@@ -49,7 +49,6 @@ export class GraphEvents {
     private onZoom = () => {
         let defaultEdgeSize = 5;
         let currentZoom = this.$cy.zoom();
-        console.log("currentZoom", currentZoom);
         let zoomFactor = 1 / currentZoom;
         let edgeSize = zoomFactor * defaultEdgeSize;
 
