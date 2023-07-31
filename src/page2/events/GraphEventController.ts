@@ -1,5 +1,6 @@
 import cytoscape, { EventObject } from "cytoscape";
 import { eventBus } from "../../global/EventBus";
+import { setFontSize } from "../design/stylesheet";
 
 export class GraphEvents {
 
@@ -16,6 +17,8 @@ export class GraphEvents {
         this.$cy.on("click", "node", this.onClick);
         this.$cy.on("mouseover", "node", this.onMouseOver);
         this.$cy.on("mouseout", "node", this.onMouseOut);
+        // this.$cy.on("zoom", this.onZoom);
+        document.getElementById("graph")?.addEventListener("wheel",this.onZoom);
 
         this.$cyPath.on("click", "node", this.onClick);
         this.$cyPath.on("mouseover", "node", this.onMouseOver);
@@ -39,6 +42,35 @@ export class GraphEvents {
         eventBus.emit("mouseout", e.target);
     }
 
+    /**
+    * Handle Zooming -> elements change size according to the zoom factor
+    * (altered:) via: https://github.com/cytoscape/cytoscape.js/issues/789#issuecomment-1311479154
+    */
+    private onZoom = () => {
+        let defaultEdgeSize = 5;
+        let currentZoom = this.$cy.zoom();
+        console.log("currentZoom", currentZoom);
+        let zoomFactor = 1 / currentZoom;
+        let edgeSize = zoomFactor * defaultEdgeSize;
+
+        // Only change size for detailed zoom-in 
+        if(currentZoom > 0.8) {
+            this.$cy.style()
+            // @ts-ignore
+            .selector('edge')
+            .style('width', edgeSize)
+            .selector('node')
+            .style('font-size',  function (node:any) {
+                const fontSize:any = setFontSize(node);
+                let size = zoomFactor * fontSize;
+                return size;
+            })
+            .style('text-valign', 'center')
+            .style('text-halign', 'center')
+            .update();
+        }
+    }
+
     private initDoubleClick() {
         var doubleClickDelayMs = 350;
         var previousTapStamp:any;
@@ -51,7 +83,7 @@ export class GraphEvents {
             }
             previousTapStamp = currentTapStamp;
         });
-    } // via: [3rd Answer] https://stackoverflow.com/questions/18610621/cytoscape-js-check-for-double-click-on-nodes
+    } // via: https://stackoverflow.com/a/50446842
 
     private onDoubleClick = (e:EventObject) => {
         eventBus.emit("dblclick", e.target);

@@ -7,7 +7,7 @@ let amount : number = 4;
 
 const minFont = 18;
 const maxFont = 40;
-const setFontSize = (node:any) => {
+export const setFontSize = (node:any) => {
     const degree = node.degree();
     if(node.hasClass("ghost")) {
         return minFont;
@@ -29,7 +29,7 @@ const nodeSize = (ele: any) => {
 
 // Make font white for the first two gradient colors
 const getFontColor = (ele:any) => {
-    console.log(ele.style("background-color"));
+    // console.log(ele.style("background-color"));
     const bg = ele.style("background-color");
     if (bg == "rgb(119, 103, 134)" || bg == "rgb(142, 127, 158)") {
         return "white"
