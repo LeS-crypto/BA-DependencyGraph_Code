@@ -23,43 +23,45 @@ export class PathViz {
         this.styler = new StyleController(this.cy);
     }
 
-    // private layoutGraph() {
-    //     // TODO Dagre ??
-    //     this.cy.layout(GLOBALS.breadthLayout).run();
-    //     // TODO styling
-    // }
-
     public setElements(
         pathElements: cytoscape.Collection,
+        futureEles: cytoscape.Collection,
     ) {
+        console.log("fE", futureEles);
+        
         // Style the elements
         this.styler.ghost(false, pathElements);
+        this.styler.ghost(false, futureEles);
         pathElements.removeClass("hover");
+
         this.styler.setConnectedColor(pathElements[0], pathElements);
-        this.styler.styleEdgesAndNodes(true, pathElements, ["direct", "edge-direct"], true);
+        // const pathers = pathElements.filter("node[weight]");
+        this.styler.styleEdgesAndNodes(true, pathElements, ["direct", "edge-direct"], true); // style the Learn-path elemets
+        this.styler.styleEdgesAndNodes(true, futureEles, ["connect", "edge-connect"]); // style the rest elements
+
+        this.styler.hide(true, this.cy.$("node[url]")); // hide resources
 
         this.cy.remove(this.cy.elements());
         this.cy.add(pathElements);
+        this.cy.add(futureEles);
 
-        // this.cy.layout(GLOBALS.breadthLayout).run();
         this.cy.layout(GLOBALS.dagre).run();
-        // this.layoutGraph();
     }
 
     public setPreview(eles:cytoscape.Collection) {
 
         this.styler.ghost(false, eles);
         eles.removeClass("hover");
+        this.styler.hide(true, eles.filter("node[url]")); // hide resources
 
         this.cy.remove(this.cy.elements());
         this.cy.add(eles);
 
-        this.styler.hide(true, this.cy.$("node[url]")); // hide resources
-
         this.cy.fit(eles);
 
-        // keep a SIMILAR layout as the graph
+        // keep a SIMILAR layout as the grap
         this.cy.layout(GLOBALS.courseLayout).run();
+        //this.cy.layout(GLOBALS.dagre).run();
     }
 
     public setRedString(eles: cytoscape.Collection) {

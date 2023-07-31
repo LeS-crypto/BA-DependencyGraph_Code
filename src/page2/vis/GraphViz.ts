@@ -103,11 +103,13 @@ export class MainGraph {
     }
 
     private showPath(target: cytoscape.NodeSingular) {
-        console.log("show learning path for:", target.data("label"));
+        console.log("show learning path for:", target.data("label"), target);
 
-        if(target.data("important") == "true") {
+        // Funktioniert nicht in Course-View
+        if(target.data("important") == "true") { // works for outside the graph inside == true
             let preview = target.neighborhood();
             preview = target.union(preview);
+            console.log("prev", preview);
             this.pathViz.setPreview(preview);
             return;
         }
@@ -117,7 +119,12 @@ export class MainGraph {
             .not("edge[target=" + "'" + target.data("course") + "'" + "]")
             .not("edge[source=" + "'" + target.data("course") + "'" + "]");
         learners = target.union(learners); // target is first item
-        this.pathViz.setElements(learners);
+        // let futureLearners = target.incomers("")
+        let futureLs = target.incomers()
+            .not("node[url]") //filter out resources and their edges
+            .not(target.incomers().filter("node[url]").connectedEdges());
+        // learners = learners.union(futureLs); // include first incoming -> next learn target
+        this.pathViz.setElements(learners, futureLs);
     }
 
 
