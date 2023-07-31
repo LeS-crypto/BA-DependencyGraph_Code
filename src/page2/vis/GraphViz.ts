@@ -189,7 +189,8 @@ export class MainGraph {
         console.log(targetCore.container()?.id);
         if(targetCore.container()?.id == "path") {
             // this.cy.fit(target.neighborhood(), 200);
-            this.cy.fit(target, 400);
+            target = this.cy.$id(target.id()); // use the target in the full dataset
+            this.cy.fit(target.neighborhood(), 200);
         }
         
         this.displayInfo(target);

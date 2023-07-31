@@ -53,7 +53,6 @@ export const dagre = {
     transform: function(node: cytoscape.NodeSingular, pos:any) {
         // TODO: verbessern
         // currently staggers the connected nodes, so that the PathViz-graph is not as wide
-        console.log(node.data("label"), pos);
         if(node.hasClass("connect")) {
             if(count % 2 != 0) {
                 pos.y = 0;
