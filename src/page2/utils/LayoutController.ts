@@ -73,7 +73,7 @@ export class LayoutController {
      * @param courseNodes The nodes of the current course
      */
     public layoutRedString(courseNodes: cytoscape.Collection) {
-        console.log("layout red string", courseNodes.classes());
+        console.log("layout red string", courseNodes.classes(), courseNodes);
 
         this.styler.hide(true, this.cy.elements().not(courseNodes)); // hide other
         
@@ -88,7 +88,14 @@ export class LayoutController {
         const course = this.cy.$id(courseNodes.data("course"));
         // this.setCoursesAfterPath(course, pathNodes[0]);
         // TODO: set in data -> make dynamic
-        this.setCoursesAfterPath(course, pathNodes.filter("[label = 'Pixels']"));
+        console.log("pathNodes[0]", pathNodes[0].id());
+        const pixel = pathNodes.filter("[label = 'Pixels']");
+        if (pixel.length > 0) {
+            console.log("pixel", pixel);
+            this.setCoursesAfterPath(course, pathNodes.filter("[label = 'Pixels']"))
+        } else this.setCoursesAfterPath(course, pathNodes[0]);
+        console.log("pathNodes[0]", pathNodes[0]);
+        // this.setCoursesAfterPath(course, pathNodes.filter("[label = 'Pixels']"));
 
         // TRY -> not that great
         // Set a constraint to put first path node top left & last n bot-ri
@@ -150,6 +157,10 @@ export class LayoutController {
     private setCoursesAfterPath(course: cytoscape.NodeSingular, start: cytoscape.NodeSingular){
         // const courses = this.cy.$(".course");
         // Connect the courses to the first node of the red string
+        // let startID;
+        // if(start.id()) startID = start.id();
+        // else startID = start.data("label");
+
         const edge = this.cy.add({ group: "edges",
             data: {
                 id: `${start.id()}-${course.id()}`,
