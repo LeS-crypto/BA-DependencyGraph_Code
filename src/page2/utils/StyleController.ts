@@ -125,26 +125,6 @@ export class StyleController {
         }
     }
 
-    // Funktioniert fast
-    // Only add weights on nodes, that are dependents 
-        // -> 
-    private setConnected(target: cytoscape.NodeSingular, eles:cytoscape.Collection) {
-        let maxDepth = 0;
-        eles.bfs({
-            roots: target,
-            visit: function(v, e, u, i, depth) {
-                // only put weight if next node is source
-                if(e?.data("source") == v.id()) {
-                    v.data("weight", depth);
-                    v.connectedEdges().data("weight", depth); 
-                    e?.data("weight", depth);
-                }
-                if(depth > maxDepth) maxDepth = depth
-            },
-            directed: false, //wrong direction
-        });
-    }
-
     /**
     * Set a weight for every node that will later map the style
     * @param target The first node
@@ -157,6 +137,7 @@ export class StyleController {
         // let maxDepth = 0;
         eles.bfs({
             roots: target,
+            //@ts-ignore
             visit: function(v, e, u, i, depth) {
                 if(e?.isEdge) {
                     e.data("weight", depth);

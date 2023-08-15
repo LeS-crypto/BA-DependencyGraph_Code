@@ -1,6 +1,5 @@
-import cytoscape, { EventObject } from "cytoscape";
+import cytoscape from "cytoscape";
 import { eventBus } from "../../global/EventBus";
-import { once } from "events";
 
 export class MenuEventController {
 

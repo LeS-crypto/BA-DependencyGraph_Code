@@ -1,4 +1,4 @@
-import cytoscape, { ElementDefinition, EventObject } from "cytoscape";
+import cytoscape from "cytoscape";
 import fcose from "cytoscape-fcose";
 import dagre from "cytoscape-dagre";
 import { GLOBALS } from "../../global/config";
@@ -217,19 +217,6 @@ export class MainGraph {
         toggleHoverStyle(target, false);
         // this.styleController.toggleHoverStyle(target, false);
     }
-
-
-    // ??
-    // private onDblClick = (target:any) => {
-    //     if(target.hasClass("course") && this.willEnter) {
-    //         console.log("enter course ", target.id());
-    //         this.enterCourse(target);
-    //     } else if(target.hasClass("course") && !this.willEnter) {
-    //         console.log("leave course");
-    //         this.leaveCourse()
-    //     }
-
-    // }
 }
 
 // Auslagern
@@ -241,9 +228,6 @@ function toggleHoverStyle (target:any, show:boolean) {
         styleEdgesAndNodes(show, outNodes, ["node-incoming", "edge-incoming"]);
         styleEdgesAndNodes(show, inNodes, ["node-outgoing", "edge-outgoing"]);
     }
-    // Only style connected edges, if the node isn't ghosted
-    // styleEdgesAndNodes(show, outNodes, ["node-incoming", "edge-incoming"]);
-    // styleEdgesAndNodes(show, inNodes, ["node-outgoing", "edge-outgoing"]);
 }
 
 function styleEdgesAndNodes(
@@ -253,9 +237,7 @@ function styleEdgesAndNodes(
 ) {
     if(add){
         collection.nodes().addClass(style[0]);
-        //collection.edges().addClass(style[1]);
     } else {
         collection.nodes().removeClass(style[0]);
-        //collection.edges().removeClass(style[1]);
     }
 }

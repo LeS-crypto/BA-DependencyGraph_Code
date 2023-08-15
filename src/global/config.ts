@@ -1,14 +1,12 @@
-import * as layoutOptions from "../page/design/graphLayout";
-import * as ls from "../page/design/fcoseOptions";
-import * as layouts from "../page2/design/layouts";
+import * as layouts from "../page2/design/layouts"; // right page
 
 export const GLOBALS = {
     // Layout-Options:
     // graphLayout: layoutOptions.fcose,
-    graphLayout: ls.graphLayout,
-    courseLayout: ls.fcoseCourse,
-    noLayout: layoutOptions.noLayout,
-    gridLayout: layoutOptions.grid,
+    graphLayout: layouts.graphLayout,
+    courseLayout: layouts.fcoseCourse,
+    noLayout: layouts.noLayout,
+    gridLayout: layouts.grid,
     breadthLayout: layouts.breadthfirst,
     dagre: layouts.dagre,
 }
