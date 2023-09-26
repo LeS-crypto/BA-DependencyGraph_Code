@@ -15,10 +15,6 @@ Prototype Code of Bachelor-Thesis
   - Design, Durchführung und Auswertung einer Studie (Evaluation des Prototypen/Vergleich von Visualisierungsstrategien)
   - Schriftliche Dokumentation der Ergebnisse 
 
-### weiterer Anhang
-  - alle anderen nicht codeischen Daten 
-  - zu finden unter: [LINK] 
-
 ------------
 
 ## Information about the Code
